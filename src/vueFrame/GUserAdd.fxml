@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane fx:id="UserAddView" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GUserAddController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="133.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+         <children>
+            <Label layoutX="10.0" layoutY="10.0" text="Login">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="15.0" text="Mot de passe">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="49.0" text="Nom">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="66.0" text="Prénom">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="94.0" text="Date de Naissance">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <Label layoutX="10.0" layoutY="119.0" text="Service">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="147.0" text="Rôle">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="175.0" text="Mail">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="202.0" text="Tel">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="231.0" text="Adresse">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="259.0" text="Localisation">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="287.0" text="Statut">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Label>
+         </children>
+         <GridPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </GridPane.margin>
+      </VBox>
+      <VBox alignment="CENTER" prefHeight="329.0" prefWidth="197.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+         <children>
+            <TextField fx:id="Login" prefHeight="21.0" prefWidth="127.0" promptText="Login">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </TextField>
+            <TextField fx:id="mdp" layoutX="10.0" layoutY="10.0" promptText="Mot de passe">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </TextField>
+            <TextField fx:id="Nom" layoutX="10.0" layoutY="36.0" prefHeight="23.0" prefWidth="127.0" promptText="Nom">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </TextField>
+            <TextField fx:id="Prenom" layoutX="10.0" layoutY="62.0" prefHeight="29.0" prefWidth="127.0" promptText="Prénom">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="DatedeNaissance" layoutX="10.0" layoutY="88.0" prefHeight="28.0" prefWidth="127.0" promptText="Date de naissance">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </TextField>
+            <TextField fx:id="Service" layoutX="10.0" layoutY="114.0" prefHeight="31.0" prefWidth="127.0" promptText="Service">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </TextField>
+            <TextField fx:id="Role" layoutX="10.0" layoutY="140.0" promptText="Rôle">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </TextField>
+            <TextField fx:id="Mail" layoutX="10.0" layoutY="166.0" promptText="Mail">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </TextField>
+            <TextField fx:id="Tel" layoutX="10.0" layoutY="192.0" prefHeight="32.0" prefWidth="127.0" promptText="Tel">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </TextField>
+            <TextField fx:id="Adresse" layoutX="10.0" layoutY="218.0" promptText="Adresse">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </TextField>
+            <TextField fx:id="Localisation" layoutX="10.0" layoutY="244.0" promptText="Localisation">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </TextField>
+            <TextField fx:id="Statut" layoutX="10.0" layoutY="270.0" promptText="Statut">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </TextField>
+         </children>
+         <GridPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </GridPane.margin>
+      </VBox>
+      <Button fx:id="AddUser" alignment="CENTER" mnemonicParsing="false" onAction="#AddOk" prefHeight="29.0" prefWidth="119.0" style="-fx-background-color: #30bd29; -fx-background-radius: 100;" text="Ajouter" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+         <font>
+            <Font name="BlackChancery" size="22.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="20.0" />
+         </GridPane.margin>
+      </Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="409.0" style="-fx-background-color: #1ca4b6;" text="Ajouter un Utilisateur" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+         <font>
+            <Font name="BlackChancery" size="20.0" />
+         </font>
+         <effect>
+            <InnerShadow choke="0.54" color="#05eaff" height="80.67" radius="19.6675" width="0.0" />
+         </effect>
+      </Label>
+      <Button fx:id="AnnulAddUser" alignment="CENTER" mnemonicParsing="false" onAction="#AddCancel" prefHeight="9.0" prefWidth="111.0" style="-fx-background-color: grey; -fx-background-radius: 100;" text="Annuler" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+         <font>
+            <Font name="BlackChancery" size="16.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="20.0" right="15.0" />
+         </GridPane.margin>
+      </Button>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints valignment="CENTER" />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>

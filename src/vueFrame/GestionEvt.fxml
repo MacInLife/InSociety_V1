@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="GestionEvtView" prefHeight="313.0" prefWidth="774.0" style="-fx-background-color: white; -fx-border-radius: 100px;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GestionEvtController">
+   <children>
+      <Text layoutX="14.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion Evènements : " underline="true">
+         <font>
+            <Font name="BlackChancery" size="19.0" />
+         </font>
+      </Text>
+      <Label contentDisplay="RIGHT" layoutX="197.0" layoutY="4.0" prefHeight="37.0" prefWidth="242.0" text="Trier par : " underline="true">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+         <graphic>
+            <SplitMenuButton alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="21.0" prefWidth="80.0" text="..." textAlignment="CENTER">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Ordre Alphabétique A-Z" />
+                  <MenuItem mnemonicParsing="false" text="Date" />
+                  <MenuItem mnemonicParsing="false" text="Lieu" />
+               </items>
+            </SplitMenuButton>
+         </graphic>
+      </Label>
+      <Label layoutX="89.0" layoutY="121.0" text="Créer">
+         <font>
+            <Font name="Comic Sans MS" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="81.0" layoutY="157.0" text="Modifier">
+         <font>
+            <Font name="Comic Sans MS" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="77.0" layoutY="194.0" text="Supprimer">
+         <font>
+            <Font name="Comic Sans MS" size="11.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="24.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/green-plus-icon-7.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="47.0" fitWidth="36.0" layoutX="24.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/icone_glas.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="29.0" layoutX="699.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/refresh.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="36.0" fitWidth="29.0" layoutX="731.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/param.png" />
+         </image>
+      </ImageView>
+      <TableView editable="true" layoutX="197.0" layoutY="75.0" prefHeight="234.0" prefWidth="571.0" tableMenuButtonVisible="true">
+         <columns>
+            <TableColumn prefWidth="62.66661071777344" text="ID" />
+            <TableColumn prefWidth="108.66668701171875" text="Nom" />
+            <TableColumn prefWidth="257.3334045410156" text="Description" />
+            <TableColumn minWidth="-Infinity" prefWidth="68.666748046875" resizable="false" text="Date" />
+            <TableColumn prefWidth="72.66659545898438" text="Heure" />
+            <TableColumn minWidth="0.0" prefWidth="100.0" text="Lieu" />
+            <TableColumn minWidth="0.0" prefWidth="64.0" text="Salle" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Label contentDisplay="RIGHT" layoutX="439.0" layoutY="9.0" prefHeight="24.0" prefWidth="339.0" text="Rechercher :" underline="true">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+         <graphic>
+            <ChoiceBox prefHeight="24.0" prefWidth="213.0" />
+         </graphic>
+      </Label>
+      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="24.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/Page_à_supprimer.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="71.0" layoutY="47.0" text="Evènements passés">
+         <font>
+            <Font name="Comic Sans MS" size="11.0" />
+         </font>
+      </Label>
+      <Separator layoutX="18.0" layoutY="107.0" prefHeight="3.0" prefWidth="157.0" />
+      <Label layoutX="70.0" layoutY="78.0" text="Evènements à venir">
+         <font>
+            <Font name="Comic Sans MS" size="11.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="42.0" fitWidth="29.0" layoutX="28.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/eye_black.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="29.0" layoutX="28.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/eye-green.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="82.0" fitWidth="82.0" layoutX="47.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/agendaEX.png" />
+         </image>
+      </ImageView>
+      <Separator layoutX="186.0" layoutY="12.0" orientation="VERTICAL" prefHeight="294.0" prefWidth="11.0" />
+      <Separator layoutX="18.0" layoutY="225.0" prefHeight="3.0" prefWidth="157.0" />
+   </children>
+</Pane>
