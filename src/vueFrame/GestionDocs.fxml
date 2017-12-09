@@ -46,14 +46,9 @@
             <Image url="@../image/icone_glas.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="37.0" fitWidth="29.0" layoutX="684.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="37.0" fitWidth="29.0" layoutX="731.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/refresh.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="723.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/param.png" />
          </image>
       </ImageView>
       <TableView editable="true" layoutX="239.0" layoutY="90.0" prefHeight="215.0" prefWidth="526.0" tableMenuButtonVisible="true">

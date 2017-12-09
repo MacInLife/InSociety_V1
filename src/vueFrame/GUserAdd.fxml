@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.InnerShadow?>
@@ -147,11 +148,7 @@
                   <Insets />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="DatedeNaissance" layoutX="10.0" layoutY="88.0" prefHeight="28.0" prefWidth="127.0" promptText="Date de naissance">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </TextField>
+            <DatePicker fx:id="DatedeNaissance" prefHeight="29.0" prefWidth="197.0" promptText="Date de Naissance" />
             <TextField fx:id="Service" layoutX="10.0" layoutY="114.0" prefHeight="31.0" prefWidth="127.0" promptText="Service">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

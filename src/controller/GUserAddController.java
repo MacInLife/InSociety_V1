@@ -6,8 +6,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.DateCell;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Labeled;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputControl;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import metier.Personnel;
@@ -27,7 +29,7 @@ private GridPane UserAddView;
 	@FXML
 	private TextField Prenom;
 	@FXML
-	private TextField DatedeNaissance;
+	private DatePicker DatedeNaissance;
 	@FXML
 	private TextField Service;
 	@FXML
@@ -64,46 +66,12 @@ private GridPane UserAddView;
         this.dialogStage = dialogStage;
     }
 
-    /**
-     * Sets the person to be edited in the dialog.
-     *
-     * @param person
-     */
-    /*public void setPersonnel(Personnel person) {
-    	
-        this.person = person;
-        
-        System.out.println(this.person);
-        Login.setText(this.person.getLogin());
-        mdp.setText(this.person.getMdp());
-        Nom.setText(this.person.getNom());
-        Prenom.setText(this.person.getPrenom());
-        DatedeNaissance.setText(this.person.getDate_naissance().toString());
-        DatedeNaissance.setPromptText("dd.mm.yyyy");
-        Service.setText(this.person.getService().getType_service());
-        Role.setText(this.person.getRole().getNom_role());
-        Mail.setText(this.person.getMail());
-        Tel.setText(this.person.getTel());
-        Adresse.setText(this.person.getAdresse());
-        Localisation.setText(this.person.getLocalisation());
-        Statut.setText(this.person.getStatut().getLibeller());
-      		  
-        //birthdayField.setText(DateUtil.format(person.getBirthday()));
-       // birthdayField.setPromptText("dd.mm.yyyy");
-    }*/
-
-    /**
-     * Returns true if the user clicked OK, false otherwise.
-     *
-     * @return
-     */
+  
     public boolean isOkClicked() {
         return okClicked;
     }
 
-    /**
-     * Called when the user clicks ok.
-     */
+  
     @FXML
     private void AddOk() {
         if (isInputValid()) {
@@ -111,8 +79,10 @@ private GridPane UserAddView;
             person.setMdp(mdp.getText());
             person.setNom(Nom.getText());
             person.setPrenom(Prenom.getText());
-           person.setDate_naissance(Date.valueOf(DatedeNaissance.getText()));
-         
+            DatedeNaissance.setOnAction(event -> {
+              	Date date = Date.valueOf(DatedeNaissance.getValue());
+                person.setDate_naissance(Date.valueOf(DatedeNaissance.getValue()));
+               });
            Service serv = new Service();
 			serv.setType_service(Service.getText());
 			person.setService(serv);
@@ -165,10 +135,10 @@ private GridPane UserAddView;
             errorMessage += "No valid prenom!\n";
         }
 
-       if (DatedeNaissance.getText() == null || DatedeNaissance.getText().length() == 0) {
+       if ( DatedeNaissance.getValue() == null || DatedeNaissance.getPromptText().length() == 0) {
             errorMessage += "No valid date!\n";
      
-        }
+       }
         
 
         if (Service.getText() == null || Service.getText().length() == 0) {

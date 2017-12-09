@@ -111,9 +111,10 @@ public void afficher (MouseEvent actionEvent) throws SQLException, ClassNotFound
 		    if (okClicked) {
 		     //   VueFXMain.getPersonData().add(user);
 		        // VueFXMain.getPersonData().add(user);
-		    	//tu fais appel  à la methode iinsertPers dans la classe personnelDAO
+		    	
+		    	//tu fais appel  à la methode insertPers dans la classe personnelDAO
 		        try {
-					PersonnelDAO.insertPers(user);
+					PersonnelDAO.insertPers(user);;
 				} catch (ClassNotFoundException e) {
 					// TODO Bloc catch généré automatiquement
 					e.printStackTrace();

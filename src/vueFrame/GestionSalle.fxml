@@ -37,39 +37,34 @@
             </SplitMenuButton>
          </graphic>
       </Label>
-      <Label layoutX="89.0" layoutY="104.0" text="Créer">
+      <Label layoutX="84.0" layoutY="124.0" text="Créer">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
          </font>
       </Label>
-      <Label layoutX="81.0" layoutY="148.0" text="Modifier">
+      <Label layoutX="81.0" layoutY="188.0" text="Modifier">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
          </font>
       </Label>
-      <Label layoutX="77.0" layoutY="194.0" text="Supprimer">
+      <Label layoutX="81.0" layoutY="251.0" text="Supprimer">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
          </font>
       </Label>
-      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="24.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="19.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/green-plus-icon-7.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="47.0" fitWidth="36.0" layoutX="24.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="47.0" fitWidth="36.0" layoutX="24.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/icone_glas.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="29.0" layoutX="699.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="26.0" fitWidth="29.0" layoutX="734.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/refresh.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="36.0" fitWidth="29.0" layoutX="731.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/param.png" />
          </image>
       </ImageView>
       <Label contentDisplay="RIGHT" layoutX="439.0" layoutY="9.0" prefHeight="24.0" prefWidth="339.0" text="Rechercher :" underline="true">
@@ -80,13 +75,13 @@
             <ChoiceBox prefHeight="24.0" prefWidth="213.0" />
          </graphic>
       </Label>
-      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="24.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="28.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/Page_à_supprimer.png" />
          </image>
       </ImageView>
       <Separator layoutX="18.0" layoutY="91.0" prefHeight="3.0" prefWidth="157.0" />
-      <Label fx:id="allSalle" layoutX="66.0" layoutY="61.0" onMouseClicked="#VueAllSalle" text="Vue Calendrier Salle">
+      <Label fx:id="allSalle" layoutX="66.0" layoutY="61.0" onMouseClicked="#VueAllSalle" text="Afficher les salles">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
          </font>
@@ -96,13 +91,7 @@
             <Image url="@../image/eye_green.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="82.0" fitWidth="82.0" layoutX="47.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/agendaEX.png" />
-         </image>
-      </ImageView>
       <Separator layoutX="186.0" layoutY="12.0" orientation="VERTICAL" prefHeight="294.0" prefWidth="11.0" />
-      <Separator layoutX="18.0" layoutY="225.0" prefHeight="3.0" prefWidth="157.0" />
       <TableView fx:id="tabSalle" editable="true" layoutX="197.0" layoutY="71.0" prefHeight="235.0" prefWidth="573.0" tableMenuButtonVisible="true">
          <columns>
             <TableColumn fx:id="id" prefWidth="49.0" text="ID" />
