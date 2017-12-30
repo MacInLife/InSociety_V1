@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="MySpaceView" prefHeight="313.0" prefWidth="774.0" style="-fx-background-color: white; -fx-border-radius: 100px;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MySpaceController">
+<Pane fx:id="MySpaceView" prefHeight="386.0" prefWidth="836.0" style="-fx-background-color: white; -fx-border-radius: 100px;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MySpaceController">
    <children>
       <Label layoutX="207.0" layoutY="14.0" text="Application : " underline="true">
          <font>
             <Font name="Comic Sans MS" size="16.0" />
          </font>
       </Label>
-      <Button contentDisplay="CENTER" layoutX="478.0" layoutY="49.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="97.0" style="-fx-background-color: #85C1E9; -fx-border-radius: 100px;" text="GLPI" textFill="#fcfcfc" textOverrun="LEADING_ELLIPSIS">
+      <Button contentDisplay="CENTER" layoutX="493.0" layoutY="68.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="97.0" style="-fx-background-color: #85C1E9; -fx-border-radius: 100px;" text="GLPI" textFill="#fcfcfc" textOverrun="LEADING_ELLIPSIS">
          <effect>
             <Reflection fraction="0.28" topOpacity="0.23">
                <input>
@@ -27,7 +27,7 @@
             <Font name="Comic Sans MS" size="16.0" />
          </font>
       </Button>
-      <Button contentDisplay="CENTER" layoutX="478.0" layoutY="141.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="97.0" style="-fx-background-color: yellow; -fx-border-radius: 100px;" textOverrun="LEADING_ELLIPSIS">
+      <Button contentDisplay="CENTER" layoutX="493.0" layoutY="160.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="97.0" style="-fx-background-color: yellow; -fx-border-radius: 100px;" textOverrun="LEADING_ELLIPSIS">
          <effect>
             <Reflection fraction="0.28" topOpacity="0.23">
                <input>
@@ -39,7 +39,7 @@
             <Font name="Comic Sans MS" size="16.0" />
          </font>
       </Button>
-      <Button contentDisplay="CENTER" layoutX="231.0" layoutY="49.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="97.0" style="-fx-background-color: black; -fx-border-radius: 100px;" text="NAS" textFill="#fcfcfc" textOverrun="LEADING_ELLIPSIS">
+      <Button contentDisplay="CENTER" layoutX="246.0" layoutY="68.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="97.0" style="-fx-background-color: black; -fx-border-radius: 100px;" text="NAS" textFill="#fcfcfc" textOverrun="LEADING_ELLIPSIS">
          <effect>
             <Reflection fraction="0.28" topOpacity="0.23">
                <input>
@@ -51,7 +51,7 @@
             <Font name="Comic Sans MS" size="16.0" />
          </font>
       </Button>
-      <Button contentDisplay="CENTER" layoutX="232.0" layoutY="141.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="97.0" style="-fx-background-color: green; -fx-border-radius: 100px;" text="Centréon" textFill="#fcfcfc" textOverrun="LEADING_ELLIPSIS">
+      <Button contentDisplay="CENTER" layoutX="247.0" layoutY="160.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="97.0" style="-fx-background-color: green; -fx-border-radius: 100px;" text="Centréon" textFill="#fcfcfc" textOverrun="LEADING_ELLIPSIS">
          <effect>
             <Reflection fraction="0.28" topOpacity="0.23">
                <input>
@@ -63,7 +63,7 @@
             <Font name="Comic Sans MS" size="16.0" />
          </font>
       </Button>
-      <Button contentDisplay="CENTER" layoutX="352.0" layoutY="49.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="97.0" style="-fx-background-color: purple; -fx-border-radius: 100px;" text="OneNote" textFill="#fcfcfc" textOverrun="LEADING_ELLIPSIS">
+      <Button contentDisplay="CENTER" layoutX="367.0" layoutY="68.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="97.0" style="-fx-background-color: purple; -fx-border-radius: 100px;" text="OneNote" textFill="#fcfcfc" textOverrun="LEADING_ELLIPSIS">
          <effect>
             <Reflection fraction="0.28" topOpacity="0.23">
                <input>
@@ -75,7 +75,7 @@
             <Font name="Comic Sans MS" size="16.0" />
          </font>
       </Button>
-      <Button contentDisplay="CENTER" layoutX="352.0" layoutY="141.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="97.0" style="-fx-background-color: orange; -fx-border-radius: 100px;" textFill="#fcfcfc" textOverrun="LEADING_ELLIPSIS">
+      <Button contentDisplay="CENTER" layoutX="367.0" layoutY="160.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="97.0" style="-fx-background-color: orange; -fx-border-radius: 100px;" textFill="#fcfcfc" textOverrun="LEADING_ELLIPSIS">
          <effect>
             <Reflection fraction="0.28" topOpacity="0.23">
                <input>
@@ -87,7 +87,7 @@
             <Font name="Comic Sans MS" size="16.0" />
          </font>
       </Button>
-      <Button contentDisplay="CENTER" layoutX="352.0" layoutY="232.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="97.0" style="-fx-background-color: pink; -fx-border-radius: 100px;" textFill="#fcfcfc" textOverrun="LEADING_ELLIPSIS">
+      <Button contentDisplay="CENTER" layoutX="367.0" layoutY="251.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="97.0" style="-fx-background-color: pink; -fx-border-radius: 100px;" textFill="#fcfcfc" textOverrun="LEADING_ELLIPSIS">
          <effect>
             <Reflection fraction="0.28" topOpacity="0.23">
                <input>
@@ -99,7 +99,7 @@
             <Font name="Comic Sans MS" size="16.0" />
          </font>
       </Button>
-      <Button contentDisplay="CENTER" layoutX="232.0" layoutY="232.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="97.0" style="-fx-background-color: #FEF9E7; -fx-border-radius: 100px;" textFill="#fcfcfc" textOverrun="LEADING_ELLIPSIS">
+      <Button contentDisplay="CENTER" layoutX="247.0" layoutY="251.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="97.0" style="-fx-background-color: #FEF9E7; -fx-border-radius: 100px;" textFill="#fcfcfc" textOverrun="LEADING_ELLIPSIS">
          <effect>
             <Reflection fraction="0.28" topOpacity="0.23">
                <input>
@@ -111,7 +111,7 @@
             <Font name="Comic Sans MS" size="16.0" />
          </font>
       </Button>
-      <Button contentDisplay="CENTER" layoutX="478.0" layoutY="232.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="97.0" style="-fx-background-color: red; -fx-border-radius: 100px;" textOverrun="LEADING_ELLIPSIS">
+      <Button contentDisplay="CENTER" layoutX="493.0" layoutY="251.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="97.0" style="-fx-background-color: red; -fx-border-radius: 100px;" textOverrun="LEADING_ELLIPSIS">
          <effect>
             <Reflection fraction="0.28" topOpacity="0.23">
                <input>
@@ -123,7 +123,7 @@
             <Font name="Comic Sans MS" size="16.0" />
          </font>
       </Button>
-      <Separator layoutX="175.0" layoutY="16.0" orientation="VERTICAL" prefHeight="283.0" prefWidth="11.0" />
-      <Separator layoutX="594.0" layoutY="16.0" orientation="VERTICAL" prefHeight="283.0" prefWidth="11.0" />
+      <Separator layoutX="175.0" layoutY="16.0" orientation="VERTICAL" prefHeight="357.0" prefWidth="11.0" />
+      <Separator layoutX="661.0" layoutY="14.0" orientation="VERTICAL" prefHeight="357.0" prefWidth="11.0" />
    </children>
 </Pane>

@@ -53,7 +53,7 @@ public class MenuFixeController {
 	    		Pane accueil = (Pane) acc.load();
 	    		header.getChildren().removeAll();
 	    		header.getChildren().add(accueil);
-	    		accueil.setLayoutX(37);
+	    		accueil.setLayoutX(5);
 	    		accueil.setLayoutY(143);
 	    		
 	    	} catch (IOException e) {
@@ -75,7 +75,7 @@ public class MenuFixeController {
 			Pane guser = (Pane) acc.load();
 			header.getChildren().removeAll();
 			header.getChildren().add(guser);
-			guser.setLayoutX(37);
+			guser.setLayoutX(5);
 			guser.setLayoutY(143);
 
 		} catch (IOException e) {
@@ -94,7 +94,7 @@ public class MenuFixeController {
 		Pane gsalle = (Pane) acc.load();
 		header.getChildren().removeAll();
 		header.getChildren().add(gsalle);
-		gsalle.setLayoutX(37);
+		gsalle.setLayoutX(5);
 		gsalle.setLayoutY(143);
 		
 	} catch (IOException e) {
@@ -113,7 +113,7 @@ public class MenuFixeController {
 		Pane gdoc = (Pane) acc.load();
 		header.getChildren().removeAll();
 		header.getChildren().add(gdoc);
-		gdoc.setLayoutX(37);
+		gdoc.setLayoutX(5);
 		gdoc.setLayoutY(143);
 		
 	} catch (IOException e) {
@@ -132,7 +132,7 @@ public class MenuFixeController {
 		Pane gevent = (Pane) acc.load();
 		header.getChildren().removeAll();
 		header.getChildren().add(gevent);
-		gevent.setLayoutX(37);
+		gevent.setLayoutX(5);
 		gevent.setLayoutY(143);
 		
 	} catch (IOException e) {
@@ -157,7 +157,7 @@ public class MenuFixeController {
 	    		Pane myspace = (Pane) acc.load();
 	    		header.getChildren().removeAll();
 	    		header.getChildren().add(myspace);
-	    		myspace.setLayoutX(37);
+	    		myspace.setLayoutX(5);
 	    		myspace.setLayoutY(143);
 	    		
 	    	} catch (IOException e) {

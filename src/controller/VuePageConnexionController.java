@@ -51,7 +51,7 @@ public class VuePageConnexionController {
 				 		Stage stage =  (Stage) mainPane.getScene().getWindow();
 				 		// Set person overview into the center of root layout.
 				 		header.getChildren().add(accueil);
-				 		accueil.setLayoutX(37);
+				 		accueil.setLayoutX(5);
 				 		accueil.setLayoutY(143);
 				 		Scene scene = mainPane.getScene();
 		              

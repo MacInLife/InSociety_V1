@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="GestionUserView" prefHeight="313.0" prefWidth="774.0" style="-fx-background-color: white; -fx-border-radius: 100px;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GestionUserController">
+<Pane fx:id="GestionUserView" prefHeight="386.0" prefWidth="836.0" style="-fx-background-color: white; -fx-border-radius: 100px;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GestionUserController">
    <children>
       <Text layoutX="13.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion Utilisateurs : " underline="true">
          <font>
@@ -37,47 +37,47 @@
             </SplitMenuButton>
          </graphic>
       </Label>
-      <Label fx:id="addUserView" layoutX="65.0" layoutY="95.0" onMouseClicked="#addUser" text="Ajouter Utilisateur">
+      <Label fx:id="addUserView" layoutX="68.0" layoutY="118.0" onMouseClicked="#addUser" text="Ajouter Utilisateur">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
          </font>
       </Label>
-      <Label fx:id="editUserView" layoutX="63.0" layoutY="149.0" onMouseClicked="#editUser" text="Modifier Utilisateur">
+      <Label fx:id="editUserView" layoutX="67.0" layoutY="176.0" onMouseClicked="#editUser" text="Modifier Utilisateur">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
          </font>
       </Label>
-      <Label fx:id="suppUserView" layoutX="62.0" layoutY="208.0" onMouseClicked="#suppUser" text="Supprimer Utilisateur">
+      <Label fx:id="suppUserView" layoutX="62.0" layoutY="247.0" onMouseClicked="#suppUser" text="Supprimer Utilisateur">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
          </font>
       </Label>
-      <ImageView fitHeight="53.0" fitWidth="32.0" layoutX="18.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="53.0" fitWidth="32.0" layoutX="21.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/user_add.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="40.0" fitWidth="32.0" layoutX="18.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="40.0" fitWidth="32.0" layoutX="18.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/user_delete.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="53.0" fitWidth="40.0" layoutX="14.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="53.0" fitWidth="40.0" layoutX="18.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/modifier-icone-5132-128.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="26.0" layoutX="727.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="50.0" fitWidth="26.0" layoutX="796.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/refresh.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="37.0" fitWidth="32.0" layoutX="18.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="37.0" fitWidth="32.0" layoutX="30.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/eye_green.png" />
          </image>
       </ImageView>
-      <TableView fx:id="tabUser" editable="true" layoutX="200.0" layoutY="74.0" prefHeight="240.0" prefWidth="573.0" tableMenuButtonVisible="true">
+      <TableView fx:id="tabUser" editable="true" layoutX="200.0" layoutY="74.0" prefHeight="305.0" prefWidth="628.0" tableMenuButtonVisible="true">
          <columns>
             <TableColumn fx:id="Login" prefWidth="93.0" text="Login" />
             <TableColumn fx:id="Nom" prefWidth="94.0" text="Nom" />
@@ -95,7 +95,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Label contentDisplay="RIGHT" layoutX="435.0" layoutY="2.0" prefHeight="41.0" prefWidth="339.0" text="Rechercher :" underline="true">
+      <Label contentDisplay="RIGHT" layoutX="483.0" layoutY="2.0" prefHeight="41.0" prefWidth="339.0" text="Rechercher :" underline="true">
          <font>
             <Font name="Comic Sans MS" size="15.0" />
          </font>
@@ -103,23 +103,23 @@
             <ChoiceBox prefHeight="25.0" prefWidth="213.0" />
          </graphic>
       </Label>
-      <Label fx:id="alluser" layoutX="83.0" layoutY="270.0" onMouseClicked="#afficher" text="Afficher tout">
+      <Label fx:id="alluser" layoutX="95.0" layoutY="331.0" onMouseClicked="#afficher" text="Afficher tout">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
          </font>
       </Label>
-      <ImageView fitHeight="41.0" fitWidth="32.0" layoutX="18.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="41.0" fitWidth="32.0" layoutX="14.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/save.png" />
          </image>
       </ImageView>
-      <Label layoutX="55.0" layoutY="45.0" text="Enregistrer modification">
+      <Label layoutX="51.0" layoutY="50.0" text="Enregistrer modification">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
          </font>
       </Label>
-      <Separator layoutX="16.0" layoutY="245.0" prefHeight="3.0" prefWidth="164.0" />
-      <Separator layoutX="16.0" layoutY="77.0" prefHeight="3.0" prefWidth="164.0" />
-      <Separator layoutX="194.0" layoutY="12.0" orientation="VERTICAL" prefHeight="289.0" prefWidth="4.0" />
+      <Separator layoutX="21.0" layoutY="297.0" prefHeight="3.0" prefWidth="164.0" />
+      <Separator layoutX="12.0" layoutY="89.0" prefHeight="3.0" prefWidth="164.0" />
+      <Separator layoutX="190.0" layoutY="12.0" orientation="VERTICAL" prefHeight="367.0" prefWidth="10.0" />
    </children>
 </Pane>

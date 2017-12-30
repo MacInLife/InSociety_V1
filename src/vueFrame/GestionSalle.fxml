@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="GestionSalleView" prefHeight="313.0" prefWidth="774.0" style="-fx-background-color: white; -fx-border-radius: 100px;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GestionSalleController">
+<Pane fx:id="GestionSalleView" prefHeight="386.0" prefWidth="836.0" style="-fx-background-color: white; -fx-border-radius: 100px;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GestionSalleController">
    <children>
       <Text layoutX="14.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion Salles : " underline="true">
          <font>
@@ -37,37 +37,37 @@
             </SplitMenuButton>
          </graphic>
       </Label>
-      <Label layoutX="84.0" layoutY="124.0" text="Créer">
+      <Label layoutX="85.0" layoutY="167.0" text="Créer">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
          </font>
       </Label>
-      <Label layoutX="81.0" layoutY="188.0" text="Modifier">
+      <Label layoutX="81.0" layoutY="237.0" text="Modifier">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
          </font>
       </Label>
-      <Label layoutX="81.0" layoutY="251.0" text="Supprimer">
+      <Label layoutX="84.0" layoutY="313.0" text="Supprimer">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
          </font>
       </Label>
-      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="19.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="20.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/green-plus-icon-7.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="47.0" fitWidth="36.0" layoutX="24.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="47.0" fitWidth="36.0" layoutX="24.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/icone_glas.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="29.0" layoutX="734.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="26.0" fitWidth="29.0" layoutX="796.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/refresh.png" />
          </image>
       </ImageView>
-      <Label contentDisplay="RIGHT" layoutX="439.0" layoutY="9.0" prefHeight="24.0" prefWidth="339.0" text="Rechercher :" underline="true">
+      <Label contentDisplay="RIGHT" layoutX="483.0" layoutY="9.0" prefHeight="24.0" prefWidth="339.0" text="Rechercher :" underline="true">
          <font>
             <Font name="Comic Sans MS" size="15.0" />
          </font>
@@ -75,12 +75,12 @@
             <ChoiceBox prefHeight="24.0" prefWidth="213.0" />
          </graphic>
       </Label>
-      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="28.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="31.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/Page_à_supprimer.png" />
          </image>
       </ImageView>
-      <Separator layoutX="18.0" layoutY="91.0" prefHeight="3.0" prefWidth="157.0" />
+      <Separator layoutX="14.0" layoutY="117.0" prefHeight="3.0" prefWidth="157.0" />
       <Label fx:id="allSalle" layoutX="66.0" layoutY="61.0" onMouseClicked="#VueAllSalle" text="Afficher les salles">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
@@ -91,11 +91,11 @@
             <Image url="@../image/eye_green.png" />
          </image>
       </ImageView>
-      <Separator layoutX="186.0" layoutY="12.0" orientation="VERTICAL" prefHeight="294.0" prefWidth="11.0" />
-      <TableView fx:id="tabSalle" editable="true" layoutX="197.0" layoutY="71.0" prefHeight="235.0" prefWidth="573.0" tableMenuButtonVisible="true">
+      <Separator layoutX="186.0" layoutY="12.0" orientation="VERTICAL" prefHeight="372.0" prefWidth="11.0" />
+      <TableView fx:id="tabSalle" editable="true" layoutX="197.0" layoutY="71.0" prefHeight="309.0" prefWidth="631.0" tableMenuButtonVisible="true">
          <columns>
-            <TableColumn fx:id="id" prefWidth="49.0" text="ID" />
-            <TableColumn fx:id="NomSR" prefWidth="81.33329772949219" text="Nom" />
+            <TableColumn fx:id="id" prefWidth="54.0" text="ID" />
+            <TableColumn fx:id="NomSR" prefWidth="134.0" text="Nom" />
             <TableColumn fx:id="Statut" minWidth="0.0" prefWidth="162.0" text="Statut" />
             <TableColumn fx:id="JourSR" minWidth="0.0" prefWidth="135.0" text="Date" />
             <TableColumn fx:id="HoraireSR" prefWidth="93.0" text="Heure" />

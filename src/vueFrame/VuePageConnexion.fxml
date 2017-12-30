@@ -15,38 +15,38 @@
 
 <Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" style="-fx-background-color: #9edae5;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.VuePageConnexionController">
    <children>
-      <Rectangle arcHeight="100.0" arcWidth="100.0" depthTest="DISABLE" fill="WHITE" height="324.0" layoutX="282.0" layoutY="152.0" stroke="#91efffe5" strokeLineCap="ROUND" strokeMiterLimit="30.0" width="520.0">
+      <Rectangle arcHeight="100.0" arcWidth="100.0" depthTest="DISABLE" fill="WHITE" height="324.0" layoutX="314.0" layoutY="146.0" stroke="#91efffe5" strokeLineCap="ROUND" strokeMiterLimit="30.0" width="520.0">
          <effect>
             <DropShadow blurType="TWO_PASS_BOX" color="#66c4ff" />
          </effect>
       </Rectangle>
-      <Button fx:id="co" contentDisplay="TEXT_ONLY" ellipsisString="5px" layoutX="487.0" layoutY="395.0" mnemonicParsing="false" onAction="#connexion" style="-fx-background-color: black; -fx-border-radius: 500px;" text="Connexion" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+      <Button fx:id="co" contentDisplay="TEXT_ONLY" ellipsisString="5px" layoutX="519.0" layoutY="389.0" mnemonicParsing="false" onAction="#connexion" style="-fx-background-color: black; -fx-border-radius: 500px;" text="Connexion" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
          <font>
             <Font name="BlackChancery" size="23.0" />
          </font></Button>
-      <TextField fx:id="login" layoutX="509.0" layoutY="220.0" promptText="Tapez votre login">
+      <TextField fx:id="login" layoutX="541.0" layoutY="214.0" promptText="Tapez votre login">
          <effect>
             <Blend />
          </effect></TextField>
-      <Label layoutX="312.0" layoutY="219.0" prefHeight="27.0" prefWidth="175.0" text="Login / identifiant : ">
+      <Label layoutX="344.0" layoutY="213.0" prefHeight="27.0" prefWidth="175.0" text="Login / identifiant : ">
          <font>
             <Font name="Comic Sans MS" size="18.0" />
          </font></Label>
-      <Label layoutX="360.0" layoutY="309.0" text="Mot de passe : ">
+      <Label layoutX="392.0" layoutY="303.0" text="Mot de passe : ">
          <font>
             <Font name="Comic Sans MS" size="18.0" />
          </font></Label>
-      <ImageView fitHeight="233.0" fitWidth="324.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="204.0" fitWidth="254.0" layoutX="15.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/CoWiky1.png" />
+            <Image url="@../image/InSociety0.png" />
          </image></ImageView>
-      <PasswordField fx:id="mdp" layoutX="509.0" layoutY="302.0" promptText="Tapez votre mot de passe" />
-      <Text layoutX="204.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue sur l'Intranet de InSociety">
+      <PasswordField fx:id="mdp" layoutX="541.0" layoutY="296.0" promptText="Tapez votre mot de passe" />
+      <Text layoutX="222.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue sur l'Intranet de InSociety">
          <font>
             <Font name="BlackChancery" size="31.0" />
          </font>
       </Text>
-      <Text fill="#6b6b6bfc" layoutX="142.0" layoutY="528.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Webmaster - Réalisé par MAC, Portail Collaboratif">
+      <Text fill="#6b6b6bfc" layoutX="178.0" layoutY="528.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Webmaster - Réalisé par MAC, Portail Collaboratif">
          <font>
             <Font name="BlackChancery" size="24.0" />
          </font>
