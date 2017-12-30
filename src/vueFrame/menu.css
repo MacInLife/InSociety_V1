@@ -1,0 +1,10 @@
+.menu {
+	-fx-font-size :12pt;
+	-fx-font-family:"Comic Sans MS Bold";
+	-fx-padding : 0 55 0 55;
+}
+
+.menu-item {
+	-fx-font-size :10pt;
+	-fx-font-family:"Comic Sans MS";
+}
