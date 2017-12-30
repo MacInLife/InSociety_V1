@@ -13,6 +13,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import metier.Personnel;
@@ -23,6 +24,8 @@ public class GestionUserController {
 	@FXML
 	private Label alluser;
 	@FXML
+	private ImageView allUser;
+	@FXML
 	private Label editUserView;
 	@FXML
 	private Label addUserView;
@@ -32,6 +35,18 @@ public class GestionUserController {
 	private GridPane UserEditView;
 	@FXML
 	private GridPane UserAddView;
+	
+	@FXML
+	private ImageView editUserView0;
+	@FXML
+	private ImageView addUserView0;
+	@FXML
+	private ImageView suppUserView0;
+	@FXML
+	private ImageView UserEditView0;
+	@FXML
+	private ImageView UserAddView0;
+	
 	@FXML
 	private  TableView<Personnel> tabUser;
 	@FXML
@@ -84,6 +99,7 @@ public class GestionUserController {
 	});
 	}
 	
+	//Label Afficher tout
 	@FXML
 public void afficher (MouseEvent actionEvent) throws SQLException, ClassNotFoundException {
 		alluser.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -100,10 +116,27 @@ public void afficher (MouseEvent actionEvent) throws SQLException, ClassNotFound
 	        }
 	    });
 	}
+	
+	//imageView Oeil
+	@FXML
+public void Afficher (MouseEvent actionEvent) throws SQLException, ClassNotFoundException {
+		allUser.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
+	        @Override
+	        public void handle(MouseEvent event) {      	
+	        		try {
+						ObservableList<Personnel> empData =  PersonnelDAO.GetListePersonnel();
+						tabUser.setItems(empData);
+					} catch (ClassNotFoundException | SQLException e) {
+						// TODO Bloc catch généré automatiquement
+						e.printStackTrace();
+					}
+	        }
+	    });
+	}
 	
 	// Called when the user clicks the new button. Opens a dialog to edit details for a new person.
-	
+	//Ajouter Utilisateur Label
 	@FXML
 	private void addUser() {
 	
@@ -126,11 +159,32 @@ public void afficher (MouseEvent actionEvent) throws SQLException, ClassNotFound
 		    }
 		}
 	
+	//ImageView Ajout
+	@FXML
+	private void addUser0() {
 	
+		    boolean okClicked = VueFXMain.VueGUserAdd();
+		    if (okClicked) {
+		     //   VueFXMain.getPersonData().add(user);
+		        // VueFXMain.getPersonData().add(user);
+		    	
+		    	//tu fais appel  à la methode insertPers dans la classe personnelDAO
+		        try {
+					PersonnelDAO.insertPers(user);;
+				} catch (ClassNotFoundException e) {
+					// TODO Bloc catch généré automatiquement
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Bloc catch généré automatiquement
+					e.printStackTrace();
+				}
+		    	// apres tu refresh ta tableView
+		    }
+		}
 	
 
 	// Called when the user clicks the edit button. Opens a dialog to edit details for the selected person.
-	
+	//Label Modifier Utilisateur
 	@FXML
 	private void editUser() {
 		System.out.println(user.toString());
@@ -167,9 +221,74 @@ public void afficher (MouseEvent actionEvent) throws SQLException, ClassNotFound
 	    
 	}
 	
+	//ImageView Modifier Utilisateur
+	@FXML
+	private void editUser0() {
+		System.out.println(user.toString());
+		
+	  	    if (user != null) {
+	        boolean okClicked = VueFXMain.VueGUserEdit(user);
+	        if (okClicked) {
+	           // showPersonDetails(user);
+	            
+	            // tu fais appel à ta methode modifierPersonnel dans la classe PersonnelDAO
+	        	try {
+					PersonnelDAO.ModifPers(user);
+				} catch (ClassNotFoundException e) {
+					// TODO Bloc catch généré automatiquement
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Bloc catch généré automatiquement
+					e.printStackTrace();
+				}
+	        	// tu refresh tableView
+	        }
+
+	    } else {
+	        // Nothing selected.
+	        Alert alert = new Alert(AlertType.WARNING);
+	        alert.initOwner(VueFXMain.getPrimaryStage());
+	        alert.setTitle("No Selection");
+	        alert.setHeaderText("No Person Selected");
+	        alert.setContentText("Please select a person in the table.");
+
+	        alert.showAndWait();
+	        
+	    }
+	    
+	}
+	
 	// Called when the user clicks on the delete button.
+	//label supp user
 	@FXML
 	private void suppUser() {
+	Personnel selectedIndex = tabUser.getSelectionModel().getSelectedItem();
+	    if (selectedIndex!=null) {
+	        tabUser.getItems().remove(selectedIndex );
+	        //appel a la fonction du PersonnelDAO SuppPers
+	       try {
+			PersonnelDAO.SuppPers(selectedIndex);
+		} catch (ClassNotFoundException e) {
+			// TODO Bloc catch généré automatiquement
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Bloc catch généré automatiquement
+			e.printStackTrace();
+		}
+	    } else {
+	        // Nothing selected.
+	        Alert alert = new Alert(AlertType.WARNING);
+	        alert.initOwner(VueFXMain.getPrimaryStage());
+	        alert.setTitle("No Selection");
+	        alert.setHeaderText("No Person Selected");
+	        alert.setContentText("Please select a person in the table.");
+
+	        alert.showAndWait();
+	    }
+	}
+	//ImageView Supp User
+	@FXML
+	private void suppUser0() {
 	Personnel selectedIndex = tabUser.getSelectionModel().getSelectedItem();
 	    if (selectedIndex!=null) {
 	        tabUser.getItems().remove(selectedIndex );

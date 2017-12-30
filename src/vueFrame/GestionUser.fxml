@@ -52,17 +52,17 @@
             <Font name="Comic Sans MS" size="11.0" />
          </font>
       </Label>
-      <ImageView fitHeight="53.0" fitWidth="32.0" layoutX="21.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="addUserView0" fitHeight="53.0" fitWidth="32.0" layoutX="21.0" layoutY="110.0" onMouseClicked="#addUser0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/user_add.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="40.0" fitWidth="32.0" layoutX="18.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="suppUserView0" fitHeight="40.0" fitWidth="32.0" layoutX="18.0" layoutY="239.0" onMouseClicked="#suppUser0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/user_delete.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="53.0" fitWidth="40.0" layoutX="18.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="editUserView0" fitHeight="53.0" fitWidth="40.0" layoutX="18.0" layoutY="164.0" onMouseClicked="#editUser0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/modifier-icone-5132-128.png" />
          </image>
@@ -72,7 +72,7 @@
             <Image url="@../image/refresh.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="37.0" fitWidth="32.0" layoutX="30.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="allUser" fitHeight="37.0" fitWidth="32.0" layoutX="30.0" layoutY="322.0" onMouseClicked="#Afficher" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/eye_green.png" />
          </image>
