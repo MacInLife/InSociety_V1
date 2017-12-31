@@ -6,6 +6,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -40,7 +41,7 @@ public class EvenementsDAO {
         Connection co = Connect.getInstance().getConnection();
            
         //Création de la requête inserer new evenements
-        String requeteSQL = "INSERT INTO `evenement`(`nomEvt`,`jour`, `type`, `lieu`, `id_SR`)"
+        String requeteSQL = "INSERT INTO `evenement`(`nomEvt`,`jour`,`h_debut`, `h_fin`, `type`, `lieu`, `id_SR`)"
                 + "VALUES (?,?,?,?,?)";
         
         //préparer la requête
@@ -49,10 +50,12 @@ public class EvenementsDAO {
          //renvoyer et verifier les données de la requête
          pst.setString(1, event.getNomEvt());
          pst.setDate(2, event.getJour());
-         pst.setString(3, event.getType());
-         pst.setString(4, event.getLieu());
+         pst.setTime(3, event.getH_debut());
+         pst.setTime(4, event.getH_fin());
+         pst.setString(5, event.getType());
+         pst.setString(6, event.getLieu());
         // faire un GetId_SR   avec le nom dans salle de réunion et appeler pou renvoyer les données requètes
-         pst.setInt(5, Salle_ReunionDAO.GetIdSR(event.getSalle().getNomSR()));
+         pst.setInt(7, Salle_ReunionDAO.GetIdSR(event.getSalle().getNomSR()));
          
          //Récupère et vérifier la clé étrangère de la table Salle de Réunion id_SR
          
@@ -67,7 +70,7 @@ public class EvenementsDAO {
 		Connection co = Connect.getInstance().getConnection();
 System.out.println(event.getId_evt());
 		// Création de la requête inserer new pers
-		String requeteSQL = "UPDATE `evenement` SET `nomEvt`= ?,`jour`= ?,`type`= ?,`lieu`= ?,`id_SR`= ?";
+		String requeteSQL = "UPDATE `evenement` SET `nomEvt`= ?,`jour`= ?,`h_debut`= ?, `h_fin`= ?, `type`= ?,`lieu`= ?,`id_SR`= ?";
 
 		// préparer la requête
 		PreparedStatement pst = co.prepareStatement(requeteSQL);
@@ -75,10 +78,12 @@ System.out.println(event.getId_evt());
 		// renvoyer et verifier les données de la requête
 		pst.setString(1, event.getNomEvt());
 		pst.setDate(2, event.getJour());
-		pst.setString(3, event.getType());
-		pst.setString(4, event.getLieu());
+	    pst.setTime(3, event.getH_debut());
+        pst.setTime(4, event.getH_fin());
+		pst.setString(5, event.getType());
+		pst.setString(6, event.getLieu());
 		//Recup�re et verif cl� etrang�re de la table Salle_Reunion
-		pst.setInt(5, Salle_ReunionDAO.GetIdSR(event.getSalle().getNomSR()));
+		pst.setInt(7, Salle_ReunionDAO.GetIdSR(event.getSalle().getNomSR()));
 
 
 		int nbligne = pst.executeUpdate();
@@ -110,11 +115,12 @@ System.out.println(event.getId_evt());
 		// en vue d'�tre ex�cut�e sur une connexion donn�e
 		String req = "select * from evenement";
 		Connection cnx = Connect.getInstance().getConnection();
-		//Integer id;
+		int id_evt;
 		String nomEvt;
 		String type;
 		Date jour;
-		
+		Time h_debut;
+		Time h_fin;
 		String lieu;
 		int idSR;
 	
@@ -123,16 +129,17 @@ System.out.println(event.getId_evt());
 		ResultSet table = pst.executeQuery();
 		while (table.next()) {
 			
-		//	id = table.getInt("id");
+			id_evt = table.getInt("id_evt");
 			nomEvt = table.getString("nomEvt");
 			type = table.getString("type");
 			jour = table.getDate("jour");
-		
+			h_debut = table.getTime("h_debut");
+			h_fin = table.getTime("h_fin");
 			lieu = table.getString("lieu");
 			idSR = table.getInt("idSR");
 		
 			Evenements event = new Evenements();
-			//event.setId_evt(id_evt);
+			event.setId_evt(id_evt);
 			event.setNomEvt(nomEvt);
 			event.setType(type);
 			event.setJour(jour);

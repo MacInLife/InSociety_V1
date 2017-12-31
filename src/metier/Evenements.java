@@ -2,7 +2,7 @@
 package metier;
 import java.sql.Date;
 //Bibliothèque
-
+import java.sql.Time;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
@@ -16,6 +16,8 @@ public class Evenements {
 	private IntegerProperty id_evt;
     private StringProperty nomEvt;
     private ObjectProperty<Date> jour;
+    private ObjectProperty<Time> h_debut;
+    private ObjectProperty<Time> h_fin;
     private StringProperty type;
     private StringProperty lieu;
     private Salle_Reunion salle ;
@@ -25,6 +27,8 @@ public class Evenements {
 	   this.id_evt = new SimpleIntegerProperty();
     this.nomEvt = new SimpleStringProperty();
     this.jour = new SimpleObjectProperty<Date>();
+    this.h_debut = new SimpleObjectProperty<Time>();
+    this.h_fin = new SimpleObjectProperty<Time>();
     this.type    = new SimpleStringProperty();
     this.lieu     = new SimpleStringProperty();
     salle = new Salle_Reunion();
@@ -58,7 +62,18 @@ public class Evenements {
     public void setJourPro(ObjectProperty<Date> jour){
         this.jour = jour;
     }
-    
+    public ObjectProperty<Time> getH_debutPro(){
+    	return h_debut;
+    }
+    public void setH_debutPro(ObjectProperty<Time> h_debut) {
+    	this.h_debut = h_debut;
+    }
+    public ObjectProperty<Time> getH_finPro(){
+    	return h_fin;
+    }
+    public void setH_finPro(ObjectProperty<Time> h_fin) {
+    	this.h_fin = h_fin;
+    }
     public StringProperty getTypePro(){
         return type;
     }
@@ -95,6 +110,18 @@ public class Evenements {
         this.jour.set(jour);
     }
     
+    public Time getH_debut() {
+    	return h_debut.get();
+    }
+    public void setH_debut(Time h_debut) {
+    	this.h_debut.set(h_debut);
+    }
+    public Time getH_fin() {
+    	return h_fin.get();
+    }
+    public void setH_fin(Time h_fin) {
+    	this.h_fin.set(h_fin);
+    }
     public String getType(){
         return type.get();
     }

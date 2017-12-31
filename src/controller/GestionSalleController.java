@@ -27,7 +27,7 @@ public class GestionSalleController {
 	@FXML
 	private  TableView<Salle_Reunion> tabSalle;
 	@FXML
-	private TableColumn<Salle_Reunion, Integer> id;
+	private TableColumn<Salle_Reunion, Integer> idSR;
 	//faire sa pour toute les colonnes du tableau salle
 	@FXML
 	private TableColumn<Salle_Reunion, String> NomSR ;

@@ -110,7 +110,7 @@ System.out.println(salleReu.getIdSR());
 		// en vue d'être exécutée sur une connexion donnée
 		String req = "select * from salle_reunion";
 		Connection cnx = Connect.getInstance().getConnection();
-		//Integer id;
+		int idSR;
 		String nomSR;
 		String nb_place;
 		Date jour;
@@ -123,7 +123,7 @@ System.out.println(salleReu.getIdSR());
 		ResultSet table = pst.executeQuery();
 		while (table.next()) {
 			
-		//	id = table.getInt("id");
+			idSR = table.getInt("idSR");
 			nomSR = table.getString("nomSR");
 			nb_place = table.getString("nb_place");
 			jour = table.getDate("jour");
@@ -132,7 +132,7 @@ System.out.println(salleReu.getIdSR());
 			id_statut = table.getInt("id_statut");
 		
 			Salle_Reunion salle = new Salle_Reunion();
-			//salle.setId(id);
+			salle.setIdSR(idSR);
 			salle.setNomSR(nomSR);
 			salle.setNb_place(nb_place);
 			salle.setJour(jour);
