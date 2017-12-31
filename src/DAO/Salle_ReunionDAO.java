@@ -59,10 +59,12 @@ public class Salle_ReunionDAO  {
        int nbligne =  pst.executeUpdate();
     
     }
+ 
+ 
 	public static void ModifSalleReu(Salle_Reunion  salleReu) throws SQLException, ClassNotFoundException {
 		// Je me connecte
 		Connection co = Connect.getInstance().getConnection();
-System.out.println(salleReu.getId());
+System.out.println(salleReu.getIdSR());
 		// Création de la requête inserer new pers
 		String requeteSQL = "UPDATE `salle_reunion` SET `nb_place`= ?,`horaire`= ?,`jour`= ?,`nomSR`= ?,`id_statut`= ?,`lieu`= ?";
 

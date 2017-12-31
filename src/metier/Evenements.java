@@ -1,25 +1,30 @@
 
 package metier;
+import java.sql.Date;
 //Bibliothèque
-import java.time.LocalDate;
 
+
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Evenements {
     //Initialisation des variables 
+	private IntegerProperty id_evt;
     private StringProperty nomEvt;
-    private ObjectProperty<LocalDate> jour;
+    private ObjectProperty<Date> jour;
     private StringProperty type;
     private StringProperty lieu;
     private Salle_Reunion salle ;
     
     //Constructeur par defaut JavaFX
    public Evenements(){
+	   this.id_evt = new SimpleIntegerProperty();
     this.nomEvt = new SimpleStringProperty();
-    this.jour = new SimpleObjectProperty<LocalDate>();
+    this.jour = new SimpleObjectProperty<Date>();
     this.type    = new SimpleStringProperty();
     this.lieu     = new SimpleStringProperty();
     salle = new Salle_Reunion();
@@ -33,6 +38,13 @@ public class Evenements {
     }*/
        
    // Cr�ation des getters et setters Property
+   public IntegerProperty getId_evtPro() {
+	   return id_evt;
+   }
+   public void setId_evtPro(IntegerProperty id_evt) {
+	   this.id_evt = id_evt;
+   }
+   
     public StringProperty getNomEvtPro(){
         return nomEvt;
     }
@@ -40,10 +52,10 @@ public class Evenements {
          this.nomEvt = nomEvt;
     }
     
-    public ObjectProperty<LocalDate> getJourPro(){
+    public ObjectProperty<Date> getJourPro(){
         return jour;
     }
-    public void setJourPro(ObjectProperty<LocalDate> jour){
+    public void setJourPro(ObjectProperty<Date> jour){
         this.jour = jour;
     }
     
@@ -63,6 +75,12 @@ public class Evenements {
    
     
     //Création des getters et setters basique
+    public int getId_evt() {
+    	return id_evt.get();
+    }
+    public void setId_evt(int id_evt) {
+    	this.id_evt.set(id_evt);
+    }
     public String getNomEvt(){
         return nomEvt.get();
     }
@@ -70,10 +88,10 @@ public class Evenements {
          this.nomEvt.set(nomEvt);
     }
     
-    public LocalDate getJour(){
+    public Date getJour(){
         return jour.get();
     }
-    public void setJour(LocalDate jour){
+    public void setJour(Date jour){
         this.jour.set(jour);
     }
     

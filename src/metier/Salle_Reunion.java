@@ -6,13 +6,14 @@ import java.time.LocalDate;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Salle_Reunion {
     //Initialisation des variables 
-	private IntegerProperty id;
+	private IntegerProperty idSR;
     private StringProperty nomSR;
     private StringProperty nb_place;
     private ObjectProperty<Date> horaire;
@@ -29,7 +30,7 @@ public class Salle_Reunion {
    }*/
     
     public Salle_Reunion(){
-    
+    	this.idSR = new SimpleIntegerProperty();
         this.nomSR = new SimpleStringProperty();
         this.nb_place = new SimpleStringProperty();
         this.horaire = new SimpleObjectProperty<Date>();
@@ -39,12 +40,12 @@ public class Salle_Reunion {
     }
   
    //Création des getters et setters Property
-    public IntegerProperty getId() {
-        return id;
+    public IntegerProperty getIdSRPro() {
+        return idSR;
     }
 
-    public void setId(IntegerProperty id) {
-        this.id = id;
+    public void setIdSRPro(IntegerProperty idSR) {
+        this.idSR = idSR;
     }
     public StringProperty getNomSRPro() {
         return nomSR;
@@ -87,7 +88,14 @@ public class Salle_Reunion {
 
     
    //Création des getters et setters
- 
+    public int getIdSR() {
+    	return idSR.get();
+    }
+    public void setIdSR(int idSR) {
+    	this.idSR.set(idSR);
+    }
+    
+    
     public String getNomSR() {
         return nomSR.get();
     }
