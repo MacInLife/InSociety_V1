@@ -4,10 +4,32 @@ package DAO;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import metier.Evenements;
 
 public class EvenementsDAO {
+	
+    public static int GetIdEvent(String nomEvt) throws ClassNotFoundException, SQLException
+   {
+        int i =0 ;
+        Connection co = Connect.getInstance().getConnection();
+       // constitution d'une commande basée sur une requête SQL 
+       // en vue d'être exécutée sur une connexion donnée     
+       String req = "SELECT `id_event` FROM `evenement` WHERE nomEvt = ?";
+      
+       PreparedStatement pst = co.prepareStatement(req);
+       pst.setString(1, nomEvt);
+     
+       ResultSet table = pst.executeQuery();
+       
+       while(table.next())
+       {
+           i = table.getInt("id_event");
+       }
+       return i;
+   }
+	
     public static void ajoutEvent(Evenements event) throws SQLException, ClassNotFoundException{
         //Je me connecte
         Connection co = Connect.getInstance().getConnection();

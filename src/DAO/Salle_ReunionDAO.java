@@ -59,6 +59,30 @@ public class Salle_ReunionDAO  {
        int nbligne =  pst.executeUpdate();
     
     }
+	public static void ModifSalleReu(Salle_Reunion  salleReu) throws SQLException, ClassNotFoundException {
+		// Je me connecte
+		Connection co = Connect.getInstance().getConnection();
+System.out.println(salleReu.getId());
+		// Création de la requête inserer new pers
+		String requeteSQL = "UPDATE `salle_reunion` SET `nb_place`= ?,`horaire`= ?,`jour`= ?,`nomSR`= ?,`id_statut`= ?,`lieu`= ?";
+
+		// préparer la requête
+		PreparedStatement pst = co.prepareStatement(requeteSQL);
+
+		// renvoyer et verifier les données de la requête
+		pst.setString(1, salleReu.getNb_place());
+		pst.setDate(2, salleReu.getHoraire());
+		pst.setDate(3, salleReu.getJour());
+		pst.setString(4, salleReu.getNomSR());
+		//Recup�re et verif cl� etrang�re de la table Statut
+		pst.setInt(5, StatutDAO.GetIdStat(salleReu.getStatut().getLibeller()));
+		pst.setString(6, salleReu.getLieu());
+
+	
+
+		int nbligne = pst.executeUpdate();
+
+	}
  
     public static void SuppSalleReu(Salle_Reunion salleReu ) throws SQLException, ClassNotFoundException{
         //Je me connecte
