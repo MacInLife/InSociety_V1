@@ -1,6 +1,7 @@
 
 package metier;
 import java.sql.Date;
+import java.sql.Timestamp;
 //Bibliothèque
 import java.time.LocalDate;
 
@@ -15,9 +16,10 @@ public class Salle_Reunion {
     //Initialisation des variables 
 	private IntegerProperty idSR;
     private StringProperty nomSR;
-    private StringProperty nb_place;
-    private ObjectProperty<Date> horaire;
-    private ObjectProperty<Date> jour;
+    private IntegerProperty nbPlaceTotal;
+    private IntegerProperty nbPers;
+    private ObjectProperty<Timestamp> date_d;
+    private ObjectProperty<Timestamp> date_f;
     private Statut statut;
     private StringProperty lieu;
 
@@ -32,9 +34,10 @@ public class Salle_Reunion {
     public Salle_Reunion(){
     	this.idSR = new SimpleIntegerProperty();
         this.nomSR = new SimpleStringProperty();
-        this.nb_place = new SimpleStringProperty();
-        this.horaire = new SimpleObjectProperty<Date>();
-       this.jour = new SimpleObjectProperty<Date>();
+        this.nbPlaceTotal = new SimpleIntegerProperty();
+        this.nbPers = new SimpleIntegerProperty();
+        this.date_d = new SimpleObjectProperty<Timestamp>();
+       this.date_f = new SimpleObjectProperty<Timestamp>();
        statut = new Statut();
        this.lieu = new SimpleStringProperty();
     }
@@ -55,12 +58,19 @@ public class Salle_Reunion {
         this.nomSR = nomSR;
     }
 
-    public StringProperty getNb_placePro() {
-        return nb_place;
+    public IntegerProperty getNbPlaceTotalPro() {
+        return nbPlaceTotal;
     }
 
-    public void setNb_placePro(StringProperty nb_place) {
-        this.nb_place = nb_place;
+    public void setNbPlaceTotalPro(IntegerProperty nbPlaceTotal) {
+        this.nbPlaceTotal = nbPlaceTotal;
+    }
+    public IntegerProperty getNbPersPro() {
+        return nbPers;
+    }
+
+    public void setNbPersPro(IntegerProperty nbPers) {
+        this.nbPers = nbPers;
     }
     public StringProperty getLieuPro() {
         return lieu;
@@ -70,20 +80,20 @@ public class Salle_Reunion {
         this.lieu = lieu;
     }
 
-    public ObjectProperty<Date> getHorairePro() {
-        return horaire;
+    public ObjectProperty<Timestamp> getDate_dPro() {
+        return date_d;
     }
 
-    public void setHorairePro(ObjectProperty<Date> horaire) {
-        this.horaire = horaire;
+    public void setDate_dPro(ObjectProperty<Timestamp> date_d) {
+        this.date_d = date_d;
     }
 
-    public ObjectProperty<Date> getJourPro() {
-        return jour;
+    public ObjectProperty<Timestamp> getDate_fPro() {
+        return date_f;
     }
 
-    public void setJourPro(ObjectProperty<Date> jour) {
-        this.jour = jour;
+    public void setDate_fPro(ObjectProperty<Timestamp> date_f) {
+        this.date_f = date_f;
     }
 
     
@@ -104,29 +114,34 @@ public class Salle_Reunion {
         this.nomSR.set(nomSR);
     }
 
-    public String getNb_place() {
-        return nb_place.get();
+    public int getNbPlaceTotal() {
+    	return nbPlaceTotal.get();
+    }
+    public void setNbPlaceTotal(int nbPlaceTotal) {
+    	this.nbPlaceTotal.set(nbPlaceTotal);
+    }
+    public int getNbPers() {
+    	return nbPers.get();
+    }
+    public void setNbPers(int nbPers) {
+    	this.nbPers.set(nbPers);
     }
 
-    public void setNb_place(String nb_place) {
-        this.nb_place.set(nb_place);
+    public Timestamp getDate_d() {
+        return date_d.get();
     }
 
-    public Date getHoraire() {
-        return horaire.get();
+    public void setDate_d(Timestamp date_d) {
+        this.date_d.set(date_d);
+    }
+    public Timestamp getDate_f() {
+        return date_f.get();
     }
 
-    public void setHoraire(Date horaire) {
-        this.horaire.set(horaire);
+    public void setDate_f(Timestamp date_f) {
+        this.date_d.set(date_f);
     }
-
-    public Date getJour() {
-        return jour.get();
-    }
-
-    public void setJour(Date jour) {
-        this.jour.set(jour);
-    }
+    
   
     public Statut getStatut() {
         return statut;

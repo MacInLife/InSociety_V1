@@ -15,7 +15,8 @@ public class Evenements {
     //Initialisation des variables 
 	private IntegerProperty id_evt;
     private StringProperty nomEvt;
-    private ObjectProperty<Date> jour;
+    private ObjectProperty<Date> jour_d;
+    private ObjectProperty<Date> jour_f;
     private ObjectProperty<Time> h_debut;
     private ObjectProperty<Time> h_fin;
     private StringProperty type;
@@ -26,7 +27,8 @@ public class Evenements {
    public Evenements(){
 	   this.id_evt = new SimpleIntegerProperty();
     this.nomEvt = new SimpleStringProperty();
-    this.jour = new SimpleObjectProperty<Date>();
+    this.jour_d = new SimpleObjectProperty<Date>();
+    this.jour_f = new SimpleObjectProperty<Date>();
     this.h_debut = new SimpleObjectProperty<Time>();
     this.h_fin = new SimpleObjectProperty<Time>();
     this.type    = new SimpleStringProperty();
@@ -56,11 +58,17 @@ public class Evenements {
          this.nomEvt = nomEvt;
     }
     
-    public ObjectProperty<Date> getJourPro(){
-        return jour;
+    public ObjectProperty<Date> getJour_dPro(){
+        return jour_d;
     }
-    public void setJourPro(ObjectProperty<Date> jour){
-        this.jour = jour;
+    public void setJour_dPro(ObjectProperty<Date> jour_d){
+        this.jour_d = jour_d;
+    }
+    public ObjectProperty<Date> getJour_fPro(){
+        return jour_f;
+    }
+    public void setJour_fPro(ObjectProperty<Date> jour_f){
+        this.jour_f = jour_f;
     }
     public ObjectProperty<Time> getH_debutPro(){
     	return h_debut;
@@ -103,13 +111,18 @@ public class Evenements {
          this.nomEvt.set(nomEvt);
     }
     
-    public Date getJour(){
-        return jour.get();
+    public Date getJour_d(){
+        return jour_d.get();
     }
-    public void setJour(Date jour){
-        this.jour.set(jour);
+    public void setJour_d(Date jour_d){
+        this.jour_d.set(jour_d);
     }
-    
+        public Date getJour_f(){
+        return jour_f.get();
+    }
+    public void setJour_f(Date jour_f){
+        this.jour_f.set(jour_f);
+    }
     public Time getH_debut() {
     	return h_debut.get();
     }

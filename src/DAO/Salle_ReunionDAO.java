@@ -6,6 +6,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -42,19 +43,20 @@ public class Salle_ReunionDAO  {
         Connection co = Connect.getInstance().getConnection();
            
         //Création de la requête inserer new evenements
-        String requeteSQL = "INSERT INTO `salle_reunion`(`nb_place`, `horaire`, `jour`, `nomSR`, `id_statut`, `lieu`) "
+        String requeteSQL = "INSERT INTO `salle_reunion`(`NbPlaceTotal`,`nbPers`, `date_d`, `date_f`, `nomSR`, `id_statut`, `lieu`) "
                 + "VALUES (?,?,?,?,?,?)";
         
         //préparer la requête
          PreparedStatement pst = co.prepareStatement(requeteSQL);
          
          //renvoyer et verifier les données de la requête
-         pst.setString(1, salleReu.getNb_place());
-         pst.setDate(2, salleReu.getHoraire()  );
-         pst.setDate(3, salleReu.getJour());
-         pst.setString(4, salleReu.getNomSR());
-         pst.setInt(5,StatutDAO.GetIdStat(salleReu.getStatut().getLibeller()));
-         pst.setString(6, salleReu.getLieu());
+         pst.setInt(1, salleReu.getNbPlaceTotal());
+         pst.setInt(2, salleReu.getNbPers());
+         pst.setTimestamp(3, salleReu.getDate_d());
+         pst.setTimestamp(4, salleReu.getDate_f());
+         pst.setString(5, salleReu.getNomSR());
+         pst.setInt(6,StatutDAO.GetIdStat(salleReu.getStatut().getLibeller()));
+         pst.setString(7, salleReu.getLieu());
                
        int nbligne =  pst.executeUpdate();
     
@@ -66,19 +68,20 @@ public class Salle_ReunionDAO  {
 		Connection co = Connect.getInstance().getConnection();
 System.out.println(salleReu.getIdSR());
 		// Création de la requête inserer new pers
-		String requeteSQL = "UPDATE `salle_reunion` SET `nb_place`= ?,`horaire`= ?,`jour`= ?,`nomSR`= ?,`id_statut`= ?,`lieu`= ?";
+		String requeteSQL = "UPDATE `salle_reunion` SET `nbPlaceTotal`= ?,`nbPers`= ?,`date_d`= ?,`date_f`= ?,`nomSR`= ?,`id_statut`= ?,`lieu`= ?";
 
 		// préparer la requête
 		PreparedStatement pst = co.prepareStatement(requeteSQL);
 
 		// renvoyer et verifier les données de la requête
-		pst.setString(1, salleReu.getNb_place());
-		pst.setDate(2, salleReu.getHoraire());
-		pst.setDate(3, salleReu.getJour());
-		pst.setString(4, salleReu.getNomSR());
+		pst.setInt(1, salleReu.getNbPlaceTotal());
+		pst.setInt(2, salleReu.getNbPers());
+		pst.setTimestamp(3, salleReu.getDate_d());
+		pst.setTimestamp(4, salleReu.getDate_f());
+		pst.setString(5, salleReu.getNomSR());
 		//Recup�re et verif cl� etrang�re de la table Statut
-		pst.setInt(5, StatutDAO.GetIdStat(salleReu.getStatut().getLibeller()));
-		pst.setString(6, salleReu.getLieu());
+		pst.setInt(6, StatutDAO.GetIdStat(salleReu.getStatut().getLibeller()));
+		pst.setString(7, salleReu.getLieu());
 
 	
 
@@ -112,9 +115,10 @@ System.out.println(salleReu.getIdSR());
 		Connection cnx = Connect.getInstance().getConnection();
 		int idSR;
 		String nomSR;
-		String nb_place;
-		Date jour;
-		Date horaire;
+		int nbPlaceTotal;
+		int nbPers;
+		Timestamp date_d;
+		Timestamp date_f;
 		String lieu;
 		int id_statut;
 	
@@ -125,18 +129,20 @@ System.out.println(salleReu.getIdSR());
 			
 			idSR = table.getInt("idSR");
 			nomSR = table.getString("nomSR");
-			nb_place = table.getString("nb_place");
-			jour = table.getDate("jour");
-			horaire = table.getDate("horaire");
+			nbPlaceTotal = table.getInt("nbPlaceTotal");
+			nbPers = table.getInt("nbPers");
+			date_d = table.getTimestamp("date_d");
+			date_f = table.getTimestamp("date_d");
 			lieu = table.getString("lieu");
 			id_statut = table.getInt("id_statut");
 		
 			Salle_Reunion salle = new Salle_Reunion();
 			salle.setIdSR(idSR);
 			salle.setNomSR(nomSR);
-			salle.setNb_place(nb_place);
-			salle.setJour(jour);
-			salle.setHoraire(horaire);
+			salle.setNbPlaceTotal(nbPlaceTotal);
+			salle.setNbPers(nbPers);
+			salle.setDate_d(date_d);
+			salle.setDate_f(date_f);
 			salle.setLieu(lieu);
 			Statut statu = new Statut();
 			statu.setLibeller(StatutDAO.getLibeller(id_statut));

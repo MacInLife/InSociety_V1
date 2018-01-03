@@ -1,7 +1,7 @@
 package controller;
 
-import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 import DAO.PersonnelDAO;
 import DAO.Salle_ReunionDAO;
@@ -34,38 +34,42 @@ public class GestionSalleController {
 	@FXML
 	private TableColumn<Salle_Reunion, String> Statut;
 	@FXML
-	private TableColumn<Salle_Reunion, Date> JourSR;
+	private TableColumn<Salle_Reunion, Timestamp> DateD;
 	@FXML
-	private TableColumn<Salle_Reunion, Date> HoraireSR;
+	private TableColumn<Salle_Reunion, Timestamp> DateF;
 	@FXML
-	private TableColumn<Salle_Reunion, String> Nb_place;
+	private TableColumn<Salle_Reunion, Integer> NbPlace;
+	@FXML
+	private TableColumn<Salle_Reunion, Integer> NbPers;
 	@FXML
 	private TableColumn<Salle_Reunion, String> LieuSR;
-	//Salle salle;
+	Salle_Reunion salle;
 
 	 
 	@FXML
 	private void initialize() {
-		
+		//idSR.setCellValueFactory(cellData -> cellData.getValue().getIdSRPro().asObject());
 		NomSR.setCellValueFactory(cellData -> cellData.getValue().getNomSRPro());
 		Statut.setCellValueFactory(cellData -> cellData.getValue().getStatut().getLibellerPro());
-		JourSR.setCellValueFactory(cellData -> cellData.getValue().getJourPro());
-		HoraireSR.setCellValueFactory(cellData -> cellData.getValue().getHorairePro());
-		Nb_place.setCellValueFactory(cellData -> cellData.getValue().getNb_placePro());
+		DateD.setCellValueFactory(cellData -> cellData.getValue().getDate_dPro());
+		DateF.setCellValueFactory(cellData -> cellData.getValue().getDate_fPro());
+		NbPlace.setCellValueFactory(cellData -> cellData.getValue().getNbPlaceTotalPro().asObject());
+		NbPers.setCellValueFactory(cellData -> cellData.getValue().getNbPersPro().asObject());
 		LieuSR.setCellValueFactory(cellData -> cellData.getValue().getLieuPro());
 		Statut.setCellValueFactory(cellData -> cellData.getValue().getStatut().getLibellerPro());
-	/*	tabSalle.setOnMouseClicked(new EventHandler<Event>() {
+		tabSalle.setOnMouseClicked(new EventHandler<Event>() {
 			@Override
 			public void handle(Event event) {
 				// TODO Auto-generated method stub
 				
 				 salle =   tabSalle.getSelectionModel().getSelectedItem()		;
 			}
-		});*/
+		});
 	}
 	
+	//Label Afficher tout
 	@FXML
-	public void VueAllSalle(MouseEvent actionEvent) throws SQLException, ClassNotFoundException {
+public void VueAllSalle (MouseEvent actionEvent) throws SQLException, ClassNotFoundException {
 		allSalle.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
 	        @Override

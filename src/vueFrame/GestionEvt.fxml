@@ -67,16 +67,17 @@
             <Image url="@../image/refresh.png" />
          </image>
       </ImageView>
-      <TableView editable="true" layoutX="197.0" layoutY="75.0" prefHeight="294.0" prefWidth="626.0" tableMenuButtonVisible="true">
+      <TableView fx:id="tabEvent" editable="true" layoutX="197.0" layoutY="75.0" prefHeight="294.0" prefWidth="626.0" tableMenuButtonVisible="true">
          <columns>
             <!--  <TableColumn prefWidth="44.0" text="ID" />-->
-            <TableColumn prefWidth="142.0" text="Nom" />
-            <TableColumn prefWidth="257.3334045410156" text="Description" />
-            <TableColumn minWidth="-Infinity" prefWidth="68.666748046875" resizable="false" text="Date" />
-            <TableColumn prefWidth="72.66659545898438" text="Heure début" />
-             <TableColumn prefWidth="72.66659545898438" text="Heure fin" />
-            <TableColumn minWidth="0.0" prefWidth="100.0" text="Lieu" />
-            <TableColumn minWidth="0.0" prefWidth="64.0" text="Salle" />
+            <TableColumn fx:id="NomEvt" prefWidth="142.0" text="Nom" />
+            <TableColumn fx:id="DescEvt" prefWidth="257.3334045410156" text="Description" />
+            <TableColumn fx:id="DateEvtD" minWidth="-Infinity" prefWidth="68.666748046875" resizable="false" text="Date Début" />
+            <TableColumn fx:id="DateEvtF" prefWidth="75.0" text="Date Fin" />
+            <TableColumn fx:id="H_debutEvt" prefWidth="72.66659545898438" text="Heure début" />
+             <TableColumn fx:id="H_finEvt" prefWidth="72.66659545898438" text="Heure fin" />
+            <TableColumn fx:id="LieuEvt" minWidth="0.0" prefWidth="100.0" text="Lieu" />
+            <TableColumn fx:id="SalleEvt" minWidth="0.0" prefWidth="64.0" text="Salle" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -92,28 +93,38 @@
             <Image url="@../image/Page_à_supprimer.png" />
          </image>
       </ImageView>
-      <Label layoutX="69.0" layoutY="60.0" text="Evènements passés">
+      <Label layoutX="66.0" layoutY="48.0" text="Evènements passés">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
          </font>
       </Label>
-      <Separator layoutX="17.0" layoutY="148.0" prefHeight="3.0" prefWidth="157.0" />
-      <Label layoutX="67.0" layoutY="110.0" text="Evènements à venir">
+      <Separator layoutX="18.0" layoutY="159.0" prefHeight="3.0" prefWidth="157.0" />
+      <Label layoutX="65.0" layoutY="82.0" text="Evènements à venir">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
          </font>
       </Label>
-      <ImageView fitHeight="42.0" fitWidth="29.0" layoutX="26.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="42.0" fitWidth="29.0" layoutX="22.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/eye_black.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="37.0" fitWidth="29.0" layoutX="25.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="37.0" fitWidth="29.0" layoutX="22.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/eye_green.png" />
          </image>
       </ImageView>
       <Separator layoutX="186.0" layoutY="12.0" orientation="VERTICAL" prefHeight="294.0" prefWidth="11.0" />
       <ChoiceBox layoutX="579.0" layoutY="11.0" prefHeight="24.0" prefWidth="213.0" />
+      <Label fx:id="allEvent" layoutX="78.0" layoutY="120.0" onMouseClicked="#VueAllEvt" text="Voir tout">
+         <font>
+            <Font name="Comic Sans MS" size="11.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="36.0" fitWidth="29.0" layoutX="24.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/eye_blue.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

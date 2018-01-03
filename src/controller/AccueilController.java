@@ -9,9 +9,13 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
+import javafx.scene.control.cell.TextFieldListCell;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ListCell;
 import javafx.scene.layout.Pane;
+import javafx.util.Callback;
+import javafx.util.StringConverter;
 import metier.Notes;
 import vue.VueFXMain;
 
@@ -32,19 +36,24 @@ public class AccueilController {
 		int id = 1 ; 
 		ObservableList<Notes> empData = NotesDAO.GetListeNotes(id);
 		allNotes.setItems(empData);
-	allNotes.setEditable(true);
+		allNotes.setEditable(true);
 	
-		ListView<String> list = new ListView<String>();
-		ObservableList<String> items =FXCollections.observableArrayList ();
-		list.setItems(items);
+		ListView<String> liist = new ListView<String>();
+		ObservableList<String> item =FXCollections.observableArrayList ();
+		liist.setItems(item);
+	
 	}
+	
+	
 	 public static final ObservableList<String> data = 
 		        FXCollections.observableArrayList();
 	 @SuppressWarnings({ "unchecked", "rawtypes" })
 	final ListView listView = new ListView(data);
   
-		@FXML
-		private void supN() {
+
+	 
+	 @FXML
+	private void supN() {
 		Notes selectedIndex = allNotes.getSelectionModel().getSelectedItem();
 		    if (selectedIndex!=null) {
 		        allNotes.getItems().remove(selectedIndex );
