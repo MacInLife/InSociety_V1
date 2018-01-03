@@ -84,71 +84,101 @@ public void VueAllSalle (MouseEvent actionEvent) throws SQLException, ClassNotFo
 	        }
 	    });
 	}
-}
 
-/*
+
+
 // Called when the user clicks the new button. Opens a dialog to edit details for a new person.
 
-@FXML
-private void addSalle() {
-	System.out.println(salle.toString());
-	    boolean okClicked = VueFXMain.VueGSalleAdd(user);
-	    if (okClicked) {
-	        VueFXMain.getPersonData().add(salle);
-	        // VueFXMain.getPersonData().add(user);
-	    	//tu fais appel  à la methode iinsertPers dans la classe personnelDAO
-	    	// apres tu refresh ta tableView
-	    }
-	}
+	//Ajouter Salle Label
+	@FXML
+	private void addSalle() {
+	
+		    boolean okClicked = VueFXMain.VueGSalleAdd();
+		    if (okClicked) {
+		     //   VueFXMain.getPersonData().add(user);
+		        // VueFXMain.getPersonData().add(user);
+		    	
+		    	//tu fais appel  à la methode insertPers dans la classe personnelDAO
+		        try {
+					Salle_ReunionDAO.ajoutSalleReu(salle);
+				} catch (ClassNotFoundException e) {
+					// TODO Bloc catch généré automatiquement
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Bloc catch généré automatiquement
+					e.printStackTrace();
+				}
+		    	// apres tu refresh ta tableView
+		    }
+}
+	// Called when the user clicks the edit button. Opens a dialog to edit details for the selected person.
+		//Label Modifier Utilisateur
+		@FXML
+		private void editSalle() {
+			System.out.println(salle.toString());
+			
+		  	    if (salle != null) {
+		        boolean okClicked = VueFXMain.VueGSalleEdit(salle);
+		        if (okClicked) {
+		           // showPersonDetails(user);
+		            
+		            // tu fais appel à ta methode modifierPersonnel dans la classe PersonnelDAO
+		        	try {
+						Salle_ReunionDAO.ModifSalleReu(salle);
+					} catch (ClassNotFoundException e) {
+						// TODO Bloc catch généré automatiquement
+						e.printStackTrace();
+					} catch (SQLException e) {
+						// TODO Bloc catch généré automatiquement
+						e.printStackTrace();
+					}
+		        	// tu refresh tableView
+		        }
 
+		    } else {
+		        // Nothing selected.
+		        Alert alert = new Alert(AlertType.WARNING);
+		        alert.initOwner(VueFXMain.getPrimaryStage());
+		        alert.setTitle("No Selection");
+		        alert.setHeaderText("No Person Selected");
+		        alert.setContentText("Please select a person in the table.");
 
+		        alert.showAndWait();
+		        
+		    }
+		    
+		}
+		// Called when the user clicks on the delete button.
+		//label supp user
+		@FXML
+		private void suppSalle() {
+		Salle_Reunion selectedIndex = tabSalle.getSelectionModel().getSelectedItem();
+		    if (selectedIndex!=null) {
+		        tabSalle.getItems().remove(selectedIndex );
+		        //appel a la fonction du PersonnelDAO SuppPers
+		       try {
+				Salle_ReunionDAO.SuppSalleReu(selectedIndex);
+			} catch (ClassNotFoundException e) {
+				// TODO Bloc catch généré automatiquement
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Bloc catch généré automatiquement
+				e.printStackTrace();
+			}
+		    } else {
+		        // Nothing selected.
+		        Alert alert = new Alert(AlertType.WARNING);
+		        alert.initOwner(VueFXMain.getPrimaryStage());
+		        alert.setTitle("No Selection");
+		        alert.setHeaderText("No Person Selected");
+		        alert.setContentText("Please select a person in the table.");
 
-
-// Called when the user clicks the edit button. Opens a dialog to edit details for the selected person.
-
-@FXML
-private void editSalle() {
-	System.out.println(salle.toString());
-  	    if (salle != null) {
-        boolean okClicked = VueFXMain.VueGSalleEdit(salle);
-        if (okClicked) {
-           // showPersonDetails(user);
-            
-            // tu fais appel à ta methode modifierPersonnel dans la classe PersonnelDAO
-        	// tu refresh tableView
-        }
-
-    } else {
-        // Nothing selected.
-        Alert alert = new Alert(AlertType.WARNING);
-        alert.initOwner(VueFXMain.getPrimaryStage());
-        alert.setTitle("No Selection");
-        alert.setHeaderText("No Person Selected");
-        alert.setContentText("Please select a person in the table.");
-
-        alert.showAndWait();
-        
-    }
-    
+		        alert.showAndWait();
+		    }
+		}
 }
 
-// Called when the user clicks on the delete button.
-@FXML
-private void suppSalle() {
-    int selectedIndex = tabSalle.getSelectionModel().getSelectedIndex();
-    if (selectedIndex >= 0) {
-        tabSalle.getItems().remove(selectedIndex);
-        //appel à la fonction en donnant param nom+Mail
-    } else {
-        // Nothing selected.
-        Alert alert = new Alert(AlertType.WARNING);
-        alert.initOwner(VueFXMain.getPrimaryStage());
-        alert.setTitle("No Selection");
-        alert.setHeaderText("No Person Selected");
-        alert.setContentText("Please select a person in the table.");
 
-        alert.showAndWait();
-    }
-}
-}*/
+
+
 

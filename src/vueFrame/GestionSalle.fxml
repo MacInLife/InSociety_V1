@@ -37,17 +37,17 @@
             </SplitMenuButton>
          </graphic>
       </Label>
-      <Label layoutX="85.0" layoutY="167.0" text="Créer">
+      <Label fx:id="addSalleView" layoutX="85.0" layoutY="167.0" onMouseClicked="#addSalle" text="Créer">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
          </font>
       </Label>
-      <Label layoutX="81.0" layoutY="237.0" text="Modifier">
+      <Label fx:id="editSalleView" layoutX="81.0" layoutY="237.0" onMouseClicked="#EditSalle" text="Modifier">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
          </font>
       </Label>
-      <Label layoutX="84.0" layoutY="313.0" text="Supprimer">
+      <Label fx:id="suppSalleView" layoutX="84.0" layoutY="313.0" onMouseClicked="#SuppSalle" text="Supprimer">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
          </font>

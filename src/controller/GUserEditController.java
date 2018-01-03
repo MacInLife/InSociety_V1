@@ -176,11 +176,10 @@ public class GUserEditController {
         if (Prenom.getText() == null ||Prenom.getText().length() == 0) {
             errorMessage += "No valid street!\n";
         }
-/*
-       if (DatedeNaissance.getValue() == null || DatedeNaissance.getValue() == 0) {
+        if ( DatedeNaissance.getValue() == null || DatedeNaissance.getPromptText().length() == 0) {
             errorMessage += "No valid date!\n";
-          }
-        */
+     
+       }
 
         if (Service.getText() == null || Service.getText().length() == 0) {
             errorMessage += "No valid city!\n";

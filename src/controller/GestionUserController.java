@@ -147,7 +147,7 @@ public void Afficher (MouseEvent actionEvent) throws SQLException, ClassNotFound
 		    	
 		    	//tu fais appel  à la methode insertPers dans la classe personnelDAO
 		        try {
-					PersonnelDAO.insertPers(user);;
+					PersonnelDAO.insertPers(user);
 				} catch (ClassNotFoundException e) {
 					// TODO Bloc catch généré automatiquement
 					e.printStackTrace();
