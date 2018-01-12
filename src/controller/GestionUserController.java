@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import DAO.PersonnelDAO;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -75,6 +77,10 @@ public class GestionUserController {
 	@FXML
 	private TableColumn<Personnel, String> Statut;
 	Personnel user;
+	@FXML
+	private TextField filtreUser;
+	@FXML
+	private ImageView actualise;
 	 
 	@FXML
 	private void initialize() {
@@ -98,6 +104,7 @@ public class GestionUserController {
 		}
 	});
 	}
+
 	
 	//Label Afficher tout
 	@FXML
@@ -116,6 +123,29 @@ public void afficher (MouseEvent actionEvent) throws SQLException, ClassNotFound
 	        }
 	    });
 	}
+	
+	
+	//Actualiser
+	@FXML
+	public void refresh (MouseEvent actionEvent) {
+		alluser.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			
+			public void handle (MouseEvent event) {
+				try {
+					@SuppressWarnings("unused")
+					ObservableList<Personnel> empData = PersonnelDAO.GetListePersonnel();
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				tabUser.refresh();
+			}
+		});
+	}
+	
 	
 	//imageView Oeil
 	@FXML
@@ -146,16 +176,6 @@ public void Afficher (MouseEvent actionEvent) throws SQLException, ClassNotFound
 		        // VueFXMain.getPersonData().add(user);
 		    	
 		    	//tu fais appel  à la methode insertPers dans la classe personnelDAO
-		        try {
-					PersonnelDAO.insertPers(user);
-				} catch (ClassNotFoundException e) {
-					// TODO Bloc catch généré automatiquement
-					e.printStackTrace();
-				} catch (SQLException e) {
-					// TODO Bloc catch généré automatiquement
-					e.printStackTrace();
-				}
-		    	// apres tu refresh ta tableView
 		    }
 		}
 	
@@ -312,6 +332,13 @@ public void Afficher (MouseEvent actionEvent) throws SQLException, ClassNotFound
 
 	        alert.showAndWait();
 	    }
+	}
+	
+	//Permet de rechercher un personnel spécifiquement
+	@FXML
+	private void TriPers (ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
+		ObservableList<Personnel> empData = PersonnelDAO.GetListFiltrePers(filtreUser.getText());
+		tabUser.setItems(empData);
 	}
 	
 }

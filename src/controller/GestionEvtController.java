@@ -78,6 +78,7 @@ public class GestionEvtController {
 	        public void handle(MouseEvent event) {      	
 	        		try {
 						ObservableList<Evenements> empData =  EvenementsDAO.GetListeEvent();
+						System.out.println(empData);
 						tabEvent.setItems(empData);
 					} catch (ClassNotFoundException | SQLException e) {
 						// TODO Bloc catch généré automatiquement

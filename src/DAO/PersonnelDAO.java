@@ -223,7 +223,7 @@ System.out.println(pers.getId());
  			.replace("[", "![");
  	
  	String req = "SELECT id, nom, prenom, login, mail "
- 			+ "FROM jeune WHERE  id LIKE ? ESCAPE '!' OR nom LIKE ? ESCAPE '!' "
+ 			+ "FROM personnel WHERE  id LIKE ? ESCAPE '!' OR nom LIKE ? ESCAPE '!' "
  			+ "OR prenom LIKE ? ESCAPE '!' OR login LIKE ? ESCAPE '!' OR mail LIKE ? ESCAPE '!'";
  	
  	int id;

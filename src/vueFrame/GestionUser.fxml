@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -67,7 +67,7 @@
             <Image url="@../image/modifier-icone-5132-128.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="26.0" layoutX="796.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="actualise" fitHeight="50.0" fitWidth="26.0" layoutX="796.0" layoutY="37.0" onMouseClicked="#refresh" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/refresh.png" />
          </image>
@@ -100,7 +100,7 @@
             <Font name="Comic Sans MS" size="15.0" />
          </font>
          <graphic>
-            <ChoiceBox prefHeight="25.0" prefWidth="213.0" />
+            <TextField fx:id="filtreUser" onMouseClicked="#TriPers" />
          </graphic>
       </Label>
       <Label fx:id="alluser" layoutX="95.0" layoutY="331.0" onMouseClicked="#afficher" text="Afficher tout">

@@ -1,18 +1,29 @@
 package controller;
 
+import java.awt.Insets;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 
+import DAO.NotesDAO;
+import DAO.PersonnelDAO;
+import DAO.ServiceDAO;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Labeled;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputControl;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import metier.Notes;
 import metier.Personnel;
 import metier.Service;
 import metier.Role;
@@ -54,8 +65,9 @@ private GridPane UserAddView;
     private Personnel person;
     private boolean okClicked = false;
 
-    @FXML
-    private void initialize() {
+    
+    @SuppressWarnings("unused")
+	private void initialize() {
     }
 
     /**
@@ -76,6 +88,7 @@ private GridPane UserAddView;
     @FXML
     private void AddOk() {
         if (isInputValid()) {
+        	person = new Personnel();
             person.setLogin(Login.getText());
             person.setMdp(mdp.getText());
             person.setNom(Nom.getText());
@@ -101,7 +114,19 @@ private GridPane UserAddView;
             statu.setLibeller(Statut.getText());
             person.setStatut(statu);
           
+            System.out.println(person);
             
+            try {
+				PersonnelDAO.insertPers(person);
+			} catch (ClassNotFoundException e) {
+				// TODO Bloc catch généré automatiquement
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Bloc catch généré automatiquement
+				e.printStackTrace();
+			}
+	    	// apres tu refresh ta tableView
+	    
             okClicked = true;
             dialogStage.close();
         }

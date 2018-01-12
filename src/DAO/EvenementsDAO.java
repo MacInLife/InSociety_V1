@@ -22,7 +22,7 @@ public class EvenementsDAO {
         Connection co = Connect.getInstance().getConnection();
        // constitution d'une commande basée sur une requête SQL 
        // en vue d'être exécutée sur une connexion donnée     
-       String req = "SELECT `id_event` FROM `evenement` WHERE nomEvt = ?";
+       String req = "SELECT id_event FROM evenement WHERE nomEvt = ?";
       
        PreparedStatement pst = co.prepareStatement(req);
        pst.setString(1, nomEvt);
@@ -132,7 +132,7 @@ System.out.println(event.getId_evt());
 		ResultSet table = pst.executeQuery();
 		while (table.next()) {
 			
-			id_evt = table.getInt("id_evt");
+			id_evt = table.getInt("id_event");
 			nomEvt = table.getString("nomEvt");
 			type = table.getString("type");
 			jour_d = table.getDate("jour_d");
@@ -140,7 +140,7 @@ System.out.println(event.getId_evt());
 			h_debut = table.getTime("h_debut");
 			h_fin = table.getTime("h_fin");
 			lieu = table.getString("lieu");
-			idSR = table.getInt("idSR");
+			idSR = table.getInt("id_SR");
 		
 			Evenements event = new Evenements();
 			event.setId_evt(id_evt);
@@ -152,10 +152,10 @@ System.out.println(event.getId_evt());
 			event.setH_fin(h_fin);
 			
 			event.setLieu(lieu);
-			//Salle_Reunion salle = new Salle_Reunion();
-			//salle.setIdSR(Salle_ReunionDAO.GetIdSR(nomSR));
-			//salle.setNomSR(salle);
-			
+			Salle_Reunion salle = new Salle_Reunion();
+			salle.setIdSR(23);
+			salle.setNomSR("dfyjdty");
+		System.out.println(event);
 	
 
 		}
