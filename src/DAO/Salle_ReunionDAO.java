@@ -44,7 +44,7 @@ public class Salle_ReunionDAO  {
            
         //Création de la requête inserer new evenements
         String requeteSQL = "INSERT INTO `salle_reunion`(`NbPlaceTotal`,`nbPers`, `date_d`, `date_f`, `nomSR`, `id_statut`, `lieu`) "
-                + "VALUES (?,?,?,?,?,?)";
+                + "VALUES (?,?,?,?,?,?,?)";
         
         //préparer la requête
          PreparedStatement pst = co.prepareStatement(requeteSQL);
@@ -68,7 +68,7 @@ public class Salle_ReunionDAO  {
 		Connection co = Connect.getInstance().getConnection();
 System.out.println(salleReu.getIdSR());
 		// Création de la requête inserer new pers
-		String requeteSQL = "UPDATE `salle_reunion` SET `nbPlaceTotal`= ?,`nbPers`= ?,`date_d`= ?,`date_f`= ?,`nomSR`= ?,`id_statut`= ?,`lieu`= ?";
+		String requeteSQL = "UPDATE `salle_reunion` SET `nbPlaceTotal`= ?,`nbPers`= ?,`date_d`= ?,`date_f`= ?,`nomSR`= ?,`id_statut`= ?,`lieu`= ? WHERE  id_SR = ?";
 
 		// préparer la requête
 		PreparedStatement pst = co.prepareStatement(requeteSQL);
@@ -82,7 +82,7 @@ System.out.println(salleReu.getIdSR());
 		//Recup�re et verif cl� etrang�re de la table Statut
 		pst.setInt(6, StatutDAO.GetIdStat(salleReu.getStatut().getLibeller()));
 		pst.setString(7, salleReu.getLieu());
-
+		pst.setInt(8, salleReu.getIdSR());
 	
 
 		int nbligne = pst.executeUpdate();
@@ -126,13 +126,12 @@ System.out.println(salleReu.getIdSR());
 
 		ResultSet table = pst.executeQuery();
 		while (table.next()) {
-			
-			idSR = table.getInt("idSR");
+			idSR = table.getInt("id_SR");
 			nomSR = table.getString("nomSR");
 			nbPlaceTotal = table.getInt("nbPlaceTotal");
 			nbPers = table.getInt("nbPers");
 			date_d = table.getTimestamp("date_d");
-			date_f = table.getTimestamp("date_d");
+			date_f = table.getTimestamp("date_f");
 			lieu = table.getString("lieu");
 			id_statut = table.getInt("id_statut");
 		
@@ -147,7 +146,7 @@ System.out.println(salleReu.getIdSR());
 			Statut statu = new Statut();
 			statu.setLibeller(StatutDAO.getLibeller(id_statut));
 			salle.setStatut(statu);
-	
+			SalleList.add(salle);
 
 		}
 		table.close();

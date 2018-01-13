@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -20,23 +17,6 @@
             <Font name="BlackChancery" size="19.0" />
          </font>
       </Text>
-      <Label contentDisplay="RIGHT" layoutX="216.0" layoutY="4.0" prefHeight="37.0" prefWidth="242.0" text="Trier par : " underline="true">
-         <font>
-            <Font name="Comic Sans MS" size="15.0" />
-         </font>
-         <graphic>
-            <SplitMenuButton alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="37.0" prefWidth="80.0" text="..." textAlignment="CENTER">
-               <font>
-                  <Font name="Comic Sans MS" size="18.0" />
-               </font>
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Ordre Alphabétique A-Z" />
-                  <MenuItem mnemonicParsing="false" text="Service" />
-                  <MenuItem mnemonicParsing="false" text="Rôle" />
-               </items>
-            </SplitMenuButton>
-         </graphic>
-      </Label>
       <Label fx:id="addUserView" layoutX="68.0" layoutY="118.0" onMouseClicked="#addUser" text="Ajouter Utilisateur">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
@@ -52,32 +32,32 @@
             <Font name="Comic Sans MS" size="11.0" />
          </font>
       </Label>
-      <ImageView fx:id="addUserView0" fitHeight="53.0" fitWidth="32.0" layoutX="21.0" layoutY="110.0" onMouseClicked="#addUser0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="addUserView0" fitHeight="53.0" fitWidth="32.0" layoutX="21.0" layoutY="110.0" onMouseClicked="#addUser" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/user_add.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="suppUserView0" fitHeight="40.0" fitWidth="32.0" layoutX="18.0" layoutY="239.0" onMouseClicked="#suppUser0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="suppUserView0" fitHeight="40.0" fitWidth="32.0" layoutX="18.0" layoutY="239.0" onMouseClicked="#suppUser" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/user_delete.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="editUserView0" fitHeight="53.0" fitWidth="40.0" layoutX="18.0" layoutY="164.0" onMouseClicked="#editUser0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="editUserView0" fitHeight="53.0" fitWidth="40.0" layoutX="18.0" layoutY="164.0" onMouseClicked="#editUser" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/modifier-icone-5132-128.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="actualise" fitHeight="50.0" fitWidth="26.0" layoutX="796.0" layoutY="37.0" onMouseClicked="#refresh" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="reloadUserView0" fitHeight="50.0" fitWidth="26.0" layoutX="25.0" layoutY="49.0" onMouseClicked="#afficher" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/refresh.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="allUser" fitHeight="37.0" fitWidth="32.0" layoutX="30.0" layoutY="322.0" onMouseClicked="#Afficher" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="allUser" fitHeight="37.0" fitWidth="32.0" layoutX="30.0" layoutY="322.0" onMouseClicked="#afficher" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/eye_green.png" />
          </image>
       </ImageView>
-      <TableView fx:id="tabUser" editable="true" layoutX="200.0" layoutY="74.0" prefHeight="305.0" prefWidth="628.0" tableMenuButtonVisible="true">
+      <TableView fx:id="tabUser" editable="true" layoutX="200.0" layoutY="12.0" prefHeight="367.0" prefWidth="628.0" tableMenuButtonVisible="true">
          <columns>
             <TableColumn fx:id="Login" prefWidth="93.0" text="Login" />
             <TableColumn fx:id="Nom" prefWidth="94.0" text="Nom" />
@@ -95,25 +75,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Label contentDisplay="RIGHT" layoutX="483.0" layoutY="2.0" prefHeight="41.0" prefWidth="339.0" text="Rechercher :" underline="true">
-         <font>
-            <Font name="Comic Sans MS" size="15.0" />
-         </font>
-         <graphic>
-            <TextField fx:id="filtreUser" onMouseClicked="#TriPers" />
-         </graphic>
-      </Label>
       <Label fx:id="alluser" layoutX="95.0" layoutY="331.0" onMouseClicked="#afficher" text="Afficher tout">
-         <font>
-            <Font name="Comic Sans MS" size="11.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="41.0" fitWidth="32.0" layoutX="14.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/save.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="51.0" layoutY="50.0" text="Enregistrer modification">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
          </font>
@@ -121,5 +83,10 @@
       <Separator layoutX="21.0" layoutY="297.0" prefHeight="3.0" prefWidth="164.0" />
       <Separator layoutX="12.0" layoutY="89.0" prefHeight="3.0" prefWidth="164.0" />
       <Separator layoutX="190.0" layoutY="12.0" orientation="VERTICAL" prefHeight="367.0" prefWidth="10.0" />
+      <Label fx:id="reloadUserView" layoutX="80.0" layoutY="55.0" onMouseClicked="#afficher" text="Actualiser">
+         <font>
+            <Font name="Comic Sans MS" size="11.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

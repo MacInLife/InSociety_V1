@@ -40,7 +40,7 @@ public class VueFXMain extends Application {
 			 new BorderPane();
 			
 			FXMLLoader acc = new FXMLLoader() ;
-			acc.setLocation( VueFXMain.class.getClassLoader().getResource("vueFrame/VuePageConnexion.fxml"));
+			acc.setLocation( VueFXMain.class.getClassLoader().getResource("vueFrame/GestionSalle.fxml"));
 			Pane rootL = (Pane)acc.load();
 			Scene scene = new Scene(rootL,850,600);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -121,8 +121,12 @@ public class VueFXMain extends Application {
 	        System.out.println(person);
 	        // Set the person into the controller.
 	        GUserEditController controller = loader.getController();
-	        controller.setPersonnel(person);
-	        controller.setDialogStage(dialogStage);
+	        try {
+	        	controller.loadPersonnel(person);
+	        } catch (Exception e) {
+	        	// TODO message
+	        }
+	        	controller.setDialogStage(dialogStage);
 	        
 	        // Show the dialog and wait until the user closes it
 	        dialogStage.showAndWait();

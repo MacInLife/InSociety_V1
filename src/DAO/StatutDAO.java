@@ -5,6 +5,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import metier.Statut;
 
 public class StatutDAO {
@@ -92,5 +95,20 @@ public class StatutDAO {
             i = table.getString("libeller");
         }
         return i;
+	}
+	
+	public static ObservableList<String> getStatutList() throws SQLException {
+		ObservableList<String> slist = FXCollections.observableArrayList();
+        Connection co = Connect.getInstance().getConnection();
+        String requeteSQL = "SELECT `libeller` FROM `statut`";
+        PreparedStatement pst = co.prepareStatement(requeteSQL);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next())
+        {
+        	slist.add(rs.getString("libeller"));
+        }
+		
+	    return slist;
+		
 	}
 }

@@ -71,14 +71,6 @@
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="10.0" layoutY="150.0" text="Service">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-               <font>
-                  <Font name="Comic Sans MS" size="12.0" />
-               </font>
-            </Label>
             <Label layoutX="10.0" layoutY="147.0" text="Rôle">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -159,16 +151,7 @@
             </TextField>
             <DatePicker fx:id="DatedeNaissance" editable="false" prefHeight="29.0" prefWidth="197.0" promptText="Date de Naissance" />
             <ComboBox fx:id="CServ" prefHeight="25.0" prefWidth="198.0" />
-            <TextField fx:id="Service" layoutX="10.0" layoutY="114.0" prefHeight="31.0" prefWidth="127.0" promptText="Service">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </TextField>
-            <TextField fx:id="Role" layoutX="10.0" layoutY="140.0" promptText="Rôle">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </TextField>
+            <ComboBox fx:id="CRole" layoutX="10.0" layoutY="150.0" prefHeight="25.0" prefWidth="198.0" />
             <TextField fx:id="Mail" layoutX="10.0" layoutY="166.0" promptText="Mail">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -189,11 +172,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </TextField>
-            <TextField fx:id="Statut" layoutX="10.0" layoutY="270.0" promptText="Statut">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </TextField>
+            <ComboBox fx:id="CStatut" layoutX="10.0" layoutY="195.0" prefHeight="25.0" prefWidth="198.0" />
          </children>
          <GridPane.margin>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

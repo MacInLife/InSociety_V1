@@ -7,7 +7,9 @@ import java.time.format.DateTimeFormatter;
 
 import DAO.NotesDAO;
 import DAO.PersonnelDAO;
+import DAO.RoleDAO;
 import DAO.ServiceDAO;
+import DAO.StatutDAO;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -43,9 +45,9 @@ private GridPane UserAddView;
 	@FXML
 	private DatePicker DatedeNaissance;
 	@FXML
-	private TextField Service;
+	private ComboBox<String> CServ;
 	@FXML
-	private TextField Role;
+	private ComboBox<String> CRole;
 	@FXML
 	private TextField Mail;
 	@FXML
@@ -55,7 +57,7 @@ private GridPane UserAddView;
 	@FXML
 	private TextField Localisation;
 	@FXML
-	private TextField Statut;
+	private ComboBox<String> CStatut;
 	@FXML
 	private Button AddUser;
 	@FXML
@@ -65,9 +67,21 @@ private GridPane UserAddView;
     private Personnel person;
     private boolean okClicked = false;
 
-    
-    @SuppressWarnings("unused")
-	private void initialize() {
+    @FXML
+	private void initialize()  {
+    	ServiceDAO sdao = new ServiceDAO();
+    	try {
+    		ObservableList<String> ol = sdao.getServiceList();
+    		CServ.setItems(ol);
+    		RoleDAO rdao = new RoleDAO();
+    		ObservableList<String> ol1 = rdao.getRoleNameList();
+    		CRole.setItems(ol1);
+    		StatutDAO stdao = new StatutDAO();
+    		ObservableList<String> ol2 = stdao.getStatutList();
+    		CStatut.setItems(ol2);
+    	} catch (Exception e) {
+    		//TODO mettre une erreur 
+    	}
     }
 
     /**
@@ -93,16 +107,13 @@ private GridPane UserAddView;
             person.setMdp(mdp.getText());
             person.setNom(Nom.getText());
             person.setPrenom(Prenom.getText());
-            DatedeNaissance.setOnAction(event -> {
-              	Date date = Date.valueOf(DatedeNaissance.getValue());
-                person.setDate_naissance(Date.valueOf(DatedeNaissance.getValue()));
-               });
-           Service serv = new Service();
-			serv.setType_service(Service.getText());
+            person.setDate_naissance(Date.valueOf(DatedeNaissance.getValue()));
+            Service serv = new Service();
+			serv.setType_service(CServ.getValue());
 			person.setService(serv);
 			
 			Role role = new Role();
-			role.setNom_role(Role.getText());
+			role.setNom_role(CRole.getValue());
 			person.setRole(role);
             
             person.setMail(Mail.getText());
@@ -111,7 +122,7 @@ private GridPane UserAddView;
             person.setLocalisation(Localisation.getText());
             //Creer objet statut
             Statut statu = new Statut();
-            statu.setLibeller(Statut.getText());
+            statu.setLibeller(CStatut.getValue());
             person.setStatut(statu);
           
             System.out.println(person);
@@ -163,16 +174,8 @@ private GridPane UserAddView;
 
        if ( DatedeNaissance.getValue() == null || DatedeNaissance.getPromptText().length() == 0) {
             errorMessage += "No valid date!\n";
-     
-       }
-        
+        }
 
-        if (Service.getText() == null || Service.getText().length() == 0) {
-            errorMessage += "No valid Service!\n";
-        }
-        if (Role.getText() == null || Role.getText().length() == 0) {
-            errorMessage += "No valid Role!\n";
-        }
         if (Mail.getText() == null || Mail.getText().length() == 0) {
             errorMessage += "No valid Mail!\n";
         }
@@ -185,10 +188,15 @@ private GridPane UserAddView;
         if (Localisation.getText() == null || Localisation.getText().length() == 0) {
             errorMessage += "No valid Localisation!\n";
         }
-        if (Statut.getText() == null || Statut.getText().length() == 0) {
-            errorMessage += "No valid statut!\n";
+        if (CStatut.getValue() == null || CStatut.getValue().length() == 0) {
+            errorMessage += "No valid city!\n";
         }
-
+        if (CServ.getValue() == null || CServ.getValue().length() == 0) {
+            errorMessage += "No valid city!\n";
+        }
+        if (CRole.getValue() == null || CRole.getValue().length() == 0) {
+            errorMessage += "No valid city!\n";
+        }
         if (errorMessage.length() == 0) {
             return true;
         } else {

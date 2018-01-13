@@ -5,6 +5,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import metier.Role;
 
 
@@ -96,5 +99,20 @@ public class RoleDAO {
             i = table.getString("nom_role");
         }
         return i;
+	}
+	
+	public static ObservableList<String> getRoleNameList() throws SQLException {
+		ObservableList<String> slist = FXCollections.observableArrayList();
+        Connection co = Connect.getInstance().getConnection();
+        String requeteSQL = "SELECT `nom_role` FROM `role`";
+        PreparedStatement pst = co.prepareStatement(requeteSQL);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next())
+        {
+        	slist.add(rs.getString("nom_role"));
+        }
+		
+	    return slist;
+		
 	}
 }

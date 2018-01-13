@@ -139,7 +139,7 @@ public class Salle_Reunion {
     }
 
     public void setDate_f(Timestamp date_f) {
-        this.date_d.set(date_f);
+        this.date_f.set(date_f);
     }
     
   

@@ -1,9 +1,19 @@
 package controller;
 
+import java.sql.Date;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+
+import DAO.StatutDAO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -28,23 +38,53 @@ public class GSalleEditController {
 		@FXML
 		private TextField LieuSR;
 		@FXML
-		private TextField Statut;
+		private ComboBox<String> statutSR;
 		@FXML
-		private Button EditSalle;
+		private Button editSalleView;
 		@FXML
 		private Button AnnulEditSalle;
 		
 		private Stage dialogStage;
 	    private Salle_Reunion salles;
 	    private boolean okClicked = false;
-
-	
-	    @SuppressWarnings("unused")
-		private final String pattern = "dd.mm.yyyy hh:mm";
+   
+		@FXML
+		private ChoiceBox<String> HSRD;
+		@FXML
+		private ChoiceBox<String> MSRD;
+		@FXML
+		private ChoiceBox<String> HSRF;
+		@FXML
+		private ChoiceBox<String> MSRF;
 	    
 	    @FXML
 	    private void initialize() {
-	    
+	    	ObservableList<String> olmin = FXCollections.observableArrayList();
+	    	for(int i = 0; i<=60; i++) {
+		    		String min = "";
+	    		if(i<10) min+="0";
+	    		min+=i;
+	    		olmin.add(min);
+	    	}
+	    	ObservableList<String> olheure = FXCollections.observableArrayList();
+	    	for(int i = 0; i<=24; i++) {
+	    		String heure = "";
+	    		if(i<10) heure+="0";
+	    		heure+=i;
+	    		olheure.add(heure);
+	    	}
+	    	
+	    	HSRD.setItems(olheure);
+	    	HSRF.setItems(olheure);
+	    	MSRD.setItems(olmin);
+	    	MSRF.setItems(olmin);
+	    	
+	    	try {
+				statutSR.setItems(StatutDAO.getStatutList());
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	    }
 
 	    /**
@@ -62,21 +102,53 @@ public class GSalleEditController {
 	     * @param person
 	     */
 	    public void setSalle_Reunion(Salle_Reunion salles) {
-
-	    	
 	        this.salles = salles;
-	        
 	        System.out.println(this.salles);
 	        NomSR.setText(this.salles.getNomSR());
-	        //NbPlaceSR.setText(this.salles.getNbPlaceTotal());
-	        //NbPerso.setText(this.salles.getNbPers());
-	        //DateSRD.setAccessibleText(this.salles.getDate_d());
-	        //DateSRF.setAccessibleText(this.salles.getDate_f());
+	        NbPlaceSR.setText("" + this.salles.getNbPlaceTotal());
+	        NbPerso.setText("" + this.salles.getNbPers());
+	        DateSRD.setValue(this.salles.getDate_d().toLocalDateTime().toLocalDate());
+	        DateSRF.setValue(this.salles.getDate_f().toLocalDateTime().toLocalDate());
+	        
+	        int hsrd = this.salles.getDate_d().getHours();
+	        String shsrd = "";
+	        if(hsrd<10) 
+	        	shsrd += "0" + hsrd;
+	         else 
+	        	shsrd += hsrd;
+	        HSRD.setValue(shsrd);
+	        
+	        int hsrf = this.salles.getDate_f().getHours();
+	        String shsrf = "";
+	        if(hsrf<10) 
+	        	shsrf += "0" + hsrf;
+	         else 
+	        	shsrf += hsrf;
+	        HSRF.setValue(shsrf);
+	        
+	        int msrd = this.salles.getDate_d().getMinutes();
+	        String smsrd = "";
+	        if(msrd<10) 
+	        	smsrd += "0" + msrd;
+	         else 
+	        	smsrd += msrd;
+	        MSRD.setValue(smsrd);
+	        
+	        int msrf = this.salles.getDate_f().getMinutes();
+	        String smsrf = "";
+	        if(msrf<10) 
+	        	smsrf += "0" + msrf;
+	         else 
+	        	smsrf += msrf;
+	         MSRF.setValue(smsrf);
+	        	        
 	        LieuSR.setText(this.salles.getLieu());
-	        Statut.setText(this.salles.getStatut().getLibeller());
+	        statutSR.setValue(this.salles.getStatut().getLibeller());
 	      		  
 	       
 	    }
+	    
+	    
 
 	    /**
 	     * Returns true if the user clicked OK, false otherwise.
@@ -93,17 +165,21 @@ public class GSalleEditController {
 	    @FXML
 	    private void SaveEditOk() {
 	        if (isInputValid()) {
-	        	
 	        	salles.setNomSR(NomSR.getText());
-	        	salles.setNbPlaceTotal(NbPlaceSR.getLength());
-	        	salles.setNbPers(NbPerso.getLength());
-	        	//salles.setDate_d(DateSRD.getPromptText());
-	        	//salles.setDate_f(DateSRF.getPromptText());
+	        	salles.setNbPlaceTotal(Integer.parseInt(NbPlaceSR.getText()));
+	        	salles.setNbPers(Integer.parseInt(NbPerso.getText()));
+	        	
+	        	Date date = Date.valueOf(DateSRD.getValue());
+	        	Timestamp time = new Timestamp(date.getTime() + Integer.parseInt(HSRD.getValue())*3600*1000 + Integer.parseInt(MSRD.getValue())*60*1000);
+	        	salles.setDate_d(time);
+	        	
+	        	date = Date.valueOf(DateSRF.getValue());
+	          	time = new Timestamp(date.getTime() + Integer.parseInt(HSRF.getValue())*3600*1000 + Integer.parseInt(MSRF.getValue())*60*1000);
+	        	salles.setDate_f(time);
 	        	salles.setLieu(LieuSR.getText());
-	        
 	            //Creer objet statut
 	            Statut statu = new Statut();
-	            statu.setLibeller(Statut.getText());
+	            statu.setLibeller(statutSR.getValue());
 	            salles.setStatut(statu);
 	          
 	            
@@ -144,10 +220,6 @@ public class GSalleEditController {
 	        if (LieuSR.getText() == null || LieuSR.getText().length() == 0) {
 	            errorMessage += "No valid Lieu!\n";
 	        }
-	        if (Statut.getText() == null || Statut.getText().length() == 0) {
-	            errorMessage += "No valid statut!\n";
-	        }
-
 	        if (errorMessage.length() == 0) {
 	            return true;
 	        } else {

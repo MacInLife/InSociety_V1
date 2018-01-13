@@ -111,7 +111,7 @@ public class PersonnelDAO {
 	public static void ModifPers(Personnel  pers) throws SQLException, ClassNotFoundException {
 		// Je me connecte
 		Connection co = Connect.getInstance().getConnection();
-System.out.println(pers.getId());
+System.out.println(pers);
 		// Création de la requête inserer new pers
 		String requeteSQL = "UPDATE `personnel` " + "SET `nom`= ?,`prenom`= ?,`adresse`= ?,`mail`= ?,`Tel`= ?,"
 				+ "`id_role`= ?,`id_service`= ?,`id_statut`= ?,`login`= ?,`date_naissance`= ?,"

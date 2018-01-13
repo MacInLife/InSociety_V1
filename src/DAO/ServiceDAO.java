@@ -6,6 +6,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -99,6 +101,21 @@ public class ServiceDAO {
             i = table.getString("type_service");
         }
         return i;
+	}
+	
+	public static ObservableList<String> getServiceList() throws SQLException {
+		ObservableList<String> slist = FXCollections.observableArrayList();
+        Connection co = Connect.getInstance().getConnection();
+        String requeteSQL = "SELECT `type_service` FROM `service`";
+        PreparedStatement pst = co.prepareStatement(requeteSQL);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next())
+        {
+        	slist.add(rs.getString("type_service"));
+        }
+		
+	    return slist;
+		
 	}
 	
 
