@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
@@ -20,75 +17,53 @@
             <Font name="BlackChancery" size="19.0" />
          </font>
       </Text>
-      <Label contentDisplay="RIGHT" layoutX="197.0" layoutY="4.0" prefHeight="37.0" prefWidth="242.0" text="Trier par : " underline="true">
-         <font>
-            <Font name="Comic Sans MS" size="15.0" />
-         </font>
-         <graphic>
-            <SplitMenuButton alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="21.0" prefWidth="80.0" text="..." textAlignment="CENTER">
-               <font>
-                  <Font name="Comic Sans MS" size="18.0" />
-               </font>
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Ordre Alphabétique A-Z" />
-                  <MenuItem mnemonicParsing="false" text="Date" />
-                  <MenuItem mnemonicParsing="false" text="Lieu" />
-               </items>
-            </SplitMenuButton>
-         </graphic>
-      </Label>
-      <Label layoutX="101.0" layoutY="197.0" text="Créer">
+      <Label fx:id="AddEvtVue" layoutX="101.0" layoutY="197.0" onMouseClicked="#addEvt" text="Créer">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
          </font>
       </Label>
-      <Label layoutX="95.0" layoutY="255.0" text="Modifier">
+      <Label fx:id="EditEvtVue" layoutX="95.0" layoutY="255.0" onMouseClicked="#editEvt" text="Modifier">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
          </font>
       </Label>
-      <Label layoutX="89.0" layoutY="317.0" text="Supprimer">
+      <Label fx:id="SuppEvtVue" layoutX="89.0" layoutY="317.0" onMouseClicked="#suppEvt" text="Supprimer">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
          </font>
       </Label>
-      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="36.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="AddEvt" fitHeight="37.0" fitWidth="36.0" layoutX="36.0" layoutY="186.0" onMouseClicked="#addEvt" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/green-plus-icon-7.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="47.0" fitWidth="36.0" layoutX="38.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="EditEvt" fitHeight="47.0" fitWidth="36.0" layoutX="38.0" layoutY="244.0" onMouseClicked="#editEvt" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/icone_glas.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="29.0" layoutX="792.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="refresh" fitHeight="26.0" fitWidth="29.0" layoutX="88.0" layoutY="148.0" onMouseClicked="#VueAllEvt" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/refresh.png" />
          </image>
       </ImageView>
-      <TableView fx:id="tabEvent" editable="true" layoutX="197.0" layoutY="75.0" prefHeight="294.0" prefWidth="626.0" tableMenuButtonVisible="true">
+      <TableView fx:id="tabEvent" editable="true" layoutX="197.0" layoutY="12.0" prefHeight="368.0" prefWidth="626.0" tableMenuButtonVisible="true">
          <columns>
             <!--  <TableColumn prefWidth="44.0" text="ID" />-->
             <TableColumn fx:id="NomEvt" prefWidth="142.0" text="Nom" />
             <TableColumn fx:id="DescEvt" prefWidth="257.3334045410156" text="Description" />
             <TableColumn fx:id="DateEvtD" minWidth="-Infinity" prefWidth="68.666748046875" resizable="false" text="Date Début" />
-            <TableColumn fx:id="DateEvtF" prefWidth="75.0" text="Date Fin" />
-            <TableColumn fx:id="H_debutEvt" prefWidth="72.66659545898438" text="Heure début" />
+            <TableColumn fx:id="DateEvtF" prefWidth="78.0" text="Date Fin" />
+            <TableColumn fx:id="H_debutEvt" prefWidth="84.0" text="Heure début" />
              <TableColumn fx:id="H_finEvt" prefWidth="72.66659545898438" text="Heure fin" />
             <TableColumn fx:id="LieuEvt" minWidth="0.0" prefWidth="100.0" text="Lieu" />
-            <TableColumn fx:id="SalleEvt" minWidth="0.0" prefWidth="64.0" text="Salle" />
+            <TableColumn fx:id="SalleEvt" minWidth="0.0" prefWidth="78.0" text="Salle" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Label contentDisplay="RIGHT" layoutX="482.0" layoutY="11.0" prefHeight="24.0" prefWidth="310.0" text="Rechercher :" underline="true">
-         <font>
-            <Font name="Comic Sans MS" size="15.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="37.0" fitWidth="36.0" layoutX="36.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="SuppEvt" fitHeight="37.0" fitWidth="36.0" layoutX="36.0" layoutY="306.0" onMouseClicked="#suppEvt" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/Page_à_supprimer.png" />
          </image>
@@ -115,13 +90,12 @@
          </image>
       </ImageView>
       <Separator layoutX="186.0" layoutY="12.0" orientation="VERTICAL" prefHeight="294.0" prefWidth="11.0" />
-      <ChoiceBox layoutX="579.0" layoutY="11.0" prefHeight="24.0" prefWidth="213.0" />
       <Label fx:id="allEvent" layoutX="78.0" layoutY="120.0" onMouseClicked="#VueAllEvt" text="Voir tout">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
          </font>
       </Label>
-      <ImageView fitHeight="36.0" fitWidth="29.0" layoutX="24.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="oeil" fitHeight="36.0" fitWidth="29.0" layoutX="24.0" layoutY="113.0" onMouseClicked="#VueAllEvt" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/eye_blue.png" />
          </image>

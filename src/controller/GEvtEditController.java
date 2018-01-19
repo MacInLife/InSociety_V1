@@ -5,10 +5,13 @@ import java.sql.Time;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -26,17 +29,22 @@ public class GEvtEditController {
 		private DatePicker DateEvtF;
 		
 		@FXML
-		private DatePicker HeureEvtD;
+		private ChoiceBox<String> HSRD;
 		@FXML
-		private DatePicker HeureEvtF;
+		private ChoiceBox<String> MSRD;
+		@FXML
+		private ChoiceBox<String> HSRF;
+		@FXML
+		private ChoiceBox<String> MSRF;
+		
 		@FXML
 		private TextField TypeEvt;
 		@FXML
 		private TextField LieuEvt;
 		@FXML
-		private Button AddEvt;
+		private Button EditEvt;
 		@FXML
-		private Button AnnulAddEvt;
+		private Button AnnulEditEvt;
 		
 		private Stage dialogStage;
 	    private Evenements events;
@@ -45,7 +53,25 @@ public class GEvtEditController {
 	    
 	    @FXML
 	    private void initialize() {
-	    
+	    	ObservableList<String> olmin = FXCollections.observableArrayList();
+	    	for(int i = 0; i<=60; i++) {
+		    		String min = "";
+	    		if(i<10) min+="0";
+	    		min+=i;
+	    		olmin.add(min);
+	    	}
+	    	ObservableList<String> olheure = FXCollections.observableArrayList();
+	    	for(int i = 0; i<=24; i++) {
+	    		String heure = "";
+	    		if(i<10) heure+="0";
+	    		heure+=i;
+	    		olheure.add(heure);
+	    	}
+	    	
+	    	HSRD.setItems(olheure);
+	    	HSRF.setItems(olheure);
+	    	MSRD.setItems(olmin);
+	    	MSRF.setItems(olmin);
 	    }
 
 	    /**
@@ -63,31 +89,98 @@ public class GEvtEditController {
 	     * @param person
 	     */
 	    public void setEvenements (Evenements events) {
-	    	
+	    	  /*this.salles = salles;
+		        System.out.println(this.salles);
+		        NomSR.setText(this.salles.getNomSR());
+		        NbPlaceSR.setText("" + this.salles.getNbPlaceTotal());
+		        NbPerso.setText("" + this.salles.getNbPers());
+		        DateSRD.setValue(this.salles.getDate_d().toLocalDateTime().toLocalDate());
+		        DateSRF.setValue(this.salles.getDate_f().toLocalDateTime().toLocalDate());
+		        
+		        int hsrd = this.salles.getDate_d().getHours();
+		        String shsrd = "";
+		        if(hsrd<10) 
+		        	shsrd += "0" + hsrd;
+		         else 
+		        	shsrd += hsrd;
+		        HSRD.setValue(shsrd);
+		        
+		        int hsrf = this.salles.getDate_f().getHours();
+		        String shsrf = "";
+		        if(hsrf<10) 
+		        	shsrf += "0" + hsrf;
+		         else 
+		        	shsrf += hsrf;
+		        HSRF.setValue(shsrf);
+		        
+		        int msrd = this.salles.getDate_d().getMinutes();
+		        String smsrd = "";
+		        if(msrd<10) 
+		        	smsrd += "0" + msrd;
+		         else 
+		        	smsrd += msrd;
+		        MSRD.setValue(smsrd);
+		        
+		        int msrf = this.salles.getDate_f().getMinutes();
+		        String smsrf = "";
+		        if(msrf<10) 
+		        	smsrf += "0" + msrf;
+		         else 
+		        	smsrf += msrf;
+		         MSRF.setValue(smsrf);
+		        	        
+		        LieuSR.setText(this.salles.getLieu());
+		        statutSR.setValue(this.salles.getStatut().getLibeller());*/
 	        this.events = events;
-	        
 	        System.out.println(this.events);
 	        NomEvt.setText(this.events.getNomEvt());
 	        //DateEvtD
-	       /* String date =String.valueOf(this.person.getDate_naissance());
-	        LocalDate d = LocalDate.parse(date);
-	        DatedeNaissance.setValue(d);	        
-	        DatedeNaissance.setPromptText("dd,mm,yyyy");*/
-	        
 	        String date = String.valueOf(this.events.getJour_d());
 	        LocalDate d = LocalDate.parse(date);
 	        DateEvtD.setValue(d);
 	        DateEvtD.setPromptText("dd.mm.yyyy");
-	        
-	        
+	  
 	        //DateEvtF
 	        String date0 = String.valueOf(this.events.getJour_d());
 	        LocalDate d0 = LocalDate.parse(date0);
 	        DateEvtF.setValue(d0);
 	        DateEvtF.setPromptText("dd.mm.yyyy");
 	        
+	        //Heure et Minutes 
+	        int hsrd = this.events.getH_debut().getHours();
+	        String shsrd = "";
+	        if(hsrd<10) 
+	        	shsrd += "0" + hsrd;
+	         else 
+	        	shsrd += hsrd;
+	        HSRD.setValue(shsrd);
+	        
+	        int hsrf = this.events.getH_fin().getHours();
+	        String shsrf = "";
+	        if(hsrf<10) 
+	        	shsrf += "0" + hsrf;
+	         else 
+	        	shsrf += hsrf;
+	        HSRF.setValue(shsrf);
+	        
+	        int msrd = this.events.getH_debut().getMinutes();
+	        String smsrd = "";
+	        if(msrd<10) 
+	        	smsrd += "0" + msrd;
+	         else 
+	        	smsrd += msrd;
+	        MSRD.setValue(smsrd);
+	        
+	        int msrf = this.events.getH_fin().getMinutes();
+	        String smsrf = "";
+	        if(msrf<10) 
+	        	smsrf += "0" + msrf;
+	         else 
+	        	smsrf += msrf;
+	         MSRF.setValue(smsrf);
+	         
 	        //HeureEvtD
-	        String date1 = String.valueOf(this.events.getH_debut());
+	        /*String date1 = String.valueOf(this.events.getH_debut());
 	        LocalDate d1 = LocalDate.parse(date1);
 	        HeureEvtD.setValue(d1);
 	        HeureEvtD.setPromptText("hh.mm");
@@ -97,12 +190,10 @@ public class GEvtEditController {
 	        LocalDate d2 = LocalDate.parse(date2);
 	        HeureEvtF.setValue(d2);
 	        HeureEvtF.setPromptText("hh.mm");
-	        
+	        */
 	        TypeEvt.setText(this.events.getType());
 	   
-	      		  
-	        //birthdayField.setText(DateUtil.format(person.getBirthday()));
-	       // birthdayField.setPromptText("dd.mm.yyyy");
+	      		 
 	    }
 
 	    /**
@@ -121,19 +212,18 @@ public class GEvtEditController {
 	    private void SaveEditOk() {
 	        if (isInputValid()) {
 	        	events.setNomEvt(NomEvt.getText());
-	        	//events.setJour_d(DateEvtD.getText());
-	        	 DateEvtD.setOnAction(event -> {
-	               	Date date = Date.valueOf(DateEvtD.getValue());
-	                 events.setJour_d(Date.valueOf(DateEvtD.getValue()));
-	                });
-	        	//events.setJour_f(DateEvtF.getText());
-	        	 DateEvtF.setOnAction(event -> {
-		               	Date date = Date.valueOf(DateEvtF.getValue());
-		                 events.setJour_f(Date.valueOf(DateEvtF.getValue()));
-		                });
-	        	//events.setH_debut(HeureEvtD.getText());
+	        	events.setJour_d(Date.valueOf(DateEvtD.getValue()));
+	        	events.setJour_f(Date.valueOf(DateEvtF.getValue()));
+	        	//person.setDate_naissance(Date.valueOf(DatedeNaissance.getValue()));
+	        	
+	        	//events.setH_debut(HeureEvtD.getText()); //events.setH_fin(HeureEvtF.getText());
+	        	Time time = new Time(Integer.parseInt(HSRD.getValue())*3600*1000 + Integer.parseInt(MSRD.getValue())*60*1000);
+	        	events.setH_debut(time);
+	        	
+	        	time = new Time(Integer.parseInt(HSRF.getValue())*3600*1000 + Integer.parseInt(MSRF.getValue())*60*1000);
+	        	events.setH_fin(time);
 	        	 
-	        	//events.setH_fin(HeureEvtF.getText());
+	        	
 	        	events.setType(TypeEvt.getText());
 	        	events.setLieu(LieuEvt.getText());
 
@@ -168,12 +258,13 @@ public class GEvtEditController {
 	        if (DateEvtF.getValue() == null || DateEvtF.getPromptText().length() == 0) {
 	            errorMessage += "Date Fin non valide!\n";
 	        }
-	        if(HeureEvtD.getValue() == null || HeureEvtD.getPromptText().length() ==0) {
-	        	errorMessage += "Heure de début non valide ! \n";
+	        if(HSRD.getValue()+ MSRD.getValue() == null || HSRD.getValue().length() + MSRD.getValue().length() ==0) {
+	        	errorMessage += "Heure et/ ou minute de début non valide ! \n";
 	        }
-	        if(HeureEvtF.getValue() == null || HeureEvtF.getPromptText().length() ==0) {
+	        if(HSRF.getValue()+ MSRF.getValue() == null || HSRF.getValue().length() + MSRF.getValue().length() ==0) {
 	        	errorMessage += "Heure de fin non valide ! \n";
 	        }
+	      
 	      
 	        if (TypeEvt.getText() == null || TypeEvt.getText().length() == 0) {
 	            errorMessage += "No valid type!\n";

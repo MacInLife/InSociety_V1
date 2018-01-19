@@ -15,6 +15,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -56,6 +58,8 @@ public class GSalleEditController {
 		private ChoiceBox<String> HSRF;
 		@FXML
 		private ChoiceBox<String> MSRF;
+		
+		@FXML Spinner<String> SpinHSRF;
 	    
 	    @FXML
 	    private void initialize() {
@@ -78,6 +82,9 @@ public class GSalleEditController {
 	    	HSRF.setItems(olheure);
 	    	MSRD.setItems(olmin);
 	    	MSRF.setItems(olmin);
+	    	
+	    	
+	    	
 	    	
 	    	try {
 				statutSR.setItems(StatutDAO.getStatutList());

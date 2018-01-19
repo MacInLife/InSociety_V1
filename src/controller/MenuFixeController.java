@@ -129,11 +129,11 @@ public class MenuFixeController {
 			// Chargement partie GestionEvt
 		FXMLLoader acc = new FXMLLoader();
 		acc.setLocation(VueFXMain.class.getClassLoader().getResource("vueFrame/GestionEvt.fxml"));
-		Pane gevent = (Pane) acc.load();
+		Pane gevt = (Pane) acc.load();
 		header.getChildren().removeAll();
-		header.getChildren().add(gevent);
-		gevent.setLayoutX(5);
-		gevent.setLayoutY(143);
+		header.getChildren().add(gevt);
+		gevt.setLayoutX(5);
+		gevt.setLayoutY(143);
 		
 	} catch (IOException e) {
 		e.printStackTrace();

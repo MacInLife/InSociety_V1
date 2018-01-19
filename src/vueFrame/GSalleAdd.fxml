@@ -10,6 +10,7 @@
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -56,7 +57,7 @@
                   <Insets />
                </VBox.margin>
             </Label>
-            <Label layoutX="10.0" layoutY="147.0" text="Date/Heure fin">
+            <Label layoutX="10.0" layoutY="150.0" text="Date/Heure fin">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
@@ -102,12 +103,20 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </TextField>
-            <DatePicker fx:id="DateSRD" prefHeight="25.0" prefWidth="200.0" promptText="Date/Heure début" />
-            <ChoiceBox fx:id="HSRD" prefHeight="25.0" prefWidth="93.0" />
-            <ChoiceBox fx:id="MSRD" prefHeight="25.0" prefWidth="94.0" />
-            <DatePicker fx:id="DateSRF" prefHeight="29.0" prefWidth="197.0" promptText="Date/Heure fin" />
-            <ChoiceBox fx:id="HSRF" prefWidth="150.0" />
-            <ChoiceBox fx:id="MSRF" prefWidth="150.0" />
+            <HBox alignment="TOP_CENTER" prefHeight="16.0" prefWidth="202.0">
+               <children>
+                  <DatePicker fx:id="DateSRD" prefHeight="25.0" prefWidth="111.0" promptText="Date/Heure début" />
+                  <ChoiceBox fx:id="HSRD" prefHeight="25.0" prefWidth="61.0" />
+                  <ChoiceBox fx:id="MSRD" prefHeight="25.0" prefWidth="61.0" />
+               </children>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="17.0" prefWidth="202.0">
+               <children>
+                  <DatePicker fx:id="DateSRF" prefHeight="25.0" prefWidth="112.0" promptText="Date/Heure fin" />
+                  <ChoiceBox fx:id="HSRF" prefHeight="25.0" prefWidth="61.0" />
+                  <ChoiceBox fx:id="MSRF" prefHeight="25.0" prefWidth="61.0" />
+               </children>
+            </HBox>
             <TextField fx:id="LieuSR" layoutX="10.0" layoutY="140.0" promptText="Lieu de la Salle">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

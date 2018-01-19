@@ -40,7 +40,7 @@ public class VueFXMain extends Application {
 			 new BorderPane();
 			
 			FXMLLoader acc = new FXMLLoader() ;
-			acc.setLocation( VueFXMain.class.getClassLoader().getResource("vueFrame/GestionSalle.fxml"));
+			acc.setLocation( VueFXMain.class.getClassLoader().getResource("vueFrame/GestionEvt.fxml"));
 			Pane rootL = (Pane)acc.load();
 			Scene scene = new Scene(rootL,850,600);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

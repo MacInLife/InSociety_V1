@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import metier.Evenements;
 import metier.Salle_Reunion;
@@ -23,6 +24,22 @@ import vue.VueFXMain;
 public class GestionEvtController {
 	@FXML
 	private Label allEvent;
+	@FXML
+	private ImageView refresh;
+	@FXML
+	private Label oeil;
+	@FXML
+	private Label AddEvtVue;
+	@FXML
+	private Label EditEvtVue;
+	@FXML
+	private Label SuppEvtVue;
+	@FXML
+	private ImageView AddVue;
+	@FXML
+	private ImageView EditVue;
+	@FXML
+	private ImageView SuppVue;
 	@FXML
 	private  TableView<Evenements> tabEvent;
 	@FXML
@@ -45,6 +62,7 @@ public class GestionEvtController {
 	@FXML
 	private TableColumn<Evenements, String> SalleEvt;
 	Evenements events;
+	
 
 	 
 	@FXML
@@ -98,17 +116,7 @@ public class GestionEvtController {
 			    if (okClicked) {
 			     //   VueFXMain.getPersonData().add(user);
 			        // VueFXMain.getPersonData().add(user);
-			    	
-			    	//tu fais appel  à la methode insertPers dans la classe personnelDAO
-			        try {
-						EvenementsDAO.ajoutEvent(events);
-					} catch (ClassNotFoundException e) {
-						// TODO Bloc catch généré automatiquement
-						e.printStackTrace();
-					} catch (SQLException e) {
-						// TODO Bloc catch généré automatiquement
-						e.printStackTrace();
-					}
+			
 			    	// apres tu refresh ta tableView
 			    }
 	}

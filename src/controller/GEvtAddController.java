@@ -1,11 +1,17 @@
 package controller;
 
 import java.sql.Date;
+import java.sql.SQLException;
 import java.sql.Time;
+import java.sql.Timestamp;
 
+import DAO.StatutDAO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
@@ -26,9 +32,13 @@ public class GEvtAddController {
 		private DatePicker DateEvtF;
 		
 		@FXML
-		private DatePicker HeureEvtD;
+		private ChoiceBox<String> HSRD;
 		@FXML
-		private DatePicker HeureEvtF;
+		private ChoiceBox<String> MSRD;
+		@FXML
+		private ChoiceBox<String> HSRF;
+		@FXML
+		private ChoiceBox<String> MSRF;
 		@FXML
 		private TextField TypeEvt;
 		@FXML
@@ -44,6 +54,26 @@ public class GEvtAddController {
 
 	    @FXML
 	    private void initialize() {
+	    	ObservableList<String> olmin = FXCollections.observableArrayList();
+	    	for(int i = 0; i<=60; i++) {
+		    		String min = "";
+	    		if(i<10) min+="0";
+	    		min+=i;
+	    		olmin.add(min);
+	    	}
+	    	ObservableList<String> olheure = FXCollections.observableArrayList();
+	    	for(int i = 0; i<=24; i++) {
+	    		String heure = "";
+	    		if(i<10) heure+="0";
+	    		heure+=i;
+	    		olheure.add(heure);
+	    	}
+	    	
+	    	HSRD.setItems(olheure);
+	    	HSRF.setItems(olheure);
+	    	MSRD.setItems(olmin);
+	    	MSRF.setItems(olmin);
+	    	
 	    }
 
 	    /**
@@ -64,23 +94,17 @@ public class GEvtAddController {
 	    @FXML
 	    private void AddOk() {
 	        if (isInputValid()) {
+	        	events = new Evenements();
 	        	events.setNomEvt(NomEvt.getText());
-	        	/*DateEvtD.setOnAction(event -> {
-	        		Date jour_d = jour_d.valueOf(DateEvtD.getValue());
-	        		events.setJour_d(Date.valueOf(DateEvtD.getValue()));
-	        	});
-	        	DateEvtF.setOnAction(event -> {
-	        		Date jour_f = jour_f.valueOf(DateEvtF.getValue());
-	        		events.setJour_f(Date.valueOf(DateEvtF.getValue()));
-	        	});
-	        	/*HeureEvtD.setOnAction(event -> {
-	        		Time h_debut = h_debut.valueOf(HeureEvtD.getValue());
-	        		events.setH_debut(Time.valueOf(HeureEvtD.getValue()));
-	        	});
-	        	HeureEvtF.setOnAction(event -> {
-	        		Time h_fin = h_fin.valueOf(HeureEvtF.getValue());
-	        		events.setH_fin(Time.valueOf(HeureEvtF.getValue()));
-	        	});*/
+	        	events.setJour_d(Date.valueOf(DateEvtD.getValue()));
+	        	events.setJour_f(Date.valueOf(DateEvtF.getValue()));
+	        	
+	        	Time time = new Time(Integer.parseInt(HSRD.getValue())*3600*1000 + Integer.parseInt(MSRD.getValue())*60*1000);
+	        	events.setH_debut(time);
+	        	
+	        	time = new Time(Integer.parseInt(HSRF.getValue())*3600*1000 + Integer.parseInt(MSRF.getValue())*60*1000);
+	        	events.setH_fin(time);
+	        
 	        	events.setType(TypeEvt.getText());
 	        	events.setLieu(LieuEvt.getText());
 	      
@@ -114,10 +138,10 @@ public class GEvtAddController {
 	        if (DateEvtF.getValue() == null || DateEvtF.getPromptText().length() == 0) {
 	            errorMessage += "Date Fin non valide!\n";
 	        }
-	        if(HeureEvtD.getValue() == null || HeureEvtD.getPromptText().length() ==0) {
-	        	errorMessage += "Heure de début non valide ! \n";
+	        if(HSRD.getValue()+ MSRD.getValue() == null || HSRD.getValue().length() + MSRD.getValue().length() ==0) {
+	        	errorMessage += "Heure et/ ou minute de début non valide ! \n";
 	        }
-	        if(HeureEvtF.getValue() == null || HeureEvtF.getPromptText().length() ==0) {
+	        if(HSRF.getValue()+ MSRF.getValue() == null || HSRF.getValue().length() + MSRF.getValue().length() ==0) {
 	        	errorMessage += "Heure de fin non valide ! \n";
 	        }
 	      
