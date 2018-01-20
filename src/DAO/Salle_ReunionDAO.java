@@ -94,13 +94,13 @@ System.out.println(salleReu.getIdSR());
         Connection co = Connect.getInstance().getConnection();
            
         //Création de la requête supprimer evenements
-        String requeteSQL = "DELETE FROM `salle_reunion` WHERE nomSR = ? ";
+        String requeteSQL = "DELETE FROM `salle_reunion` WHERE id_SR = ? ";
         
         //préparer la requête
          PreparedStatement pst = co.prepareStatement(requeteSQL);
          
           //renvoyer et verifier les données de la requête
-         pst.setString(1, salleReu.getNomSR());
+         pst.setInt(1, salleReu.getIdSR());
         
          
         int i = pst.executeUpdate();
@@ -154,5 +154,19 @@ System.out.println(salleReu.getIdSR());
 		cnx.close();
 		return SalleList;
 	}
-    
+   
+	public static ObservableList<String> getSalleRList() throws SQLException {
+		ObservableList<String> slist = FXCollections.observableArrayList();
+        Connection co = Connect.getInstance().getConnection();
+        String requeteSQL = "SELECT `nomSR` FROM `salle_reunion`";
+        PreparedStatement pst = co.prepareStatement(requeteSQL);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next())
+        {
+        	slist.add(rs.getString("nomSR"));
+        }
+		
+	    return slist;
+		
+	}   
 }

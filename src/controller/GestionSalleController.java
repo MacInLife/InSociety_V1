@@ -111,7 +111,7 @@ public class GestionSalleController {
 	// Label Modifier Utilisateur
 	@FXML
 	private void editSalle() {
-		System.out.println(salle.toString());
+		
 
 		if (salle != null) {
 			boolean okClicked = VueFXMain.VueGSalleEdit(salle);

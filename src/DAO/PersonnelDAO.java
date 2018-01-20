@@ -18,25 +18,24 @@ import metier.Role;
 public class PersonnelDAO {
 
 	public static boolean adminVerif(String login, String mdp) throws SQLException {
-	     
+
 		Connection cnx = Connect.getInstance().getConnection();
 		String req = "SELECT nom_role, type_service FROM Personnel, Service, Role "
 				+ "WHERE login=? AND mdp=? AND Personnel.id_role = Role.id_role AND Service.id_service = Personnel.id_service";
 		PreparedStatement pst = cnx.prepareStatement(req);
 		pst.setString(1, login);
-	    pst.setString(2, mdp);
+		pst.setString(2, mdp);
 		ResultSet userInformation = pst.executeQuery();
-		while(userInformation .next()) {
-			
-		 String f = userInformation.getString("nom_role") ;
-		 String g =   userInformation.getString("type_service") ;
+		while (userInformation.next()) {
 
-		 if(f.startsWith("Resp")  && g.startsWith("Info"))
-		 {
-			 return  true;
-		 }
+			String f = userInformation.getString("nom_role");
+			String g = userInformation.getString("type_service");
+
+			if (f.startsWith("Resp") && g.startsWith("Info")) {
+				return true;
+			}
 		}
-	
+
 		return false;
 	}
 
@@ -48,7 +47,7 @@ public class PersonnelDAO {
 		String req = "SELECT `id_pers` FROM `personnel` WHERE mail =?";
 
 		PreparedStatement pst = co.prepareStatement(req);
-
+		pst.setString(1, mail);
 		ResultSet table = pst.executeQuery();
 
 		while (table.next()) {
@@ -57,6 +56,49 @@ public class PersonnelDAO {
 		return i;
 	}
 
+	public static Personnel GetPers(int id) throws ClassNotFoundException, SQLException {
+		int i = 0;
+		Connection co = Connect.getInstance().getConnection();
+		// constitution d'une commande basÃ©e sur une requÃªte SQL
+		// en vue d'Ãªtre exÃ©cutÃ©e sur une connexion donnÃ©e
+		String req = "SELECT * FROM `personnel` WHERE id_pers =?";
+		
+		Personnel result =  new Personnel();
+
+		PreparedStatement pst = co.prepareStatement(req);
+		pst.setInt(1, id);
+		ResultSet table = pst.executeQuery();
+
+		while (table.next()) {
+			result.setId(table.getInt("id_pers"));
+			result.setNom(table.getString("nom"));
+			result.setPrenom(table.getString("prenom"));
+
+		}
+		return result;
+	}
+
+	public static Personnel GetPersbyNom(String Nom) throws ClassNotFoundException, SQLException {
+		int i = 0;
+		Connection co = Connect.getInstance().getConnection();
+		// constitution d'une commande basÃ©e sur une requÃªte SQL
+		// en vue d'Ãªtre exÃ©cutÃ©e sur une connexion donnÃ©e
+		String req = "SELECT * FROM `personnel` WHERE nom =?";
+		
+		Personnel result =  new Personnel();
+		PreparedStatement pst = co.prepareStatement(req);
+		pst.setString(1, Nom);
+		ResultSet table = pst.executeQuery();
+
+		while (table.next()) {
+			result.setId(table.getInt("id_pers"));
+			result.setNom(table.getString("nom"));
+			result.setPrenom(table.getString("prenom"));
+		}
+		return result;
+	}
+
+	
 	public static void insertPers(Personnel pers) throws SQLException, ClassNotFoundException {
 		// Je me connecte
 		Connection co = Connect.getInstance().getConnection();
@@ -108,10 +150,10 @@ public class PersonnelDAO {
 		int i = pst.executeUpdate();
 	}
 
-	public static void ModifPers(Personnel  pers) throws SQLException, ClassNotFoundException {
+	public static void ModifPers(Personnel pers) throws SQLException, ClassNotFoundException {
 		// Je me connecte
 		Connection co = Connect.getInstance().getConnection();
-System.out.println(pers);
+		System.out.println(pers);
 		// CrÃ©ation de la requÃªte inserer new pers
 		String requeteSQL = "UPDATE `personnel` " + "SET `nom`= ?,`prenom`= ?,`adresse`= ?,`mail`= ?,`Tel`= ?,"
 				+ "`id_role`= ?,`id_service`= ?,`id_statut`= ?,`login`= ?,`date_naissance`= ?,"
@@ -151,7 +193,7 @@ System.out.println(pers);
 		// en vue d'être exécutée sur une connexion donnée
 		String req = "select * from personnel";
 		Connection cnx = Connect.getInstance().getConnection();
-		int id ;
+		int id;
 		String nom;
 		String prenom;
 		String login;
@@ -168,7 +210,7 @@ System.out.println(pers);
 
 		ResultSet table = pst.executeQuery();
 		while (table.next()) {
-             id = table.getInt("id_pers");
+			id = table.getInt("id_pers");
 			nom = table.getString("nom");
 			prenom = table.getString("prenom");
 			login = table.getString("login");
@@ -183,7 +225,7 @@ System.out.println(pers);
 			id_role = table.getInt("id_role");
 
 			Personnel user = new Personnel();
-           user.setId(id);
+			user.setId(id);
 			user.setNom(nom);
 			user.setPrenom(prenom);
 			user.setLogin(login);
@@ -210,63 +252,76 @@ System.out.println(pers);
 		cnx.close();
 		return UserList;
 	}
-	
-	public static ObservableList<Personnel> GetListFiltrePers(String filtre) throws ClassNotFoundException, SQLException
- 	{     
+
+	public static ObservableList<Personnel> GetListFiltrePers(String filtre)
+			throws ClassNotFoundException, SQLException {
 		Connection cnx = Connect.getInstance().getConnection();
- 	ObservableList<Personnel> UserListF = FXCollections.observableArrayList();
- 	
- 	filtre = filtre
- 			.replace("!", "!!")
- 			.replace("%", "!%")
- 			.replace("_", "!_")
- 			.replace("[", "![");
- 	
- 	String req = "SELECT id, nom, prenom, login, mail "
- 			+ "FROM personnel WHERE  id LIKE ? ESCAPE '!' OR nom LIKE ? ESCAPE '!' "
- 			+ "OR prenom LIKE ? ESCAPE '!' OR login LIKE ? ESCAPE '!' OR mail LIKE ? ESCAPE '!'";
- 	
- 	int id;
- 	String nom;
- 	String prenom;
- 	String login;
- 	String mail;
- 
- 	PreparedStatement pst = cnx.prepareStatement(req);
-    	pst.setString(1, filtre +  "%");
-    	pst.setString(2, filtre +  "%");
-    	pst.setString(3, filtre +  "%");
-    	pst.setString(4, filtre +  "%");
-    	pst.setString(5, filtre +  "%");
-     
-    	ResultSet jeu = pst.executeQuery();
- 
-    	while(jeu.next())
-    	{
-    		id = jeu.getInt("id");
-		 	nom = jeu.getString("nom");
-		 	prenom = jeu.getString("prenom");
-		 	login = jeu.getString("login");
-		 	mail= jeu.getString("mail");
-	 
-		 	Personnel pers = new Personnel();
-		 	pers.setId(id);
-		 	pers.setNom(nom);
-		 	pers.setPrenom(prenom);
-		 	pers.setLogin(login);
-		 	pers.setMail(mail);
-		
-	 
-    		UserListF.add(pers);
-    		System.out.println(pers);
-    	}
+		ObservableList<Personnel> UserListF = FXCollections.observableArrayList();
 
-    	jeu.close();
-    	jeu.close();
-    	pst.close();
-    	cnx.close();
- 		return UserListF;
- 	}
+		filtre = filtre.replace("!", "!!").replace("%", "!%").replace("_", "!_").replace("[", "![");
 
+		String req = "SELECT id, nom, prenom, login, mail "
+				+ "FROM personnel WHERE  id LIKE ? ESCAPE '!' OR nom LIKE ? ESCAPE '!' "
+				+ "OR prenom LIKE ? ESCAPE '!' OR login LIKE ? ESCAPE '!' OR mail LIKE ? ESCAPE '!'";
 
+		int id;
+		String nom;
+		String prenom;
+		String login;
+		String mail;
+
+		PreparedStatement pst = cnx.prepareStatement(req);
+		pst.setString(1, filtre + "%");
+		pst.setString(2, filtre + "%");
+		pst.setString(3, filtre + "%");
+		pst.setString(4, filtre + "%");
+		pst.setString(5, filtre + "%");
+
+		ResultSet jeu = pst.executeQuery();
+
+		while (jeu.next()) {
+			id = jeu.getInt("id");
+			nom = jeu.getString("nom");
+			prenom = jeu.getString("prenom");
+			login = jeu.getString("login");
+			mail = jeu.getString("mail");
+
+			Personnel pers = new Personnel();
+			pers.setId(id);
+			pers.setNom(nom);
+			pers.setPrenom(prenom);
+			pers.setLogin(login);
+			pers.setMail(mail);
+
+			UserListF.add(pers);
+			System.out.println(pers);
+		}
+
+		jeu.close();
+		jeu.close();
+		pst.close();
+		cnx.close();
+		return UserListF;
+	}
+
+	
+	public static ObservableList<String> GetListeNomAdmin() throws ClassNotFoundException, SQLException {
+		ObservableList<String> UserNomList = FXCollections.observableArrayList();
+		// constitution d'une commande basée sur une requête SQL
+		// en vue d'être exécutée sur une connexion donnée
+		String req = "select * from personnel, role, service where personnel.id_role= role.id_role and role.nom_role='Responsable' and personnel.id_service=service.id_service and service.type_service='Informatique'";
+		Connection cnx = Connect.getInstance().getConnection();
+		String nom;
+		PreparedStatement pst = cnx.prepareStatement(req);
+		ResultSet table = pst.executeQuery();
+		while (table.next()) {
+			UserNomList.add(table.getString("nom"));
+		}
+		table.close();
+		pst.close();
+		cnx.close();
+		return UserNomList;
+	}
+
+	
 }

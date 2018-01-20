@@ -21,7 +21,7 @@ public class Evenements {
     private ObjectProperty<Time> h_fin;
     private StringProperty type;
     private StringProperty lieu;
-    private Salle_Reunion salle ;
+    Salle_Reunion salle ;
     
     //Constructeur par defaut JavaFX
    public Evenements(){
@@ -33,7 +33,7 @@ public class Evenements {
     this.h_fin = new SimpleObjectProperty<Time>();
     this.type    = new SimpleStringProperty();
     this.lieu     = new SimpleStringProperty();
-    salle = new Salle_Reunion();
+   
    }
     //Constructeur
     /*public Evenements(String nomEvt,LocalDate jour, String type, String lieu){
@@ -146,7 +146,7 @@ public class Evenements {
         return lieu.get();
     }
     public void setLieu(String lieu){
-        this.lieu.get();
+        this.lieu.set(lieu);
     }
 
     public Salle_Reunion getSalle() {

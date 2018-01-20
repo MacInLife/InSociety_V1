@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.sql.Timestamp;
 
+import DAO.EvenementsDAO;
+import DAO.Salle_ReunionDAO;
 import DAO.StatutDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
@@ -44,6 +47,8 @@ public class GEvtAddController {
 		@FXML
 		private TextField LieuEvt;
 		@FXML
+		private ComboBox<String> SalleEvt;
+		@FXML
 		private Button AddEvt;
 		@FXML
 		private Button AnnulAddEvt;
@@ -55,14 +60,14 @@ public class GEvtAddController {
 	    @FXML
 	    private void initialize() {
 	    	ObservableList<String> olmin = FXCollections.observableArrayList();
-	    	for(int i = 0; i<=60; i++) {
+	    	for(int i = 0; i<60; i++) {
 		    		String min = "";
 	    		if(i<10) min+="0";
 	    		min+=i;
 	    		olmin.add(min);
 	    	}
 	    	ObservableList<String> olheure = FXCollections.observableArrayList();
-	    	for(int i = 0; i<=24; i++) {
+	    	for(int i = 0; i<24; i++) {
 	    		String heure = "";
 	    		if(i<10) heure+="0";
 	    		heure+=i;
@@ -74,6 +79,16 @@ public class GEvtAddController {
 	    	MSRD.setItems(olmin);
 	    	MSRF.setItems(olmin);
 	    	
+	    	Salle_ReunionDAO srdao = new Salle_ReunionDAO();
+			ObservableList<String> li;
+			try {
+				li = srdao.getSalleRList();
+				SalleEvt.setItems(li);
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	    }
 
 	    /**
@@ -107,6 +122,16 @@ public class GEvtAddController {
 	        
 	        	events.setType(TypeEvt.getText());
 	        	events.setLieu(LieuEvt.getText());
+	        	
+	        	try {
+					EvenementsDAO.ajoutEvent(events);
+				} catch (ClassNotFoundException e) {
+					// TODO Bloc catch généré automatiquement
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Bloc catch généré automatiquement
+					e.printStackTrace();
+				}
 	      
 	            okClicked = true;
 	            dialogStage.close();

@@ -138,8 +138,7 @@ public class GestionUserController {
 	// Label Modifier Utilisateur
 	@FXML
 	private void editUser() {
-		System.out.println(user.toString());
-
+	
 		if (user != null) {
 			boolean okClicked = VueFXMain.VueGUserEdit(user);
 			if (okClicked) {
