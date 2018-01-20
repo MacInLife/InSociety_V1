@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane fx:id="NotesAddVue" alignment="TOP_CENTER" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NotesAddController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="329.0" prefWidth="197.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+         <children>
+            <Label text="Notes">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="Note" prefHeight="256.0" prefWidth="405.0" promptText="Ecrire une Note" />
+            <ComboBox fx:id="NomAdmin" layoutX="10.0" layoutY="195.0" prefHeight="25.0" prefWidth="198.0" />
+         </children>
+         <GridPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </GridPane.margin>
+      </VBox>
+      <Button fx:id="AddNotes" alignment="CENTER" mnemonicParsing="false" onAction="#AddOk" prefHeight="29.0" prefWidth="119.0" style="-fx-background-color: #30bd29; -fx-background-radius: 100;" text="Ajouter" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+         <font>
+            <Font name="BlackChancery" size="22.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="20.0" />
+         </GridPane.margin>
+      </Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="35.0" prefWidth="445.0" style="-fx-background-color: #1ca4b6;" text="Ajouter une Notes" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+         <font>
+            <Font name="BlackChancery" size="20.0" />
+         </font>
+         <effect>
+            <InnerShadow choke="0.54" color="#05eaff" height="80.67" radius="19.6675" width="0.0" />
+         </effect>
+      </Label>
+      <Button fx:id="AnnulAddNotes" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#AddCancel" prefHeight="9.0" prefWidth="111.0" style="-fx-background-color: grey; -fx-background-radius: 100;" text="Annuler" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+         <font>
+            <Font name="BlackChancery" size="16.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="20.0" right="15.0" />
+         </GridPane.margin>
+      </Button>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints valignment="CENTER" />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>
