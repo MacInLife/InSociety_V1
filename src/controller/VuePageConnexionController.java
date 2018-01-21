@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -29,6 +30,8 @@ public class VuePageConnexionController {
 		private TextField login ;
 		@FXML
 		private PasswordField mdp ;
+		@FXML
+		private Label msg;
 		 
 	
 	
@@ -60,13 +63,12 @@ public class VuePageConnexionController {
 		            // Set person overview into the center of root layout.
 				 	} else {
 				 		/** TODO : add show message error **/
+				 	
 				 	}
 		        } catch (IOException e) {
 		            e.printStackTrace();
 		        } catch (SQLException e) {
 		        	e.printStackTrace();
-				} finally   {
-					/** TODO : ajout un message d'erreur "Une erreur interne est survenue**/ 
 				}
 		    }
 			 

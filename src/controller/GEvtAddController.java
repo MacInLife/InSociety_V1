@@ -122,8 +122,8 @@ public class GEvtAddController {
 	        
 	        	events.setType(TypeEvt.getText());
 	        	events.setLieu(LieuEvt.getText());
-	        	
 	        	try {
+					events.setSalle(Salle_ReunionDAO.GetListeSalle().get(Salle_ReunionDAO.GetIdSR(SalleEvt.getValue())));
 					EvenementsDAO.ajoutEvent(events);
 				} catch (ClassNotFoundException e) {
 					// TODO Bloc catch généré automatiquement

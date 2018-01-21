@@ -37,6 +37,29 @@ public class Salle_ReunionDAO  {
          }
          return i;
      }
+       
+       public static Salle_Reunion GetSalle(int id) throws ClassNotFoundException, SQLException
+     {
+          Salle_Reunion salle = new Salle_Reunion();
+          Connection co = Connect.getInstance().getConnection();
+         // constitution d'une commande basée sur une requête SQL 
+         // en vue d'être exécutée sur une connexion donnée     
+         String req = "SELECT * FROM `Salle_Reunion` WHERE id_SR = ?";
+        
+         PreparedStatement pst = co.prepareStatement(req);
+         pst.setInt(1, id);
+       
+         ResultSet table = pst.executeQuery();
+         
+         while(table.next())
+         {
+             salle.setIdSR(table.getInt("id_SR"));
+             salle.setNomSR(table.getString("NomSR"));
+
+             
+         }
+         return salle;
+     }
     
  public static void ajoutSalleReu(Salle_Reunion salleReu) throws SQLException, ClassNotFoundException{
         //Je me connecte

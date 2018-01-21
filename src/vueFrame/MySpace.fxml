@@ -15,7 +15,7 @@
             <Font name="Comic Sans MS" size="16.0" />
          </font>
       </Label>
-      <Button contentDisplay="CENTER" layoutX="493.0" layoutY="68.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="97.0" style="-fx-background-color: #85C1E9; -fx-border-radius: 100px;" text="GLPI" textFill="#fcfcfc" textOverrun="LEADING_ELLIPSIS">
+      <Button fx:id="GLPI" contentDisplay="CENTER" layoutX="493.0" layoutY="68.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="97.0" style="-fx-background-color: #85C1E9; -fx-border-radius: 100px;" text="GLPI" textFill="#fcfcfc" textOverrun="LEADING_ELLIPSIS">
          <effect>
             <Reflection fraction="0.28" topOpacity="0.23">
                <input>
@@ -75,7 +75,7 @@
             <Font name="Comic Sans MS" size="16.0" />
          </font>
       </Button>
-      <Button contentDisplay="CENTER" layoutX="367.0" layoutY="160.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="97.0" style="-fx-background-color: orange; -fx-border-radius: 100px;" textFill="#fcfcfc" textOverrun="LEADING_ELLIPSIS">
+      <Button fx:id="BDD" contentDisplay="CENTER" layoutX="367.0" layoutY="160.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="97.0" style="-fx-background-color: orange; -fx-border-radius: 100px;" text="BDD" textFill="#fcfcfc" textOverrun="LEADING_ELLIPSIS">
          <effect>
             <Reflection fraction="0.28" topOpacity="0.23">
                <input>

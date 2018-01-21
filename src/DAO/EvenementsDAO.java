@@ -53,14 +53,16 @@ public class EvenementsDAO {
 		pst.setTime(5, event.getH_fin());
 		pst.setString(6, event.getType());
 		pst.setString(7, event.getLieu());
+		pst.setInt(8, Salle_ReunionDAO.GetIdSR(event.getSalle().getNomSR()));
+	
 		// faire un GetId_SR avec le nom dans salle de réunion et appeler pou renvoyer
 		// les données requètes
-		int test = Salle_ReunionDAO.GetIdSR(event.getSalle().getNomSR());
+		/*int test = Salle_ReunionDAO.GetIdSR(event.getSalle().getNomSR());
 		if ( test != 0)
 			pst.setInt(8, test);
 		else 
 			pst.setString(8, null);
-		
+		*/
 		// Récupère et vérifier la clé étrangère de la table Salle de Réunion
 		// id_SR
 
@@ -89,11 +91,12 @@ public class EvenementsDAO {
 		pst.setString(6, event.getType());
 		pst.setString(7, event.getLieu());
 		// Recup�re et verif cl� etrang�re de la table Salle_Reunion
-		int test = Salle_ReunionDAO.GetIdSR(event.getSalle().getNomSR());
+		pst.setInt(8, Salle_ReunionDAO.GetIdSR(event.getSalle().getNomSR()));
+		/*int test = Salle_ReunionDAO.GetIdSR(event.getSalle().getNomSR());
 		if ( test != 0)
 			pst.setInt(8, test);
 		else 
-			pst.setString(8, null);
+			pst.setString(8, null);*/
 		pst.setInt(9, event.getId_evt());
 
 		int nbligne = pst.executeUpdate();
@@ -159,8 +162,9 @@ public class EvenementsDAO {
 
 			event.setLieu(lieu);
 			Salle_Reunion salle = new Salle_Reunion();
-			salle.setIdSR(23);
-			salle.setNomSR("dfyjdty");
+			salle.setIdSR(idSR);
+			salle.setNomSR(Salle_ReunionDAO.GetSalle(idSR).getNomSR());
+			event.setSalle(salle);
 			System.out.println(event);
 			EvtList.add(event);
 

@@ -190,7 +190,12 @@ public class GEvtEditController {
 
 			events.setType(TypeEvt.getText());
 			events.setLieu(LieuEvt.getText());
-
+			try {
+				events.setSalle(Salle_ReunionDAO.GetListeSalle().get(Salle_ReunionDAO.GetIdSR(SalleEvt.getValue())));
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			okClicked = true;
 			dialogStage.close();
 		}

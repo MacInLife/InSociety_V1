@@ -74,7 +74,7 @@ public class GestionEvtController {
 		H_debutEvt.setCellValueFactory(cellData -> cellData.getValue().getH_debutPro());
 		H_finEvt.setCellValueFactory(cellData -> cellData.getValue().getH_finPro());
 		LieuEvt.setCellValueFactory(cellData -> cellData.getValue().getLieuPro());
-		//SalleEvt.setCellValueFactory(cellData -> cellData.getValue().getSalle().getNomSRPro());
+		SalleEvtV.setCellValueFactory(cellData -> cellData.getValue().getSalle().getNomSRPro());
 
 		tabEvent.setOnMouseClicked(new EventHandler<Event>() {
 			@Override
@@ -84,46 +84,36 @@ public class GestionEvtController {
 				events = tabEvent.getSelectionModel().getSelectedItem();
 			}
 		});
-		
+
 	}
 
 	@FXML
 	public void VueAllEvt(MouseEvent actionEvent) throws SQLException, ClassNotFoundException {
-		allEvent.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
-			@Override
-			public void handle(MouseEvent event) {
-				try {
-					ObservableList<Evenements> empData = EvenementsDAO.GetListeEvent();
-					System.out.println(empData);
-					tabEvent.setItems(empData);
-				} catch (ClassNotFoundException | SQLException e) {
-					// TODO Bloc catch généré automatiquement
-					e.printStackTrace();
-				}
-			}
-		});
+		try {
+			ObservableList<Evenements> empData = EvenementsDAO.GetListeEvent();
+			System.out.println(empData);
+			tabEvent.setItems(empData);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Bloc catch généré automatiquement
+			e.printStackTrace();
+		}
+
 	}
 
 	// Called when the user clicks the new button. Opens a dialog to edit details
 	// for a new person.
 
-	// Ajouter Events Label
+	// Ajouter Events
 	@FXML
 	private void addEvt() {
+		VueFXMain.VueGEvtAdd();
 
-		boolean okClicked = VueFXMain.VueGEvtAdd();
-		if (okClicked) {
-			// VueFXMain.getPersonData().add(user);
-			// VueFXMain.getPersonData().add(user);
-
-			// apres tu refresh ta tableView
-		}
 	}
 
 	// Called when the user clicks the edit button. Opens a dialog to edit details
 	// for the selected person.
-	// Label Modifier evenements
+	// Modifier evenements
 	@FXML
 	private void editEvt() {
 		if (events != null) {
@@ -134,6 +124,7 @@ public class GestionEvtController {
 
 				// tu fais appel à ta methode modifierPersonnel dans la classe PersonnelDAO
 				try {
+
 					EvenementsDAO.ModifEvent(events);
 				} catch (ClassNotFoundException e) {
 					// TODO Bloc catch généré automatiquement
@@ -150,8 +141,8 @@ public class GestionEvtController {
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(VueFXMain.getPrimaryStage());
 			alert.setTitle("No Selection");
-			alert.setHeaderText("No Person Selected");
-			alert.setContentText("Please select a person in the table.");
+			alert.setHeaderText("No Events Selected");
+			alert.setContentText("Please select a event in the table.");
 
 			alert.showAndWait();
 
@@ -181,8 +172,8 @@ public class GestionEvtController {
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(VueFXMain.getPrimaryStage());
 			alert.setTitle("No Selection");
-			alert.setHeaderText("No Person Selected");
-			alert.setContentText("Please select a person in the table.");
+			alert.setHeaderText("No Events Selected");
+			alert.setContentText("Please select a event in the table.");
 
 			alert.showAndWait();
 		}
