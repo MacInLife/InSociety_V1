@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
@@ -16,11 +13,6 @@
 <Pane fx:id="GestionDocsView" prefHeight="386.0" prefWidth="836.0" style="-fx-background-color: white; -fx-border-radius: 100px;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GestionDocsController">
    <children>
       <Separator layoutX="224.0" layoutY="12.0" orientation="VERTICAL" prefHeight="371.0" prefWidth="12.0" />
-      <Label contentDisplay="RIGHT" layoutX="247.0" layoutY="15.0" prefHeight="37.0" prefWidth="148.0" text="Trier par : " underline="true">
-         <font>
-            <Font name="Comic Sans MS" size="15.0" />
-         </font>
-      </Label>
       <Label layoutX="113.0" layoutY="175.0" text="Créer">
          <font>
             <Font name="Comic Sans MS" size="11.0" />
@@ -46,29 +38,21 @@
             <Image url="@../image/icone_glas.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="37.0" fitWidth="29.0" layoutX="784.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="37.0" fitWidth="29.0" layoutX="793.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/refresh.png" />
          </image>
       </ImageView>
-      <TableView editable="true" layoutX="239.0" layoutY="90.0" prefHeight="290.0" prefWidth="589.0" tableMenuButtonVisible="true">
+      <TableView editable="true" layoutX="239.0" layoutY="38.0" prefHeight="342.0" prefWidth="589.0" tableMenuButtonVisible="true">
          <columns>
             <TableColumn prefWidth="49.0" text="ID" />
             <TableColumn prefWidth="132.0" text="Nom" />
-            <TableColumn prefWidth="245.0" text="Description" />
-            <TableColumn minWidth="0.0" prefWidth="208.0" text="Date" />
-            <TableColumn prefWidth="93.0" text="Heure" />
-            <TableColumn minWidth="0.0" prefWidth="137.0" text="Dépositaire" />
+            <TableColumn prefWidth="192.0" text="Description" />
+            <TableColumn minWidth="0.0" prefWidth="70.0" text="Date" />
+            <TableColumn maxWidth="160.0" prefWidth="41.0" text="Heure" />
+            <TableColumn maxWidth="126.0" minWidth="0.0" prefWidth="96.0" text="Dépositaire" />
          </columns>
       </TableView>
-      <Label contentDisplay="RIGHT" layoutX="488.0" layoutY="20.0" prefHeight="27.0" prefWidth="325.0" text="Rechercher :" underline="true">
-         <font>
-            <Font name="Comic Sans MS" size="15.0" />
-         </font>
-         <graphic>
-            <ChoiceBox prefHeight="21.0" prefWidth="213.0" />
-         </graphic>
-      </Label>
       <ImageView fitHeight="41.0" fitWidth="42.0" layoutX="31.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/Page_à_supprimer.png" />
@@ -79,37 +63,16 @@
             <Font name="Comic Sans MS" size="11.0" />
          </font>
       </Label>
-      <Separator layoutX="19.0" layoutY="135.0" prefWidth="200.0" />
+      <Separator layoutX="15.0" layoutY="94.0" prefHeight="29.0" prefWidth="200.0" />
       <ImageView fitHeight="37.0" fitWidth="45.0" layoutX="25.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/eye_black.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="42.0" layoutX="21.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/Utilisateur.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="70.0" layoutY="99.0" text="Dépositaire">
-         <font>
-            <Font name="Comic Sans MS" size="11.0" />
-         </font>
-      </Label>
       <Text layoutX="14.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion Documentations  : " underline="true">
          <font>
             <Font name="BlackChancery" size="19.0" />
          </font>
       </Text>
-      <ChoiceBox layoutX="137.0" layoutY="93.0" prefHeight="27.0" prefWidth="86.0" />
-      <SplitMenuButton alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="334.0" layoutY="15.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="77.0" text="..." textAlignment="CENTER">
-         <font>
-            <Font name="Comic Sans MS" size="18.0" />
-         </font>
-         <items>
-            <MenuItem mnemonicParsing="false" text="Ordre Alphabétique A-Z" />
-            <MenuItem mnemonicParsing="false" text="Date" />
-            <MenuItem mnemonicParsing="false" text="Nom" />
-         </items>
-      </SplitMenuButton>
    </children>
 </Pane>
