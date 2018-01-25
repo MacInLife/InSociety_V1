@@ -87,7 +87,7 @@ public class VueFXMain extends Application {
 
 			// Create the dialog Stage.
 			Stage dialogStage = new Stage();
-			dialogStage.setTitle("Add Person");
+			dialogStage.setTitle("Ajout d'une Personne");
 			dialogStage.initModality(Modality.WINDOW_MODAL);
 			dialogStage.initOwner(getPrimaryStage());
 			Scene scene = new Scene(page);
@@ -118,7 +118,7 @@ public class VueFXMain extends Application {
 
 			// Create the dialog Stage.
 			Stage dialogStage = new Stage();
-			dialogStage.setTitle("Edit Person");
+			dialogStage.setTitle("Modification d'une Personne");
 			dialogStage.initModality(Modality.WINDOW_MODAL);
 			dialogStage.initOwner(getPrimaryStage());
 			Scene scene = new Scene(page);
@@ -154,7 +154,7 @@ public class VueFXMain extends Application {
 
 			// Create the dialog Stage.
 			Stage dialogStage = new Stage();
-			dialogStage.setTitle("Add Salle");
+			dialogStage.setTitle("Ajout d'une Salle");
 			dialogStage.initModality(Modality.WINDOW_MODAL);
 			dialogStage.initOwner(getPrimaryStage());
 			Scene scene = new Scene(page);
@@ -185,7 +185,7 @@ public class VueFXMain extends Application {
 
 			// Create the dialog Stage.
 			Stage dialogStage = new Stage();
-			dialogStage.setTitle("Edit Salle");
+			dialogStage.setTitle("Modification d'une Salle");
 			dialogStage.initModality(Modality.WINDOW_MODAL);
 			dialogStage.initOwner(getPrimaryStage());
 			Scene scene = new Scene(page);
@@ -217,7 +217,7 @@ public class VueFXMain extends Application {
 
 			// Create the dialog Stage.
 			Stage dialogStage = new Stage();
-			dialogStage.setTitle("Add Salle");
+			dialogStage.setTitle("Ajout d'un Évènement");
 			dialogStage.initModality(Modality.WINDOW_MODAL);
 			dialogStage.initOwner(getPrimaryStage());
 			Scene scene = new Scene(page);
@@ -248,7 +248,7 @@ public class VueFXMain extends Application {
 
 			// Create the dialog Stage.
 			Stage dialogStage = new Stage();
-			dialogStage.setTitle("Edit Salle");
+			dialogStage.setTitle("Modification d'un évènement");
 			dialogStage.initModality(Modality.WINDOW_MODAL);
 			dialogStage.initOwner(getPrimaryStage());
 			Scene scene = new Scene(page);
@@ -280,7 +280,7 @@ public class VueFXMain extends Application {
 
 			// Create the dialog Stage.
 			Stage dialogStage = new Stage();
-			dialogStage.setTitle("Add Notes");
+			dialogStage.setTitle("Ajout d'une Note");
 			dialogStage.initModality(Modality.WINDOW_MODAL);
 			dialogStage.initOwner(getPrimaryStage());
 			Scene scene = new Scene(page);
@@ -308,7 +308,7 @@ public class VueFXMain extends Application {
 
 			// Create the dialog Stage. 
 			Stage dialogStage = new Stage();
-			dialogStage.setTitle("edit notes");
+			dialogStage.setTitle("Modification d'une Note");
 			dialogStage.initModality(Modality.WINDOW_MODAL);
 			dialogStage.initOwner(getPrimaryStage());
 			Scene scene = new Scene(page);

@@ -115,9 +115,9 @@ public class AccueilController {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(VueFXMain.getPrimaryStage());
-			alert.setTitle("No Selection");
-			alert.setHeaderText("No Person Selected");
-			alert.setContentText("Please select a person in the table.");
+			alert.setTitle("Aucune Séléction");
+			alert.setHeaderText("Aucune note n'est selectionner");
+			alert.setContentText("Merci de séléctionner une note ou une ligne dans le tableau !");
 
 			alert.showAndWait();
 
@@ -146,7 +146,7 @@ public class AccueilController {
 			alert.initOwner(VueFXMain.getPrimaryStage());
 			alert.setTitle("Aucune Selection");
 			alert.setHeaderText("Aucune Note n'est séléctionner");
-			alert.setContentText("Please select a person in the table.");
+			alert.setContentText("Merci de séléctionner une note ou une ligne dans le tableau !");
 
 			alert.showAndWait();
 		}

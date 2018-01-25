@@ -103,10 +103,10 @@ public class NotesAddController {
 		   String errorMessage = "";
 
 	        if (Note.getText() == null || Note.getText().length() == 0) {
-	            errorMessage += "Nom  non valide!\n";
+	            errorMessage += "Aucune note n'as été écrite ! Note non valide !\n";
 	        }
 	        if (NomAdmin.getValue() == null || NomAdmin.getValue().length() == 0) {
-	            errorMessage += "Nom  non valide!\n";
+	            errorMessage += "Merci de séléctionner un nom d'administrateur pour cette note !\n";
 	        }
 	             
 
@@ -116,8 +116,8 @@ public class NotesAddController {
 	            // Show the error message.
 	            Alert alert = new Alert(AlertType.ERROR);
 	            alert.initOwner(dialogStage);
-	            alert.setTitle("Invalid Fields");
-	            alert.setHeaderText("Please correct invalid fields");
+	            alert.setTitle("Champs non valides");
+	            alert.setHeaderText("Veuillez corriger les champs non valides");
 	            alert.setContentText(errorMessage);
 
 	            alert.showAndWait();
