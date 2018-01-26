@@ -91,9 +91,8 @@ public class AccueilController {
 	// Label Modifier Utilisateur
 	@FXML
 	private void editNote() {
-		System.out.println(notes.toString());
-
 		if (notes != null) {
+			System.out.println(notes.toString());
 			boolean okClicked = VueFXMain.VueNotesEdit(notes);
 			if (okClicked) {
 				// showPersonDetails(user);

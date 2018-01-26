@@ -21,8 +21,6 @@ public class MenuFixeController {
 	@FXML
 	private Pane GestionUserView;
 	@FXML
-	private Pane GestionDocsView;
-	@FXML
 	private Pane GestionEvtView;
 	@FXML
 	private Pane AccueilView;
@@ -96,25 +94,6 @@ public class MenuFixeController {
 		header.getChildren().add(gsalle);
 		gsalle.setLayoutX(5);
 		gsalle.setLayoutY(143);
-		
-	} catch (IOException e) {
-		e.printStackTrace();
-	} finally {
-		/** TODO : ajout un message d'erreur "Une erreur interne est survenue **/
-	}
-}
-	
-	@FXML
-	private void docs(ActionEvent actionEvent) {
-		try 	{
-			// Chargement partie GestionDocs
-		FXMLLoader acc = new FXMLLoader();
-		acc.setLocation(VueFXMain.class.getClassLoader().getResource("vueFrame/GestionDocs.fxml"));
-		Pane gdoc = (Pane) acc.load();
-		header.getChildren().removeAll();
-		header.getChildren().add(gdoc);
-		gdoc.setLayoutX(5);
-		gdoc.setLayoutY(143);
 		
 	} catch (IOException e) {
 		e.printStackTrace();
