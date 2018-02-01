@@ -1,5 +1,9 @@
 package controller;
 
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 
 import javafx.event.ActionEvent;
@@ -12,11 +16,17 @@ import javafx.stage.Stage;
 import vue.VueFXMain;
 
 public class MySpaceController {
-	 @FXML
-	 private Button BDD;
-	 @FXML
-	 private Button GLPI;
+
 	 
+	 @FXML
+	 private void glpi (ActionEvent evt) {
+		 try {
+			Desktop.getDesktop().browse(new URI("http://glpi-project.org"));
+		} catch (IOException | URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	 }
 
 
 }

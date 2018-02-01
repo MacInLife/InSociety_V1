@@ -29,7 +29,7 @@
             <Font name="Comic Sans MS" size="16.0" />
          </font>
          <graphic>
-            <Hyperlink alignment="CENTER" opacity="0.18" prefHeight="72.0" prefWidth="101.0" text="GLPI" textFill="WHITE">
+            <Hyperlink alignment="CENTER" onAction="#glpi" opacity="0.18" prefHeight="72.0" prefWidth="101.0" text="GLPI" textFill="WHITE">
                <font>
                   <Font name="Comic Sans MS" size="16.0" />
                </font>
