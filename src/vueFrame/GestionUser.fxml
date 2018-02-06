@@ -12,7 +12,7 @@
 
 <Pane fx:id="GestionUserView" prefHeight="386.0" prefWidth="836.0" style="-fx-background-color: white; -fx-border-radius: 100px;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GestionUserController">
    <children>
-      <Text layoutX="13.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion Utilisateurs : " underline="true">
+      <Text layoutX="13.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion Personnel : " underline="true">
          <font>
             <Font name="BlackChancery" size="19.0" />
          </font>
