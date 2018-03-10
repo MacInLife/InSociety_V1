@@ -5,8 +5,6 @@ import java.sql.SQLException;
 import java.sql.Time;
 
 import DAO.EvenementsDAO;
-import DAO.Salle_ReunionDAO;
-import DAO.StatutDAO;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -19,7 +17,6 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import metier.Evenements;
-import metier.Salle_Reunion;
 import vue.VueFXMain;
 
 public class GestionEvtController {
@@ -107,7 +104,7 @@ public class GestionEvtController {
 	// Ajouter Events
 	@FXML
 	private void addEvt() {
-		VueFXMain.VueGEvtAdd();
+		vue.VueFXMain.VueGEvtAdd();
 
 	}
 
@@ -140,9 +137,9 @@ public class GestionEvtController {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(VueFXMain.getPrimaryStage());
-			alert.setTitle("No Selection");
-			alert.setHeaderText("No Events Selected");
-			alert.setContentText("Please select a event in the table.");
+			alert.setTitle("Aucune Sélection");
+			alert.setHeaderText("Aucun évènement n'est sélectionnée");
+			alert.setContentText("Merci de sélectionner un evenement dans le tableau.");
 
 			alert.showAndWait();
 
@@ -171,9 +168,9 @@ public class GestionEvtController {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(VueFXMain.getPrimaryStage());
-			alert.setTitle("No Selection");
-			alert.setHeaderText("No Events Selected");
-			alert.setContentText("Please select a event in the table.");
+			alert.setTitle("Aucune Sélection");
+			alert.setHeaderText("Aucun évènement n'est sélectionnée");
+			alert.setContentText("Merci de sélectionner un evenement dans le tableau.");
 
 			alert.showAndWait();
 		}

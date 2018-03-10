@@ -2,32 +2,22 @@ package controller;
 
 import java.sql.SQLException;
 
-import DAO.EvenementsDAO;
+
 import DAO.NotesDAO;
-import DAO.PersonnelDAO;
-import DAO.Salle_ReunionDAO;
-import javafx.collections.FXCollections;
+
 import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.TextFieldListCell;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
 import javafx.scene.layout.Pane;
-import javafx.util.Callback;
-import javafx.util.StringConverter;
-import metier.Evenements;
 import metier.Notes;
-import metier.Salle_Reunion;
-import vue.VueFXMain;
 
 public class AccueilController {
 
@@ -83,7 +73,7 @@ public class AccueilController {
 	// Ajouter Notes
 	@FXML
 	private void AddNotes() {
-		VueFXMain.VueNotesAdd();
+		vue.VueFXMain.VueNotesAdd();
 	}
 	
 	// Called when the user clicks the edit button. Opens a dialog to edit details
@@ -93,7 +83,7 @@ public class AccueilController {
 	private void editNote() {
 		if (notes != null) {
 			System.out.println(notes.toString());
-			boolean okClicked = VueFXMain.VueNotesEdit(notes);
+			boolean okClicked = vue.VueFXMain.VueNotesEdit(notes);
 			if (okClicked) {
 				// showPersonDetails(user);
 
@@ -113,9 +103,9 @@ public class AccueilController {
 		} else {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.initOwner(VueFXMain.getPrimaryStage());
-			alert.setTitle("Aucune Séléction");
-			alert.setHeaderText("Aucune note n'est selectionner");
+			alert.initOwner(vue.VueFXMain.getPrimaryStage());
+			alert.setTitle("Aucune Sélection");
+			alert.setHeaderText("Aucune note n'est sélectionnée");
 			alert.setContentText("Merci de séléctionner une note ou une ligne dans le tableau !");
 
 			alert.showAndWait();
@@ -142,9 +132,9 @@ public class AccueilController {
 		} else {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.initOwner(VueFXMain.getPrimaryStage());
-			alert.setTitle("Aucune Selection");
-			alert.setHeaderText("Aucune Note n'est séléctionner");
+			alert.initOwner(vue.VueFXMain.getPrimaryStage());
+			alert.setTitle("Aucune Sélection");
+			alert.setHeaderText("Aucune Note n'est sélectionnée");
 			alert.setContentText("Merci de séléctionner une note ou une ligne dans le tableau !");
 
 			alert.showAndWait();

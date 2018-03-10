@@ -2,10 +2,8 @@ package controller;
 
 import java.sql.Date;
 import java.sql.SQLException;
-
 import DAO.PersonnelDAO;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -19,7 +17,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import metier.Personnel;
-import metier.Service;
 import vue.VueFXMain;
 
 public class GestionUserController {
@@ -162,9 +159,9 @@ public class GestionUserController {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(VueFXMain.getPrimaryStage());
-			alert.setTitle("No Selection");
-			alert.setHeaderText("No Person Selected");
-			alert.setContentText("Please select a person in the table.");
+			alert.setTitle("Aucune Sélection");
+			alert.setHeaderText("Aucune Personne n'est sélectionnée");
+			alert.setContentText("Merci de sélectionner une Personne dans le tableau");
 
 			alert.showAndWait();
 
@@ -193,10 +190,9 @@ public class GestionUserController {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(VueFXMain.getPrimaryStage());
-			alert.setTitle("No Selection");
-			alert.setHeaderText("No Person Selected");
-			alert.setContentText("Please select a person in the table.");
-
+			alert.setTitle("Aucune Sélection");
+			alert.setHeaderText("Aucune Personne n'est sélectionnée");
+			alert.setContentText("Merci de sélectionner une Personne dans le tableau");
 			alert.showAndWait();
 		}
 	}

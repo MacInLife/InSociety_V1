@@ -1,8 +1,6 @@
 package controller;
 
 import java.sql.SQLException;
-import java.sql.Timestamp;
-
 import DAO.Salle_ReunionDAO;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
@@ -44,13 +42,7 @@ public class GestionSalleController {
 	@FXML
 	private TableColumn<Salle_Reunion, String> Statut;
 	@FXML
-	private TableColumn<Salle_Reunion, Timestamp> DateD;
-	@FXML
-	private TableColumn<Salle_Reunion, Timestamp> DateF;
-	@FXML
 	private TableColumn<Salle_Reunion, Integer> NbPlace;
-	@FXML
-	private TableColumn<Salle_Reunion, Integer> NbPers;
 	@FXML
 	private TableColumn<Salle_Reunion, String> LieuSR;
 	Salle_Reunion salle;
@@ -61,10 +53,7 @@ public class GestionSalleController {
 		// cellData.getValue().getIdSRPro().asObject());
 		NomSR.setCellValueFactory(cellData -> cellData.getValue().getNomSRPro());
 		Statut.setCellValueFactory(cellData -> cellData.getValue().getStatut().getLibellerPro());
-		DateD.setCellValueFactory(cellData -> cellData.getValue().getDate_dPro());
-		DateF.setCellValueFactory(cellData -> cellData.getValue().getDate_fPro());
 		NbPlace.setCellValueFactory(cellData -> cellData.getValue().getNbPlaceTotalPro().asObject());
-		NbPers.setCellValueFactory(cellData -> cellData.getValue().getNbPersPro().asObject());
 		LieuSR.setCellValueFactory(cellData -> cellData.getValue().getLieuPro());
 		Statut.setCellValueFactory(cellData -> cellData.getValue().getStatut().getLibellerPro());
 		tabSalle.setOnMouseClicked(new EventHandler<Event>() {
@@ -135,9 +124,9 @@ public class GestionSalleController {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(VueFXMain.getPrimaryStage());
-			alert.setTitle("No Selection");
-			alert.setHeaderText("No Person Selected");
-			alert.setContentText("Please select a person in the table.");
+			alert.setTitle("Aucune Sélection");
+			alert.setHeaderText("Aucune Salle n'est sélectionnée");
+			alert.setContentText("Merci de sélectionner une salle dans le tableau");
 
 			alert.showAndWait();
 
@@ -166,9 +155,9 @@ public class GestionSalleController {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(VueFXMain.getPrimaryStage());
-			alert.setTitle("No Selection");
-			alert.setHeaderText("No Person Selected");
-			alert.setContentText("Please select a person in the table.");
+			alert.setTitle("Aucune Sélection");
+			alert.setHeaderText("Aucune Salle n'est sélectionnée");
+			alert.setContentText("Merci de sélectionner une salle dans le tableau");
 
 			alert.showAndWait();
 		}

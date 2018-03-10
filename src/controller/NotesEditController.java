@@ -1,11 +1,6 @@
 package controller;
 
-import java.sql.Date;
 import java.sql.SQLException;
-import java.sql.Time;
-import java.time.LocalDate;
-
-import DAO.NotesDAO;
 import DAO.PersonnelDAO;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,11 +8,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import metier.Evenements;
 import metier.Notes;
 
 public class NotesEditController {

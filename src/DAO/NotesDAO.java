@@ -1,17 +1,12 @@
 package DAO;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import metier.Personnel;
-import metier.Salle_Reunion;
-import metier.Service;
-import metier.Evenements;
 import metier.Notes;
 
 public class NotesDAO {
@@ -51,8 +46,7 @@ public class NotesDAO {
 		pst.setInt(1, notes.getId_notes());
 		pst.setString(2, notes.getTxt_not());
 		pst.setInt(3, notes.getPersonnel().getId());
-
-		int nbligne = pst.executeUpdate();
+		pst.executeUpdate();
 
 	}
 
@@ -72,8 +66,7 @@ public class NotesDAO {
 		pst.setInt(3, notes.getId_notes());
 		
 		// Recupère et verif clé etrangère de la table Salle_Reunion
-
-		int nbligne = pst.executeUpdate();
+		pst.executeUpdate();
 
 	}
 
@@ -89,10 +82,7 @@ public class NotesDAO {
 
 		// renvoyer et verifier les donnÃ©es de la requÃªte
 		pst.setInt(1, notes.getId_notes());
-		int i = pst.executeUpdate();
-
-		int a = 1;
-
+		pst.executeUpdate();
 	}
 
 	public static void insertNotes(ObservableList<Notes> ListNotes) {

@@ -15,11 +15,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:id="EvtAddView" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GEvtAddController">
+<GridPane fx:id="ResEditView" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GResEditController">
    <children>
-      <VBox prefHeight="178.0" prefWidth="148.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+      <VBox alignment="CENTER_LEFT" prefHeight="178.0" prefWidth="148.0" GridPane.columnIndex="9" GridPane.rowIndex="3">
          <children>
-            <Label layoutX="10.0" layoutY="10.0" text="Nom de l'évènement">
+            <Label layoutX="10.0" layoutY="10.0" text="Nom">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -30,7 +30,15 @@
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="10.0" layoutY="94.0" text="Date de début">
+            <Label text="Nombre de personne">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="94.0" text="Date/Heure début">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
@@ -41,7 +49,7 @@
                   <Insets />
                </VBox.margin>
             </Label>
-            <Label text="Heure de début">
+            <Label layoutX="10.0" layoutY="178.0" text="Date/Heure fin">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
@@ -49,39 +57,7 @@
                   <Font name="Comic Sans MS" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="10.0" layoutY="147.0" text="Date de fin">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-               <font>
-                  <Font name="Comic Sans MS" size="12.0" />
-               </font>
-            </Label>
-            <Label text="Heure de fin">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-               <font>
-                  <Font name="Comic Sans MS" size="12.0" />
-               </font>
-            </Label>
-            <Label layoutX="10.0" layoutY="175.0" text="Type / Description">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-               <font>
-                  <Font name="Comic Sans MS" size="12.0" />
-               </font>
-            </Label>
-            <Label layoutX="15.0" layoutY="15.0" text="Lieu de l'évènement">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-               <font>
-                  <Font name="Comic Sans MS" size="12.0" />
-               </font>
-            </Label>
-            <Label layoutX="10.0" layoutY="178.0" text="Salle Existante">
+            <Label layoutX="15.0" layoutY="15.0" text="Statut">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
@@ -94,44 +70,35 @@
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </GridPane.margin>
       </VBox>
-      <VBox alignment="CENTER" prefHeight="109.0" prefWidth="197.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+      <VBox alignment="CENTER" prefHeight="127.0" prefWidth="202.0" GridPane.columnIndex="10" GridPane.rowIndex="3">
          <children>
-            <TextField fx:id="NomEvt" prefHeight="21.0" prefWidth="127.0" promptText="Nom de l'évènements">
+            <ComboBox fx:id="NomSR" prefHeight="25.0" prefWidth="202.0" />
+            <TextField fx:id="NbPerso" prefHeight="29.0" prefWidth="209.0" promptText="Nombre de personne">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </TextField>
-            <DatePicker fx:id="DateEvtD" prefHeight="29.0" prefWidth="205.0" promptText="Date de début" />
             <HBox alignment="TOP_CENTER" prefHeight="25.0" prefWidth="103.0">
                <children>
+                  <DatePicker fx:id="DateSRD" prefHeight="25.0" prefWidth="111.0" promptText="Date/Heure début" />
                   <ChoiceBox fx:id="HSRD" prefHeight="25.0" prefWidth="61.0" />
                   <ChoiceBox fx:id="MSRD" blendMode="MULTIPLY" depthTest="ENABLE" prefHeight="25.0" prefWidth="61.0" snapToPixel="false" />
                </children>
             </HBox>
-            <DatePicker fx:id="DateEvtF" prefHeight="29.0" prefWidth="204.0" promptText="Date de fin" />
             <HBox alignment="TOP_CENTER" prefHeight="19.0" prefWidth="202.0">
                <children>
+                  <DatePicker fx:id="DateSRF" prefHeight="25.0" prefWidth="111.0" promptText="Date/Heure fin" />
                   <ChoiceBox fx:id="HSRF" prefHeight="25.0" prefWidth="61.0" />
                   <ChoiceBox fx:id="MSRF" prefHeight="25.0" prefWidth="61.0" />
                </children>
             </HBox>
-            <TextField fx:id="TypeEvt" layoutX="10.0" layoutY="140.0" promptText="Type / Description">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </TextField>
-            <TextField fx:id="LieuEvt" layoutX="10.0" layoutY="10.0" promptText="Lieu de l'évènements">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </TextField>
-            <ComboBox fx:id="SalleEvt" prefHeight="25.0" prefWidth="212.0" />
+            <ComboBox fx:id="Login" layoutX="10.0" layoutY="172.0" prefHeight="25.0" prefWidth="202.0" />
          </children>
          <GridPane.margin>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </GridPane.margin>
       </VBox>
-      <Button fx:id="AddEvt" alignment="CENTER" mnemonicParsing="false" onAction="#AddOk" onMouseClicked="#AddOk" prefHeight="29.0" prefWidth="119.0" style="-fx-background-color: #30bd29; -fx-background-radius: 100;" text="Ajouter" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+      <Button fx:id="EditRes" alignment="CENTER" mnemonicParsing="false" onAction="#SaveEditOk" prefHeight="29.0" prefWidth="119.0" style="-fx-background-color: #30bd29; -fx-background-radius: 100;" text="Modifier" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
          <font>
             <Font name="BlackChancery" size="22.0" />
          </font>
@@ -139,7 +106,7 @@
             <Insets bottom="20.0" />
          </GridPane.margin>
       </Button>
-      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="430.0" style="-fx-background-color: #1ca4b6;" text="Ajouter un Évènement" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="430.0" style="-fx-background-color: #1ca4b6;" text="Modifier une Réservation" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <font>
             <Font name="BlackChancery" size="20.0" />
          </font>
@@ -147,7 +114,7 @@
             <InnerShadow choke="0.54" color="#05eaff" height="80.67" radius="19.6675" width="0.0" />
          </effect>
       </Label>
-      <Button fx:id="AnnulAddEvt" alignment="CENTER" mnemonicParsing="false" onAction="#AddCancel" prefHeight="9.0" prefWidth="111.0" style="-fx-background-color: grey; -fx-background-radius: 100;" text="Annuler" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+      <Button fx:id="AnnulEditRes" alignment="CENTER" mnemonicParsing="false" onAction="#EditCancel" prefHeight="9.0" prefWidth="111.0" style="-fx-background-color: grey; -fx-background-radius: 100;" text="Annuler" GridPane.columnIndex="10" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
          <font>
             <Font name="BlackChancery" size="16.0" />
          </font>
@@ -157,6 +124,13 @@
       </Button>
    </children>
    <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
       <ColumnConstraints />
       <ColumnConstraints />
       <ColumnConstraints />

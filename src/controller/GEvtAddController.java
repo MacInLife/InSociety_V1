@@ -3,11 +3,9 @@ package controller;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
-import java.sql.Timestamp;
 
 import DAO.EvenementsDAO;
 import DAO.Salle_ReunionDAO;
-import DAO.StatutDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -22,7 +20,6 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import metier.Evenements;
 import metier.Salle_Reunion;
-import metier.Statut;
 
 public class GEvtAddController {
 	@FXML
@@ -79,10 +76,9 @@ public class GEvtAddController {
 	    	MSRD.setItems(olmin);
 	    	MSRF.setItems(olmin);
 	    	
-	    	Salle_ReunionDAO srdao = new Salle_ReunionDAO();
 			ObservableList<String> li;
 			try {
-				li = srdao.getSalleRList();
+				li = Salle_ReunionDAO.getSalleRList();
 				SalleEvt.setItems(li);
 				
 			} catch (SQLException e) {
@@ -122,8 +118,11 @@ public class GEvtAddController {
 	        
 	        	events.setType(TypeEvt.getText());
 	        	events.setLieu(LieuEvt.getText());
+	            //Creer objet NomSR
+	        	Salle_Reunion salle = new Salle_Reunion();
+	        	salle.setNomSR(SalleEvt.getValue());
+	        	events.setSalle(salle);
 	        	try {
-					events.setSalle(Salle_ReunionDAO.GetListeSalle().get(Salle_ReunionDAO.GetIdSR(SalleEvt.getValue())));
 					EvenementsDAO.ajoutEvent(events);
 				} catch (ClassNotFoundException e) {
 					// TODO Bloc catch généré automatiquement
@@ -155,13 +154,13 @@ public class GEvtAddController {
 	        String errorMessage = "";
 
 	        if (NomEvt.getText() == null || NomEvt.getText().length() == 0) {
-	            errorMessage += "Nom  non valide!\n";
+	            errorMessage += "Nom  invalide!\n";
 	        }
 	        if (DateEvtD.getValue() == null || DateEvtD.getPromptText().length() == 0) {
-	            errorMessage += "Date début non valide!\n";
+	            errorMessage += "Date de début invalide!\n";
 	        }
 	        if (DateEvtF.getValue() == null || DateEvtF.getPromptText().length() == 0) {
-	            errorMessage += "Date Fin non valide!\n";
+	            errorMessage += "Date de Fin non valide!\n";
 	        }
 	        if(HSRD.getValue()+ MSRD.getValue() == null || HSRD.getValue().length() + MSRD.getValue().length() ==0) {
 	        	errorMessage += "Heure et/ ou minute de début non valide ! \n";
@@ -169,12 +168,15 @@ public class GEvtAddController {
 	        if(HSRF.getValue()+ MSRF.getValue() == null || HSRF.getValue().length() + MSRF.getValue().length() ==0) {
 	        	errorMessage += "Heure de fin non valide ! \n";
 	        }
+			if (SalleEvt.getValue() == null || SalleEvt.getValue().length() == 0) {
+				errorMessage += "Salle non valide!\n";
+			}
 	      
 	        if (TypeEvt.getText() == null || TypeEvt.getText().length() == 0) {
-	            errorMessage += "No valid type!\n";
+	            errorMessage += "Type invalide !\n";
 	        }
 	        if (LieuEvt.getText() == null || LieuEvt.getText().length() == 0) {
-	            errorMessage += "No valid Lieu!\n";
+	            errorMessage += "Lieu invalide !\n";
 	        }
 	        
 
@@ -184,8 +186,8 @@ public class GEvtAddController {
 	            // Show the error message.
 	            Alert alert = new Alert(AlertType.ERROR);
 	            alert.initOwner(dialogStage);
-	            alert.setTitle("Invalid Fields");
-	            alert.setHeaderText("Please correct invalid fields");
+	            alert.setTitle("Champs non valides");
+	            alert.setHeaderText("Veuillez corriger le champ non valide");
 	            alert.setContentText(errorMessage);
 
 	            alert.showAndWait();

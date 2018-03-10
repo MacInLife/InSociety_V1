@@ -12,13 +12,14 @@ import java.sql.Statement;
 public class Connect {
     //modif par ma basse de données
     private static final String DRIVER = "com.mysql.jdbc.Driver";
-    private static final String DBNAME = "insocietybdd";
+    private static final String DBNAME = "insocietybdds";
     private static final String URL = "jdbc:mysql://localhost/"+DBNAME;
     private static final String USER = "root";
     private static final String PASSWORD = "";
     private static Connect instance;
 
-    private Connect() {
+    @SuppressWarnings("deprecation")
+	private Connect() {
         try {
             Class.forName(DRIVER).newInstance();
             System.out.println("*** Driver loaded. ***");

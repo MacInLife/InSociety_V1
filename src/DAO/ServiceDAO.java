@@ -2,20 +2,13 @@
 package DAO;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import metier.Notes;
-import metier.Personnel;
-import metier.Role;
 import metier.Service;
-import metier.Statut;
 
 
 public class ServiceDAO {
@@ -55,9 +48,7 @@ public class ServiceDAO {
          
          //renvoyer et verifier les données de la requête
          pst.setString(1, serv.getType_service());    
-           
-               
-       int nbligne =  pst.executeUpdate();
+           pst.executeUpdate();
     
     }
  
@@ -73,8 +64,7 @@ public class ServiceDAO {
          
            //renvoyer et verifier les données de la requête
          pst.setString(1, serv.getType_service());  
-         
-        int i = pst.executeUpdate();
+         pst.executeUpdate();
     
     }
 

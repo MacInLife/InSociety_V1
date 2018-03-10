@@ -49,8 +49,7 @@ public class StatutDAO {
          //Récupère et vérifier la clé étrangère de la table Salle de Réunion id_SR
          
          //pst.setInt(4, RoleDAO.GetIdRole(pers.getRole().getNom_role()));       
-               
-       int nbligne =  pst.executeUpdate();
+         pst.executeUpdate();
     
     }
  
@@ -66,8 +65,7 @@ public class StatutDAO {
          
           //renvoyer et verifier les données de la requête
          pst.setString(1, statu.getLibeller());
-         
-        int i = pst.executeUpdate();
+         pst.executeUpdate();
     
     }
     

@@ -47,6 +47,7 @@
                   <MenuItem fx:id="Gpers" mnemonicParsing="false" onAction="#toto" text="Gestion Personnels" />
               	<MenuItem fx:id="Gevt" mnemonicParsing="false" onAction="#event" text="Gestion Evènements" />
               <MenuItem fx:id="Gsal" mnemonicParsing="false" onAction="#sal" text="Gestion Salle" />
+                  <MenuItem fx:id="GRes" mnemonicParsing="false" onAction="#res" text="Gestion Reservation" />
                </items>
           </Menu>
             <Menu mnemonicParsing="false">

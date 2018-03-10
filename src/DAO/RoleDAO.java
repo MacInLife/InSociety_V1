@@ -53,8 +53,7 @@ public class RoleDAO {
                                     
              
          //pst.setInt(4, RoleDAO.GetIdRole(pers.getRole().getNom_role()));       
-               
-       int nbligne =  pst.executeUpdate();
+         pst.executeUpdate();
     
     }
  
@@ -70,8 +69,7 @@ public class RoleDAO {
          
           //renvoyer et verifier les données de la requête
          pst.setString(1, rol.getNom_role());
-         
-        int i = pst.executeUpdate();
+         pst.executeUpdate();
     
     }
     

@@ -34,9 +34,7 @@ public class MessageDAO {
          pst.setInt(4,PersonnelDAO.GetIdPers(msg.getPers().getMail()));
          
          //recup id_pers et id_msgrie
-         
-               
-       int nbligne =  pst.executeUpdate();
+         pst.executeUpdate();
     
     }
  
@@ -56,9 +54,7 @@ public class MessageDAO {
          pst.setDate(1, Date.valueOf(msg.getJour()));
          pst.setDate(1, Date.valueOf(msg.getHeure()));
          pst.setString(3, msg.getLieu());
-         
-         
-        int i = pst.executeUpdate();
+         pst.executeUpdate();
     
     }
 }
