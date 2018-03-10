@@ -1,26 +1,23 @@
 package controller;
 
-import java.sql.Date;
-import java.sql.SQLException;
-import java.sql.Time;
-
 import DAO.EvenementsDAO;
-import DAO.Salle_ReunionDAO;
-import DAO.StatutDAO;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import metier.Evenements;
-import metier.Salle_Reunion;
 import vue.VueFXMain;
+
+import java.sql.Date;
+import java.sql.SQLException;
+import java.sql.Time;
 
 public class GestionEvtController {
 	@FXML
@@ -95,7 +92,7 @@ public class GestionEvtController {
 			System.out.println(empData);
 			tabEvent.setItems(empData);
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Bloc catch généré automatiquement
+			// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
 			e.printStackTrace();
 		}
 
@@ -122,15 +119,15 @@ public class GestionEvtController {
 			if (okClicked) {
 				// showPersonDetails(user);
 
-				// tu fais appel à ta methode modifierPersonnel dans la classe PersonnelDAO
+				// tu fais appel ï¿½ ta methode modifierPersonnel dans la classe PersonnelDAO
 				try {
 
 					EvenementsDAO.ModifEvent(events);
 				} catch (ClassNotFoundException e) {
-					// TODO Bloc catch généré automatiquement
+					// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
 					e.printStackTrace();
 				} catch (SQLException e) {
-					// TODO Bloc catch généré automatiquement
+					// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
 					e.printStackTrace();
 				}
 				// tu refresh tableView
@@ -140,9 +137,9 @@ public class GestionEvtController {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(VueFXMain.getPrimaryStage());
-			alert.setTitle("No Selection");
-			alert.setHeaderText("No Events Selected");
-			alert.setContentText("Please select a event in the table.");
+			alert.setTitle("Aucune sélection");
+			alert.setHeaderText("Aucun évènement n'est sélectionnée");
+			alert.setContentText("Merci de sélectionner un évènement dans le tableau.");
 
 			alert.showAndWait();
 
@@ -161,19 +158,19 @@ public class GestionEvtController {
 			try {
 				EvenementsDAO.SuppEvent(selectedIndex);
 			} catch (ClassNotFoundException e) {
-				// TODO Bloc catch généré automatiquement
+				// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
 				e.printStackTrace();
 			} catch (SQLException e) {
-				// TODO Bloc catch généré automatiquement
+				// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
 				e.printStackTrace();
 			}
 		} else {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(VueFXMain.getPrimaryStage());
-			alert.setTitle("No Selection");
-			alert.setHeaderText("No Events Selected");
-			alert.setContentText("Please select a event in the table.");
+			alert.setTitle("Aucune sélection");
+			alert.setHeaderText("Aucun évènement n'est sélectionnée");
+			alert.setContentText("Merci de sélectionner un évènement dans le tableau.");
 
 			alert.showAndWait();
 		}

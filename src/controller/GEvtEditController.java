@@ -1,25 +1,19 @@
 package controller;
 
-import java.sql.Date;
-import java.sql.SQLException;
-import java.sql.Time;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 import DAO.Salle_ReunionDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import metier.Evenements;
+
+import java.sql.Date;
+import java.sql.SQLException;
+import java.sql.Time;
+import java.time.LocalDate;
 
 public class GEvtEditController {
 	@FXML
@@ -234,10 +228,10 @@ public class GEvtEditController {
 		}
 
 		if (TypeEvt.getText() == null || TypeEvt.getText().length() == 0) {
-			errorMessage += "No valid type!\n";
+			errorMessage += "Type non valide!\n";
 		}
 		if (LieuEvt.getText() == null || LieuEvt.getText().length() == 0) {
-			errorMessage += "No valid Lieu!\n";
+			errorMessage += "Lieu non valide!\n";
 		}
 
 		if (errorMessage.length() == 0) {
@@ -246,8 +240,8 @@ public class GEvtEditController {
 			// Show the error message.
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.initOwner(dialogStage);
-			alert.setTitle("Invalid Fields");
-			alert.setHeaderText("Please correct invalid fields");
+			alert.setTitle("Champs non valide");
+			alert.setHeaderText("Veuillez corriger les champs non valides");
 			alert.setContentText(errorMessage);
 
 			alert.showAndWait();

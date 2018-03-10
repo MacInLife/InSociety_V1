@@ -1,28 +1,20 @@
 package controller;
 
-import java.sql.Date;
-import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
-
 import DAO.Salle_ReunionDAO;
 import DAO.StatutDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import metier.Personnel;
 import metier.Salle_Reunion;
 import metier.Statut;
+
+import java.sql.Date;
+import java.sql.SQLException;
+import java.sql.Timestamp;
 
 public class GSalleAddController {
 	
@@ -131,10 +123,10 @@ public class GSalleAddController {
 		            try {
 						Salle_ReunionDAO.ajoutSalleReu(salles);
 					} catch (ClassNotFoundException e) {
-						// TODO Bloc catch généré automatiquement
+						// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
 						e.printStackTrace();
 					} catch (SQLException e) {
-						// TODO Bloc catch généré automatiquement
+						// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
 						e.printStackTrace();
 					}
 		            
@@ -173,10 +165,10 @@ public class GSalleAddController {
 		        //if DateSRF
 		       
 		        if (LieuSR.getText() == null || LieuSR.getText().length() == 0) {
-		            errorMessage += "No valid Lieu!\n";
+		            errorMessage += "Lieu non valide!\n";
 		        }
 		        if (statutSR.getValue() == null || statutSR.getValue().length() == 0) {
-		            errorMessage += "No valid statut!\n";
+		            errorMessage += "Statut non valide!\n";
 		        }
 
 		        if (errorMessage.length() == 0) {
@@ -185,8 +177,8 @@ public class GSalleAddController {
 		            // Show the error message.
 		            Alert alert = new Alert(AlertType.ERROR);
 		            alert.initOwner(dialogStage);
-		            alert.setTitle("Invalid Fields");
-		            alert.setHeaderText("Please correct invalid fields");
+		            alert.setTitle("Champs non valides");
+		            alert.setHeaderText("Veuillez corriger les champs non valides");
 		            alert.setContentText(errorMessage);
 
 		            alert.showAndWait();

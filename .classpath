@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry exported="true" kind="lib" path="C:/Users/STAPS/OneDrive/mysql-connector-java-5.1.34-bin.jar" sourcepath="build/mysql-connector-java-5.1.34-bin.jar"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/STAPS/OneDrive/mysql-connector-java-5.1.34-bin.jar" sourcepath="build/mysql-connector-java-5.1.34-bin.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

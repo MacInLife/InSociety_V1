@@ -1,20 +1,12 @@
 
 package DAO;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Timestamp;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import metier.Personnel;
-import metier.Role;
 import metier.Salle_Reunion;
-import metier.Service;
 import metier.Statut;
+
+import java.sql.*;
 
 public class Salle_ReunionDAO  {
 
@@ -102,7 +94,7 @@ System.out.println(salleReu.getIdSR());
 		pst.setTimestamp(3, salleReu.getDate_d());
 		pst.setTimestamp(4, salleReu.getDate_f());
 		pst.setString(5, salleReu.getNomSR());
-		//Recupère et verif clé etrangère de la table Statut
+		//Recupï¿½re et verif clï¿½ etrangï¿½re de la table Statut
 		pst.setInt(6, StatutDAO.GetIdStat(salleReu.getStatut().getLibeller()));
 		pst.setString(7, salleReu.getLieu());
 		pst.setInt(8, salleReu.getIdSR());
@@ -132,8 +124,8 @@ System.out.println(salleReu.getIdSR());
     
    public static ObservableList<Salle_Reunion> GetListeSalle() throws ClassNotFoundException, SQLException {
 		ObservableList<Salle_Reunion> SalleList = FXCollections.observableArrayList();
-		// constitution d'une commande basée sur une requête SQL
-		// en vue d'être exécutée sur une connexion donnée
+		// constitution d'une commande basï¿½e sur une requï¿½te SQL
+		// en vue d'ï¿½tre exï¿½cutï¿½e sur une connexion donnï¿½e
 		String req = "select * from salle_reunion";
 		Connection cnx = Connect.getInstance().getConnection();
 		int idSR;

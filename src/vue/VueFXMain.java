@@ -5,20 +5,9 @@
  */
 package vue;
 
-import java.io.IOException;
-import java.util.List;
-
-import controller.GEvtAddController;
-import controller.GEvtEditController;
-import controller.GSalleAddController;
-import controller.GSalleEditController;
-import controller.GUserAddController;
-import controller.GUserEditController;
-import controller.NotesAddController;
-import controller.NotesEditController;
+import controller.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -28,6 +17,9 @@ import metier.Evenements;
 import metier.Notes;
 import metier.Personnel;
 import metier.Salle_Reunion;
+
+import java.io.IOException;
+import java.util.List;
 
 /**
  *
@@ -217,7 +209,7 @@ public class VueFXMain extends Application {
 
 			// Create the dialog Stage.
 			Stage dialogStage = new Stage();
-			dialogStage.setTitle("Ajout d'un Évènement");
+			dialogStage.setTitle("Ajout d'un évènement");
 			dialogStage.initModality(Modality.WINDOW_MODAL);
 			dialogStage.initOwner(getPrimaryStage());
 			Scene scene = new Scene(page);
@@ -335,7 +327,7 @@ public class VueFXMain extends Application {
 	}
 
 	public static List<Personnel> getPersonData() {
-		// TODO Stub de la méthode généré automatiquement
+		// TODO Stub de la m?thode g?n?r? automatiquement
 		return null;
 	}
 

@@ -1,35 +1,22 @@
 package controller;
 
-import java.awt.Insets;
-import java.sql.Date;
-import java.sql.SQLException;
-import java.time.format.DateTimeFormatter;
-
-import DAO.NotesDAO;
 import DAO.PersonnelDAO;
 import DAO.RoleDAO;
 import DAO.ServiceDAO;
 import DAO.StatutDAO;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Labeled;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputControl;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import metier.Notes;
 import metier.Personnel;
-import metier.Service;
 import metier.Role;
+import metier.Service;
 import metier.Statut;
+
+import java.sql.Date;
+import java.sql.SQLException;
 
 public class GUserAddController {
 @FXML
@@ -130,10 +117,10 @@ private GridPane UserAddView;
             try {
 				PersonnelDAO.insertPers(person);
 			} catch (ClassNotFoundException e) {
-				// TODO Bloc catch généré automatiquement
+				// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
 				e.printStackTrace();
 			} catch (SQLException e) {
-				// TODO Bloc catch généré automatiquement
+				// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
 				e.printStackTrace();
 			}
 	    	// apres tu refresh ta tableView
@@ -160,42 +147,42 @@ private GridPane UserAddView;
         String errorMessage = "";
 
         if (Login.getText() == null || Login.getText().length() == 0) {
-            errorMessage += "No valid login!\n";
+            errorMessage += "Login non valide!\n";
         }
         if (mdp.getText() == null || mdp.getText().length() == 0) {
-            errorMessage += "No valid mot de passe!\n";
+            errorMessage += "Mot de passe non valide!\n";
         }
         if (Nom.getText() == null || Nom.getText().length() == 0) {
-            errorMessage += "No valid last name!\n";
+            errorMessage += "Nom non valide !\n";
         }
         if (Prenom.getText() == null ||Prenom.getText().length() == 0) {
-            errorMessage += "No valid prenom!\n";
+            errorMessage += "Prénom non valide !\n";
         }
 
        if ( DatedeNaissance.getValue() == null || DatedeNaissance.getPromptText().length() == 0) {
-            errorMessage += "No valid date!\n";
+            errorMessage += "Date de naissance non valide!\n";
         }
 
         if (Mail.getText() == null || Mail.getText().length() == 0) {
-            errorMessage += "No valid Mail!\n";
+            errorMessage += "Mail non valide !\n";
         }
         if (Tel.getText() == null || Tel.getText().length() == 0) {
-            errorMessage += "No valid ctel!\n";
+            errorMessage += "Tel non valide !\n";
         }
         if (Adresse.getText() == null || Adresse.getText().length() == 0) {
-            errorMessage += "No valid adresse!\n";
+            errorMessage += "Adresse non valide !\n";
         }
         if (Localisation.getText() == null || Localisation.getText().length() == 0) {
-            errorMessage += "No valid Localisation!\n";
+            errorMessage += "Localisation non valide !\n";
         }
         if (CStatut.getValue() == null || CStatut.getValue().length() == 0) {
-            errorMessage += "No valid city!\n";
+            errorMessage += "Statut non valide!\n";
         }
         if (CServ.getValue() == null || CServ.getValue().length() == 0) {
-            errorMessage += "No valid city!\n";
+            errorMessage += "Service non valide!\n";
         }
         if (CRole.getValue() == null || CRole.getValue().length() == 0) {
-            errorMessage += "No valid city!\n";
+            errorMessage += "Role non valide!\n";
         }
         if (errorMessage.length() == 0) {
             return true;
@@ -203,8 +190,8 @@ private GridPane UserAddView;
             // Show the error message.
             Alert alert = new Alert(AlertType.ERROR);
             alert.initOwner(dialogStage);
-            alert.setTitle("Invalid Fields");
-            alert.setHeaderText("Please correct invalid fields");
+            alert.setTitle("Champs non valides");
+            alert.setHeaderText("Veuillez corriger les champs non valides");
             alert.setContentText(errorMessage);
 
             alert.showAndWait();

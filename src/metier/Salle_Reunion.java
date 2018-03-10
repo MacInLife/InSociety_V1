@@ -1,16 +1,11 @@
 
 package metier;
-import java.sql.Date;
-import java.sql.Timestamp;
-//Bibliothèque
-import java.time.LocalDate;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
+
+import java.sql.Timestamp;
+
+//Bibliothèque
 
 public class Salle_Reunion {
     //Initialisation des variables 
