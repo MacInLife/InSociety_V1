@@ -41,7 +41,7 @@
             <Image url="@../image/InSociety0.png" />
          </image></ImageView>
       <PasswordField fx:id="mdp" layoutX="541.0" layoutY="296.0" promptText="Tapez votre mot de passe" />
-      <Text layoutX="10.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue sur l'infterface Administrateur de l'Intranet de InSociety">
+      <Text layoutX="10.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue sur l'interface Administrateur de l'Intranet de InSociety">
          <font>
             <Font name="BlackChancery" size="31.0" />
          </font>

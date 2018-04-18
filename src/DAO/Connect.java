@@ -2,17 +2,13 @@
 package DAO;
 
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 
 public class Connect {
     //modif par ma basse de données
     private static final String DRIVER = "com.mysql.jdbc.Driver";
-    private static final String DBNAME = "insocietybdds";
+    private static final String DBNAME = "insocietybdd";
     private static final String URL = "jdbc:mysql://localhost/"+DBNAME;
     private static final String USER = "root";
     private static final String PASSWORD = "";

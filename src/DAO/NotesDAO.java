@@ -1,25 +1,20 @@
 package DAO;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import metier.Notes;
+
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import metier.Personnel;
-import metier.Salle_Reunion;
-import metier.Service;
-import metier.Evenements;
-import metier.Notes;
-
 public class NotesDAO {
-	// recup données
+	// recup donnï¿½es
 	public static ObservableList<Notes> GetListeNotes() throws ClassNotFoundException, SQLException {
 		ObservableList<Notes> NotesList = FXCollections.observableArrayList();
-		// constitution d'une commande basée sur une requête SQL
-		// en vue d'être exécutée sur une connexion donnée
+		// constitution d'une commande basï¿½e sur une requï¿½te SQL
+		// en vue d'ï¿½tre exï¿½cutï¿½e sur une connexion donnï¿½e
 		String req = "select * from notes";
 		Connection cnx = Connect.getInstance().getConnection();
 		PreparedStatement pst = cnx.prepareStatement(req);
@@ -71,7 +66,7 @@ public class NotesDAO {
 		pst.setInt(2, notes.getPersonnel().getId());
 		pst.setInt(3, notes.getId_notes());
 		
-		// Recupère et verif clé etrangère de la table Salle_Reunion
+		// Recupï¿½re et verif clï¿½ etrangï¿½re de la table Salle_Reunion
 
 		int nbligne = pst.executeUpdate();
 

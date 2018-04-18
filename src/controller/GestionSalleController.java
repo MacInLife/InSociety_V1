@@ -1,23 +1,19 @@
 package controller;
 
-import java.sql.SQLException;
-import java.sql.Timestamp;
-
 import DAO.Salle_ReunionDAO;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import metier.Salle_Reunion;
 import vue.VueFXMain;
+
+import java.sql.SQLException;
+import java.sql.Timestamp;
 
 public class GestionSalleController {
 	@FXML
@@ -44,7 +40,13 @@ public class GestionSalleController {
 	@FXML
 	private TableColumn<Salle_Reunion, String> Statut;
 	@FXML
+	private TableColumn<Salle_Reunion, Timestamp> DateD;
+	@FXML
+	private TableColumn<Salle_Reunion, Timestamp> DateF;
+	@FXML
 	private TableColumn<Salle_Reunion, Integer> NbPlace;
+	@FXML
+	private TableColumn<Salle_Reunion, Integer> NbPers;
 	@FXML
 	private TableColumn<Salle_Reunion, String> LieuSR;
 	Salle_Reunion salle;
@@ -55,7 +57,10 @@ public class GestionSalleController {
 		// cellData.getValue().getIdSRPro().asObject());
 		NomSR.setCellValueFactory(cellData -> cellData.getValue().getNomSRPro());
 		Statut.setCellValueFactory(cellData -> cellData.getValue().getStatut().getLibellerPro());
+		DateD.setCellValueFactory(cellData -> cellData.getValue().getDate_dPro());
+		DateF.setCellValueFactory(cellData -> cellData.getValue().getDate_fPro());
 		NbPlace.setCellValueFactory(cellData -> cellData.getValue().getNbPlaceTotalPro().asObject());
+		NbPers.setCellValueFactory(cellData -> cellData.getValue().getNbPersPro().asObject());
 		LieuSR.setCellValueFactory(cellData -> cellData.getValue().getLieuPro());
 		Statut.setCellValueFactory(cellData -> cellData.getValue().getStatut().getLibellerPro());
 		tabSalle.setOnMouseClicked(new EventHandler<Event>() {
@@ -76,7 +81,7 @@ public class GestionSalleController {
 			System.out.println(empData);
 			tabSalle.setItems(empData);
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Bloc catch généré automatiquement
+			// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
 			e.printStackTrace();
 		}
 	}
@@ -109,14 +114,14 @@ public class GestionSalleController {
 			if (okClicked) {
 				// showPersonDetails(user);
 
-				// tu fais appel à ta methode modifierPersonnel dans la classe PersonnelDAO
+				// tu fais appel ï¿½ ta methode modifierPersonnel dans la classe PersonnelDAO
 				try {
 					Salle_ReunionDAO.ModifSalleReu(salle);
 				} catch (ClassNotFoundException e) {
-					// TODO Bloc catch généré automatiquement
+					// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
 					e.printStackTrace();
 				} catch (SQLException e) {
-					// TODO Bloc catch généré automatiquement
+					// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
 					e.printStackTrace();
 				}
 				// tu refresh tableView
@@ -126,9 +131,9 @@ public class GestionSalleController {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(VueFXMain.getPrimaryStage());
-			alert.setTitle("No Selection");
-			alert.setHeaderText("No Person Selected");
-			alert.setContentText("Please select a person in the table.");
+			alert.setTitle("Aucune sélection");
+			alert.setHeaderText("Aucune salle n'est sélectionnée");
+			alert.setContentText("Merci de sélectionner une salle dans le tableau !");
 
 			alert.showAndWait();
 
@@ -147,19 +152,19 @@ public class GestionSalleController {
 			try {
 				Salle_ReunionDAO.SuppSalleReu(selectedIndex);
 			} catch (ClassNotFoundException e) {
-				// TODO Bloc catch généré automatiquement
+				// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
 				e.printStackTrace();
 			} catch (SQLException e) {
-				// TODO Bloc catch généré automatiquement
+				// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
 				e.printStackTrace();
 			}
 		} else {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(VueFXMain.getPrimaryStage());
-			alert.setTitle("No Selection");
-			alert.setHeaderText("No Person Selected");
-			alert.setContentText("Please select a person in the table.");
+			alert.setTitle("Aucune sélection");
+			alert.setHeaderText("Aucune salle n'est sélectionnée");
+			alert.setContentText("Merci de sélectionner une salle dans le tableau !");
 
 			alert.showAndWait();
 		}

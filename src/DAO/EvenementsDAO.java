@@ -1,17 +1,12 @@
 
 package DAO;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Time;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import metier.Evenements;
 import metier.Salle_Reunion;
+
+import java.sql.*;
 
 @SuppressWarnings("unused")
 public class EvenementsDAO {
@@ -90,7 +85,7 @@ public class EvenementsDAO {
 		pst.setTime(5, event.getH_fin());
 		pst.setString(6, event.getType());
 		pst.setString(7, event.getLieu());
-		// Recupère et verif clé etrangère de la table Salle_Reunion
+		// Recupï¿½re et verif clï¿½ etrangï¿½re de la table Salle_Reunion
 		pst.setInt(8, Salle_ReunionDAO.GetIdSR(event.getSalle().getNomSR()));
 		/*int test = Salle_ReunionDAO.GetIdSR(event.getSalle().getNomSR());
 		if ( test != 0)
@@ -122,8 +117,8 @@ public class EvenementsDAO {
 
 	public static ObservableList<Evenements> GetListeEvent() throws ClassNotFoundException, SQLException {
 		ObservableList<Evenements> EvtList = FXCollections.observableArrayList();
-		// constitution d'une commande basée sur une requête SQL
-		// en vue d'être exécutée sur une connexion donnée
+		// constitution d'une commande basï¿½e sur une requï¿½te SQL
+		// en vue d'ï¿½tre exï¿½cutï¿½e sur une connexion donnï¿½e
 		String req = "select * from evenement";
 		Connection cnx = Connect.getInstance().getConnection();
 		int id_evt;

@@ -1,22 +1,20 @@
 
 package metier;
-import java.sql.Date;
-import java.sql.Timestamp;
-//Bibliothèque
-import java.time.LocalDate;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
+
+import java.sql.Timestamp;
+
+//Bibliothèque
 
 public class Salle_Reunion {
     //Initialisation des variables 
 	private IntegerProperty idSR;
     private StringProperty nomSR;
     private IntegerProperty nbPlaceTotal;
+    private IntegerProperty nbPers;
+    private ObjectProperty<Timestamp> date_d;
+    private ObjectProperty<Timestamp> date_f;
     private Statut statut;
     private StringProperty lieu;
 
@@ -32,6 +30,9 @@ public class Salle_Reunion {
     	this.idSR = new SimpleIntegerProperty();
         this.nomSR = new SimpleStringProperty();
         this.nbPlaceTotal = new SimpleIntegerProperty();
+        this.nbPers = new SimpleIntegerProperty();
+        this.date_d = new SimpleObjectProperty<Timestamp>();
+       this.date_f = new SimpleObjectProperty<Timestamp>();
        statut = new Statut();
        this.lieu = new SimpleStringProperty();
     }
@@ -59,7 +60,13 @@ public class Salle_Reunion {
     public void setNbPlaceTotalPro(IntegerProperty nbPlaceTotal) {
         this.nbPlaceTotal = nbPlaceTotal;
     }
+    public IntegerProperty getNbPersPro() {
+        return nbPers;
+    }
 
+    public void setNbPersPro(IntegerProperty nbPers) {
+        this.nbPers = nbPers;
+    }
     public StringProperty getLieuPro() {
         return lieu;
     }
@@ -68,7 +75,21 @@ public class Salle_Reunion {
         this.lieu = lieu;
     }
 
+    public ObjectProperty<Timestamp> getDate_dPro() {
+        return date_d;
+    }
 
+    public void setDate_dPro(ObjectProperty<Timestamp> date_d) {
+        this.date_d = date_d;
+    }
+
+    public ObjectProperty<Timestamp> getDate_fPro() {
+        return date_f;
+    }
+
+    public void setDate_fPro(ObjectProperty<Timestamp> date_f) {
+        this.date_f = date_f;
+    }
 
     
    //Création des getters et setters
@@ -94,7 +115,29 @@ public class Salle_Reunion {
     public void setNbPlaceTotal(int nbPlaceTotal) {
     	this.nbPlaceTotal.set(nbPlaceTotal);
     }
+    public int getNbPers() {
+    	return nbPers.get();
+    }
+    public void setNbPers(int nbPers) {
+    	this.nbPers.set(nbPers);
+    }
+
+    public Timestamp getDate_d() {
+        return date_d.get();
+    }
+
+    public void setDate_d(Timestamp date_d) {
+        this.date_d.set(date_d);
+    }
+    public Timestamp getDate_f() {
+        return date_f.get();
+    }
+
+    public void setDate_f(Timestamp date_f) {
+        this.date_f.set(date_f);
+    }
     
+  
     public Statut getStatut() {
         return statut;
     }

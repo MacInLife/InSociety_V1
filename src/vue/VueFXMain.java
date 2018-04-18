@@ -5,22 +5,9 @@
  */
 package vue;
 
-import java.io.IOException;
-import java.util.List;
-
-import controller.GEvtAddController;
-import controller.GEvtEditController;
-import controller.GSalleAddController;
-import controller.GSalleEditController;
-import controller.GResAddController;
-import controller.GResEditController;
-import controller.GUserAddController;
-import controller.GUserEditController;
-import controller.NotesAddController;
-import controller.NotesEditController;
+import controller.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -29,8 +16,10 @@ import javafx.stage.Stage;
 import metier.Evenements;
 import metier.Notes;
 import metier.Personnel;
-import metier.Reservation;
 import metier.Salle_Reunion;
+
+import java.io.IOException;
+import java.util.List;
 
 /**
  *
@@ -54,7 +43,7 @@ public class VueFXMain extends Application {
 			this.getPrimaryStage().setScene(scene);
 			this.getPrimaryStage().show();
 		} catch (Exception e) {
-			e.printStackTrace(); 
+			e.printStackTrace();
 		}
 	}
 
@@ -209,69 +198,6 @@ public class VueFXMain extends Application {
 			return false;
 		}
 	}
-	
-	// Ajout Reservation
-		public static boolean VueGResAdd() {
-			try {
-				// Load the fxml file and create a new stage for the popup dialog.
-				FXMLLoader loader = new FXMLLoader();
-				loader.setLocation(VueFXMain.class.getClassLoader().getResource("vueFrame/GResAdd.fxml"));
-				Pane page = (Pane) loader.load();
-
-				// Create the dialog Stage.
-				Stage dialogStage = new Stage();
-				dialogStage.setTitle("Ajout d'une Réservation");
-				dialogStage.initModality(Modality.WINDOW_MODAL);
-				dialogStage.initOwner(getPrimaryStage());
-				Scene scene = new Scene(page);
-				dialogStage.setScene(scene);
-
-				// Set the person into the controller.
-				GResAddController controller = loader.getController();
-				// controller.setPersonnel(person);
-				controller.setDialogStage(dialogStage);
-
-				// Show the dialog and wait until the user closes it
-				dialogStage.showAndWait();
-
-				return controller.isOkClicked();
-			} catch (IOException e) {
-				e.printStackTrace();
-				return false;
-			}
-		}
-
-		// modifier Salle
-		public static boolean VueGResEdit(Reservation res) {
-			try {
-				// Load the fxml file and create a new stage for the popup dialog.
-				FXMLLoader loader = new FXMLLoader();
-				loader.setLocation(VueFXMain.class.getClassLoader().getResource("vueFrame/GResEdit.fxml"));
-				Pane page = (Pane) loader.load();
-
-				// Create the dialog Stage.
-				Stage dialogStage = new Stage();
-				dialogStage.setTitle("Modification d'une Réservation");
-				dialogStage.initModality(Modality.WINDOW_MODAL);
-				dialogStage.initOwner(getPrimaryStage());
-				Scene scene = new Scene(page);
-				dialogStage.setScene(scene);
-
-				System.out.println(res);
-				// Set the person into the controller.
-				GResEditController controller = loader.getController();
-				controller.setReservation(res);
-				controller.setDialogStage(dialogStage);
-
-				// Show the dialog and wait until the user closes it
-				dialogStage.showAndWait();
-
-				return controller.isOkClicked();
-			} catch (IOException e) {
-				e.printStackTrace();
-				return false;
-			}
-		}
 
 	// Ajout Evenements
 	public static boolean VueGEvtAdd() {
@@ -283,7 +209,7 @@ public class VueFXMain extends Application {
 
 			// Create the dialog Stage.
 			Stage dialogStage = new Stage();
-			dialogStage.setTitle("Ajout d'un Évènement");
+			dialogStage.setTitle("Ajout d'un évènement");
 			dialogStage.initModality(Modality.WINDOW_MODAL);
 			dialogStage.initOwner(getPrimaryStage());
 			Scene scene = new Scene(page);
@@ -401,7 +327,7 @@ public class VueFXMain extends Application {
 	}
 
 	public static List<Personnel> getPersonData() {
-		// TODO Stub de la méthode généré automatiquement
+		// TODO Stub de la m?thode g?n?r? automatiquement
 		return null;
 	}
 

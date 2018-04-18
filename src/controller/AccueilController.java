@@ -1,33 +1,22 @@
 package controller;
 
-import java.sql.SQLException;
-
-import DAO.EvenementsDAO;
 import DAO.NotesDAO;
-import DAO.PersonnelDAO;
-import DAO.Salle_ReunionDAO;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.TextFieldListCell;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.util.Callback;
-import javafx.util.StringConverter;
-import metier.Evenements;
 import metier.Notes;
-import metier.Salle_Reunion;
 import vue.VueFXMain;
+
+import java.sql.SQLException;
 
 public class AccueilController {
 
@@ -66,7 +55,7 @@ public class AccueilController {
 			System.out.println(empData);
 			allNotes.setItems(empData);
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Bloc catch généré automatiquement
+			// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
 			e.printStackTrace();
 		}
 		
@@ -83,7 +72,7 @@ public class AccueilController {
 	// Ajouter Notes
 	@FXML
 	private void AddNotes() {
-		vue.VueFXMain.VueNotesAdd();
+		VueFXMain.VueNotesAdd();
 	}
 	
 	// Called when the user clicks the edit button. Opens a dialog to edit details
@@ -93,18 +82,18 @@ public class AccueilController {
 	private void editNote() {
 		if (notes != null) {
 			System.out.println(notes.toString());
-			boolean okClicked = vue.VueFXMain.VueNotesEdit(notes);
+			boolean okClicked = VueFXMain.VueNotesEdit(notes);
 			if (okClicked) {
 				// showPersonDetails(user);
 
-				// tu fais appel à ta methode modifierPersonnel dans la classe PersonnelDAO
+				// tu fais appel ï¿½ ta methode modifierPersonnel dans la classe PersonnelDAO
 				try {
 					NotesDAO.ModifNotes(notes);
 				} catch (ClassNotFoundException e) {
-					// TODO Bloc catch généré automatiquement
+					// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
 					e.printStackTrace();
 				} catch (SQLException e) {
-					// TODO Bloc catch généré automatiquement
+					// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
 					e.printStackTrace();
 				}
 				// tu refresh tableView
@@ -113,10 +102,10 @@ public class AccueilController {
 		} else {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.initOwner(vue.VueFXMain.getPrimaryStage());
-			alert.setTitle("Aucune Séléction");
-			alert.setHeaderText("Aucune note n'est selectionner");
-			alert.setContentText("Merci de séléctionner une note ou une ligne dans le tableau !");
+			alert.initOwner(VueFXMain.getPrimaryStage());
+			alert.setTitle("Aucune Sélection");
+			alert.setHeaderText("Aucune note n'est selectionnée");
+			alert.setContentText("Merci de sélectionner une note ou une ligne dans le tableau !");
 
 			alert.showAndWait();
 
@@ -133,19 +122,19 @@ public class AccueilController {
 			try {
 				NotesDAO.SuppNotes(selectedIndex);
 			} catch (ClassNotFoundException e) {
-				// TODO Bloc catch généré automatiquement
+				// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
 				e.printStackTrace();
 			} catch (SQLException e) {
-				// TODO Bloc catch généré automatiquement
+				// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
 				e.printStackTrace();
 			}
 		} else {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.initOwner(vue.VueFXMain.getPrimaryStage());
+			alert.initOwner(VueFXMain.getPrimaryStage());
 			alert.setTitle("Aucune Selection");
-			alert.setHeaderText("Aucune Note n'est séléctionner");
-			alert.setContentText("Merci de séléctionner une note ou une ligne dans le tableau !");
+			alert.setHeaderText("Aucune Note n'est sélectionnée");
+			alert.setContentText("Merci de sélectionner une note ou une ligne dans le tableau !");
 
 			alert.showAndWait();
 		}
@@ -158,7 +147,7 @@ public class AccueilController {
 			System.out.println(empData);
 			allNotes.setItems(empData);
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Bloc catch généré automatiquement
+			// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
 			e.printStackTrace();
 		}
 	}

@@ -1,28 +1,19 @@
 package controller;
 
-import java.sql.Date;
-import java.sql.SQLException;
-
 import DAO.NotesDAO;
 import DAO.PersonnelDAO;
-import DAO.RoleDAO;
-import DAO.ServiceDAO;
-import DAO.StatutDAO;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import metier.Notes;
-import metier.Personnel;
-import metier.Role;
-import metier.Service;
-import metier.Statut;
+
+import java.sql.SQLException;
 
 public class NotesAddController {
 	@FXML
@@ -73,10 +64,10 @@ public class NotesAddController {
 				System.out.println(notes);
 				NotesDAO.insertNotes(notes);
 			} catch (ClassNotFoundException e) {
-				// TODO Bloc catch généré automatiquement
+				// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
 				e.printStackTrace();
 			} catch (SQLException e) {
-				// TODO Bloc catch généré automatiquement
+				// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
 				e.printStackTrace();
 			}
 			// apres tu refresh ta tableView
@@ -106,7 +97,7 @@ public class NotesAddController {
 	            errorMessage += "Aucune note n'as été écrite ! Note non valide !\n";
 	        }
 	        if (NomAdmin.getValue() == null || NomAdmin.getValue().length() == 0) {
-	            errorMessage += "Merci de séléctionner un nom d'administrateur pour cette note !\n";
+	            errorMessage += "Merci de séletionner un nom d'administrateur pour cette note !\n";
 	        }
 	             
 

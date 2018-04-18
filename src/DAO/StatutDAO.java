@@ -1,14 +1,14 @@
 
 package DAO;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import metier.Statut;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import metier.Statut;
 
 public class StatutDAO {
     
@@ -73,7 +73,7 @@ public class StatutDAO {
     
     
 	public static String getLibeller(int id_statut) throws SQLException, ClassNotFoundException {
-		// TODO Stub de la méthode généré automatiquement
+		// TODO Stub de la mï¿½thode gï¿½nï¿½rï¿½ automatiquement
 		String i = "" ;
          //Je me connecte
          Connection co = Connect.getInstance().getConnection();
