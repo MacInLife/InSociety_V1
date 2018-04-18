@@ -1,19 +1,26 @@
 package controller;
 
-import DAO.Salle_ReunionDAO;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
-import metier.Evenements;
-
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import DAO.Salle_ReunionDAO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+import metier.Evenements;
+import metier.Salle_Reunion;
 
 public class GEvtEditController {
 	@FXML
@@ -73,16 +80,13 @@ public class GEvtEditController {
 		MSRD.setItems(olmin);
 		MSRF.setItems(olmin);
 		
-		Salle_ReunionDAO srdao = new Salle_ReunionDAO();
-		ObservableList<String> li;
 		try {
-			li = srdao.getSalleRList();
-			SalleEvt.setItems(li);
-			
+			SalleEvt.setItems(Salle_ReunionDAO.getSalleRList());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		
 	}
 
@@ -104,6 +108,7 @@ public class GEvtEditController {
 		this.events = events;
 		System.out.println(this.events);
 		NomEvt.setText(this.events.getNomEvt());
+		SalleEvt.setValue(this.events.getSalle().getNomSR());
 		// DateEvtD
 		String date = String.valueOf(this.events.getJour_d());
 		LocalDate d = LocalDate.parse(date);
@@ -184,12 +189,11 @@ public class GEvtEditController {
 
 			events.setType(TypeEvt.getText());
 			events.setLieu(LieuEvt.getText());
-			try {
-				events.setSalle(Salle_ReunionDAO.GetListeSalle().get(Salle_ReunionDAO.GetIdSR(SalleEvt.getValue())));
-			} catch (ClassNotFoundException | SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			   //Creer objet nomSR
+        	Salle_Reunion salle = new Salle_Reunion();
+        	salle.setNomSR(SalleEvt.getValue());
+        	events.setSalle(salle);
+        	
 			okClicked = true;
 			dialogStage.close();
 		}
@@ -228,10 +232,13 @@ public class GEvtEditController {
 		}
 
 		if (TypeEvt.getText() == null || TypeEvt.getText().length() == 0) {
-			errorMessage += "Type non valide!\n";
+			errorMessage += "No valid type!\n";
 		}
 		if (LieuEvt.getText() == null || LieuEvt.getText().length() == 0) {
-			errorMessage += "Lieu non valide!\n";
+			errorMessage += "No valid Lieu!\n";
+		}
+		if (SalleEvt.getValue() == null || SalleEvt.getValue().length() == 0) {
+			errorMessage += "No valid Salle!\n";
 		}
 
 		if (errorMessage.length() == 0) {
@@ -240,8 +247,8 @@ public class GEvtEditController {
 			// Show the error message.
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.initOwner(dialogStage);
-			alert.setTitle("Champs non valide");
-			alert.setHeaderText("Veuillez corriger les champs non valides");
+			alert.setTitle("Invalid Fields");
+			alert.setHeaderText("Please correct invalid fields");
 			alert.setContentText(errorMessage);
 
 			alert.showAndWait();

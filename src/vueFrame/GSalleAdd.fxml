@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.InnerShadow?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
 <GridPane fx:id="SalleAddView" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GSalleAddController">
    <children>
-      <VBox prefHeight="178.0" prefWidth="148.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+      <VBox prefHeight="99.0" prefWidth="148.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
          <children>
             <Label layoutX="10.0" layoutY="10.0" text="Nom">
                <VBox.margin>
@@ -21,33 +28,6 @@
                </font>
             </Label>
             <Label layoutX="10.0" layoutY="202.0" text="Nombre Total de place">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-               <font>
-                  <Font name="Comic Sans MS" size="12.0" />
-               </font>
-            </Label>
-            <Label text="Nombre de personne">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-               <font>
-                  <Font name="Comic Sans MS" size="12.0" />
-               </font>
-            </Label>
-            <Label layoutX="10.0" layoutY="94.0" text="Date/Heure début">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-               <font>
-                  <Font name="Comic Sans MS" size="12.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Label>
-            <Label layoutX="10.0" layoutY="150.0" text="Date/Heure fin">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
@@ -76,7 +56,7 @@
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </GridPane.margin>
       </VBox>
-      <VBox alignment="CENTER" prefHeight="109.0" prefWidth="197.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+      <VBox alignment="CENTER" prefHeight="115.0" prefWidth="201.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
          <children>
             <TextField fx:id="NomSR" prefHeight="21.0" prefWidth="127.0" promptText="Nom de la Salle">
                <padding>
@@ -88,25 +68,6 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </TextField>
-            <TextField fx:id="NbPerso" promptText="Nombre de personne">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </TextField>
-            <HBox alignment="TOP_CENTER" prefHeight="16.0" prefWidth="202.0">
-               <children>
-                  <DatePicker fx:id="DateSRD" prefHeight="25.0" prefWidth="111.0" promptText="Date/Heure début" />
-                  <ChoiceBox fx:id="HSRD" prefHeight="25.0" prefWidth="61.0" />
-                  <ChoiceBox fx:id="MSRD" prefHeight="25.0" prefWidth="61.0" />
-               </children>
-            </HBox>
-            <HBox alignment="TOP_CENTER" prefHeight="17.0" prefWidth="202.0">
-               <children>
-                  <DatePicker fx:id="DateSRF" prefHeight="25.0" prefWidth="112.0" promptText="Date/Heure fin" />
-                  <ChoiceBox fx:id="HSRF" prefHeight="25.0" prefWidth="61.0" />
-                  <ChoiceBox fx:id="MSRF" prefHeight="25.0" prefWidth="61.0" />
-               </children>
-            </HBox>
             <TextField fx:id="LieuSR" layoutX="10.0" layoutY="140.0" promptText="Lieu de la Salle">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

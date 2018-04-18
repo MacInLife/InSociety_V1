@@ -1,14 +1,21 @@
 
 package DAO;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import metier.Service;
-
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import metier.Notes;
+import metier.Personnel;
+import metier.Role;
+import metier.Service;
+import metier.Statut;
 
 
 public class ServiceDAO {
@@ -72,7 +79,7 @@ public class ServiceDAO {
     }
 
 	public static String getTypeService(int id_service) throws SQLException, ClassNotFoundException {
-		// TODO Stub de la mï¿½thode gï¿½nï¿½rï¿½ automatiquement
+		// TODO Stub de la méthode généré automatiquement
 		String i = "" ;
          //Je me connecte
          Connection co = Connect.getInstance().getConnection();
