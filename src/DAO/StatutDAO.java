@@ -1,14 +1,14 @@
 
 package DAO;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import metier.Statut;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import metier.Statut;
 
 public class StatutDAO {
     
@@ -49,8 +49,7 @@ public class StatutDAO {
          //Récupère et vérifier la clé étrangère de la table Salle de Réunion id_SR
          
          //pst.setInt(4, RoleDAO.GetIdRole(pers.getRole().getNom_role()));       
-               
-       int nbligne =  pst.executeUpdate();
+         pst.executeUpdate();
     
     }
  
@@ -66,14 +65,13 @@ public class StatutDAO {
          
           //renvoyer et verifier les données de la requête
          pst.setString(1, statu.getLibeller());
-         
-        int i = pst.executeUpdate();
+         pst.executeUpdate();
     
     }
     
     
 	public static String getLibeller(int id_statut) throws SQLException, ClassNotFoundException {
-		// TODO Stub de la m�thode g�n�r� automatiquement
+		// TODO Stub de la m�thode g�n�r� automatiquement
 		String i = "" ;
          //Je me connecte
          Connection co = Connect.getInstance().getConnection();

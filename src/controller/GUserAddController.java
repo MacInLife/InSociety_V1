@@ -1,22 +1,26 @@
 package controller;
 
+import java.sql.Date;
+import java.sql.SQLException;
+
 import DAO.PersonnelDAO;
 import DAO.RoleDAO;
 import DAO.ServiceDAO;
 import DAO.StatutDAO;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import metier.Personnel;
-import metier.Role;
 import metier.Service;
+import metier.Role;
 import metier.Statut;
-
-import java.sql.Date;
-import java.sql.SQLException;
 
 public class GUserAddController {
 @FXML
@@ -56,15 +60,12 @@ private GridPane UserAddView;
 
     @FXML
 	private void initialize()  {
-    	ServiceDAO sdao = new ServiceDAO();
     	try {
-    		ObservableList<String> ol = sdao.getServiceList();
+    		ObservableList<String> ol = ServiceDAO.getServiceList();
     		CServ.setItems(ol);
-    		RoleDAO rdao = new RoleDAO();
-    		ObservableList<String> ol1 = rdao.getRoleNameList();
+    		ObservableList<String> ol1 = RoleDAO.getRoleNameList();
     		CRole.setItems(ol1);
-    		StatutDAO stdao = new StatutDAO();
-    		ObservableList<String> ol2 = stdao.getStatutList();
+    		ObservableList<String> ol2 = StatutDAO.getStatutList();
     		CStatut.setItems(ol2);
     	} catch (Exception e) {
     		//TODO mettre une erreur 
@@ -117,10 +118,10 @@ private GridPane UserAddView;
             try {
 				PersonnelDAO.insertPers(person);
 			} catch (ClassNotFoundException e) {
-				// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
+				// TODO Bloc catch généré automatiquement
 				e.printStackTrace();
 			} catch (SQLException e) {
-				// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
+				// TODO Bloc catch généré automatiquement
 				e.printStackTrace();
 			}
 	    	// apres tu refresh ta tableView
@@ -147,42 +148,42 @@ private GridPane UserAddView;
         String errorMessage = "";
 
         if (Login.getText() == null || Login.getText().length() == 0) {
-            errorMessage += "Login non valide!\n";
+            errorMessage += "No valid login!\n";
         }
         if (mdp.getText() == null || mdp.getText().length() == 0) {
-            errorMessage += "Mot de passe non valide!\n";
+            errorMessage += "No valid mot de passe!\n";
         }
         if (Nom.getText() == null || Nom.getText().length() == 0) {
-            errorMessage += "Nom non valide !\n";
+            errorMessage += "No valid last name!\n";
         }
         if (Prenom.getText() == null ||Prenom.getText().length() == 0) {
-            errorMessage += "Prénom non valide !\n";
+            errorMessage += "No valid prenom!\n";
         }
 
        if ( DatedeNaissance.getValue() == null || DatedeNaissance.getPromptText().length() == 0) {
-            errorMessage += "Date de naissance non valide!\n";
+            errorMessage += "No valid date!\n";
         }
 
         if (Mail.getText() == null || Mail.getText().length() == 0) {
-            errorMessage += "Mail non valide !\n";
+            errorMessage += "No valid Mail!\n";
         }
         if (Tel.getText() == null || Tel.getText().length() == 0) {
-            errorMessage += "Tel non valide !\n";
+            errorMessage += "No valid ctel!\n";
         }
         if (Adresse.getText() == null || Adresse.getText().length() == 0) {
-            errorMessage += "Adresse non valide !\n";
+            errorMessage += "No valid adresse!\n";
         }
         if (Localisation.getText() == null || Localisation.getText().length() == 0) {
-            errorMessage += "Localisation non valide !\n";
+            errorMessage += "No valid Localisation!\n";
         }
         if (CStatut.getValue() == null || CStatut.getValue().length() == 0) {
-            errorMessage += "Statut non valide!\n";
+            errorMessage += "No valid city!\n";
         }
         if (CServ.getValue() == null || CServ.getValue().length() == 0) {
-            errorMessage += "Service non valide!\n";
+            errorMessage += "No valid city!\n";
         }
         if (CRole.getValue() == null || CRole.getValue().length() == 0) {
-            errorMessage += "Role non valide!\n";
+            errorMessage += "No valid city!\n";
         }
         if (errorMessage.length() == 0) {
             return true;
@@ -190,8 +191,8 @@ private GridPane UserAddView;
             // Show the error message.
             Alert alert = new Alert(AlertType.ERROR);
             alert.initOwner(dialogStage);
-            alert.setTitle("Champs non valides");
-            alert.setHeaderText("Veuillez corriger les champs non valides");
+            alert.setTitle("Invalid Fields");
+            alert.setHeaderText("Please correct invalid fields");
             alert.setContentText(errorMessage);
 
             alert.showAndWait();

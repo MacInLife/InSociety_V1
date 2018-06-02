@@ -1,14 +1,17 @@
 
 package DAO;
 
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import metier.Personnel;
-import metier.Role;
 import metier.Service;
 import metier.Statut;
-
-import java.sql.*;
+import metier.Role;
 
 public class PersonnelDAO {
 
@@ -32,11 +35,30 @@ public class PersonnelDAO {
 			if (f.startsWith("Dire") && g.startsWith("Diri")) {
 				return true;
 			}
+			if (f.startsWith("Dire") && g.startsWith("Info")) {
+				return true;
+			}
 		}
 
 		return false;
 	}
+	public static int GetLogin(String login) throws ClassNotFoundException, SQLException {
+		int i = 0;
+		Connection co = Connect.getInstance().getConnection();
+		// constitution d'une commande basÃ©e sur une requÃªte SQL
+		// en vue d'Ãªtre exÃ©cutÃ©e sur une connexion donnÃ©e
+		String req = "SELECT `id_pers` FROM `personnel` WHERE login =?";
 
+		PreparedStatement pst = co.prepareStatement(req);
+		pst.setString(1, login);
+		ResultSet table = pst.executeQuery();
+
+		while (table.next()) {
+			i = table.getInt("id_pers");
+		}
+		return i;
+	}
+	
 	public static int GetIdPers(String mail) throws ClassNotFoundException, SQLException {
 		int i = 0;
 		Connection co = Connect.getInstance().getConnection();
@@ -53,9 +75,10 @@ public class PersonnelDAO {
 		}
 		return i;
 	}
+	
 
 	public static Personnel GetPers(int id) throws ClassNotFoundException, SQLException {
-		int i = 0;
+	
 		Connection co = Connect.getInstance().getConnection();
 		// constitution d'une commande basÃ©e sur une requÃªte SQL
 		// en vue d'Ãªtre exÃ©cutÃ©e sur une connexion donnÃ©e
@@ -71,13 +94,14 @@ public class PersonnelDAO {
 			result.setId(table.getInt("id_pers"));
 			result.setNom(table.getString("nom"));
 			result.setPrenom(table.getString("prenom"));
+			result.setLogin(table.getString("login"));
 
 		}
 		return result;
 	}
 
 	public static Personnel GetPersbyNom(String Nom) throws ClassNotFoundException, SQLException {
-		int i = 0;
+	
 		Connection co = Connect.getInstance().getConnection();
 		// constitution d'une commande basÃ©e sur une requÃªte SQL
 		// en vue d'Ãªtre exÃ©cutÃ©e sur une connexion donnÃ©e
@@ -128,8 +152,7 @@ public class PersonnelDAO {
 		pst.setDate(10, pers.getDate_naissance());
 		pst.setString(11, pers.getLocalisation());
 		pst.setString(12, pers.getMdp());
-
-		int nbligne = pst.executeUpdate();
+		pst.executeUpdate();
 
 	}
 
@@ -145,7 +168,7 @@ public class PersonnelDAO {
 
 		// renvoyer et verifier les donnÃ©es de la requÃªte
 		pst.setInt(1, pers.getId());
-		int i = pst.executeUpdate();
+		pst.executeUpdate();
 	}
 
 	public static void ModifPers(Personnel pers) throws SQLException, ClassNotFoundException {
@@ -180,15 +203,14 @@ public class PersonnelDAO {
 		pst.setString(11, pers.getLocalisation());
 		pst.setString(12, pers.getMdp());
 		pst.setInt(13, pers.getId());
-
-		int nbligne = pst.executeUpdate();
+		pst.executeUpdate();
 
 	}
 
 	public static ObservableList<Personnel> GetListePersonnel() throws ClassNotFoundException, SQLException {
 		ObservableList<Personnel> UserList = FXCollections.observableArrayList();
-		// constitution d'une commande basï¿½e sur une requï¿½te SQL
-		// en vue d'ï¿½tre exï¿½cutï¿½e sur une connexion donnï¿½e
+		// constitution d'une commande basée sur une requête SQL
+		// en vue d'être exécutée sur une connexion donnée
 		String req = "select * from personnel";
 		Connection cnx = Connect.getInstance().getConnection();
 		int id;
@@ -305,11 +327,10 @@ public class PersonnelDAO {
 	
 	public static ObservableList<String> GetListeNomAdmin() throws ClassNotFoundException, SQLException {
 		ObservableList<String> UserNomList = FXCollections.observableArrayList();
-		// constitution d'une commande basï¿½e sur une requï¿½te SQL
-		// en vue d'ï¿½tre exï¿½cutï¿½e sur une connexion donnï¿½e
+		// constitution d'une commande basée sur une requête SQL
+		// en vue d'être exécutée sur une connexion donnée
 		String req = "select * from personnel, role, service where personnel.id_role= role.id_role and role.nom_role='Responsable' and personnel.id_service=service.id_service and service.type_service='Informatique'";
 		Connection cnx = Connect.getInstance().getConnection();
-		String nom;
 		PreparedStatement pst = cnx.prepareStatement(req);
 		ResultSet table = pst.executeQuery();
 		while (table.next()) {
@@ -321,5 +342,18 @@ public class PersonnelDAO {
 		return UserNomList;
 	}
 
-	
+	public static ObservableList<String> getUserRList() throws SQLException {
+		ObservableList<String> slist = FXCollections.observableArrayList();
+        Connection co = Connect.getInstance().getConnection();
+        String requeteSQL = "SELECT `login` FROM `personnel`";
+        PreparedStatement pst = co.prepareStatement(requeteSQL);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next())
+        {
+        	slist.add(rs.getString("login"));
+        }
+		
+	    return slist;
+		
+	} 
 }

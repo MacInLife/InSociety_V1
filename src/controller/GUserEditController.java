@@ -1,22 +1,26 @@
 package controller;
 
+import java.sql.Date;
+import java.sql.SQLException;
+import java.time.LocalDate;
+
 import DAO.RoleDAO;
 import DAO.ServiceDAO;
 import DAO.StatutDAO;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import metier.Personnel;
-import metier.Role;
 import metier.Service;
+import metier.Role;
 import metier.Statut;
-
-import java.sql.Date;
-import java.sql.SQLException;
-import java.time.LocalDate;
 
 public class GUserEditController {
 
@@ -54,19 +58,15 @@ public class GUserEditController {
 	private Stage dialogStage;
 	private Personnel person;
 	private boolean okClicked = false;
-	private final String pattern = "dd.mm.yyyy";
 
 	@FXML
 	private void initialize() {
-		ServiceDAO sdao = new ServiceDAO();
 		try {
-			ObservableList<String> ol = sdao.getServiceList();
+			ObservableList<String> ol = ServiceDAO.getServiceList();
 			CServE.setItems(ol);
-			RoleDAO rdao = new RoleDAO();
-			ObservableList<String> ol1 = rdao.getRoleNameList();
+			ObservableList<String> ol1 = RoleDAO.getRoleNameList();
 			CRoleE.setItems(ol1);
-			StatutDAO stdao = new StatutDAO();
-			ObservableList<String> ol2 = stdao.getStatutList();
+			ObservableList<String> ol2 = StatutDAO.getStatutList();
 			CStatutE.setItems(ol2);
 		} catch (Exception e) {
 			// TODO mettre une erreur
@@ -178,32 +178,32 @@ public class GUserEditController {
 		String errorMessage = "";
 
 		if (Login.getText() == null || Login.getText().length() == 0) {
-			errorMessage += "Login non valide!\n";
+			errorMessage += "No valid first name!\n";
 		}
 		if (mdp.getText() == null || mdp.getText().length() == 0) {
-			errorMessage += "Mot de passe non valide!\n";
+			errorMessage += "No valid first name!\n";
 		}
 		if (Nom.getText() == null || Nom.getText().length() == 0) {
-			errorMessage += "Nom non valide!\n";
+			errorMessage += "No valid last name!\n";
 		}
 		if (Prenom.getText() == null || Prenom.getText().length() == 0) {
-			errorMessage += "Prénom non valide!\n";
+			errorMessage += "No valid street!\n";
 		}
 		if (DatedeNaissance.getValue() == null || DatedeNaissance.getPromptText().length() == 0) {
-			errorMessage += "Date de naissance non valide!\n";
+			errorMessage += "No valid date!\n";
 
 		}
 		if (Mail.getText() == null || Mail.getText().length() == 0) {
-			errorMessage += "Mail non valide!\n";
+			errorMessage += "No valid city!\n";
 		}
 		if (Tel.getText() == null || Tel.getText().length() == 0) {
-			errorMessage += "Tel non valide!\n";
+			errorMessage += "No valid city!\n";
 		}
 		if (Adresse.getText() == null || Adresse.getText().length() == 0) {
-			errorMessage += "Adresse non valide!\n";
+			errorMessage += "No valid city!\n";
 		}
 		if (Localisation.getText() == null || Localisation.getText().length() == 0) {
-			errorMessage += "Localisation non valide!\n";
+			errorMessage += "No valid city!\n";
 		}
 		if (errorMessage.length() == 0) {
 			return true;
@@ -211,8 +211,8 @@ public class GUserEditController {
 			// Show the error message.
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.initOwner(dialogStage);
-			alert.setTitle("Champs non valides");
-			alert.setHeaderText("Veuillez corriger les champs non valides");
+			alert.setTitle("Invalid Fields");
+			alert.setHeaderText("Please correct invalid fields");
 			alert.setContentText(errorMessage);
 
 			alert.showAndWait();

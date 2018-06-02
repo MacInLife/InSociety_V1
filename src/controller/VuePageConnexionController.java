@@ -1,5 +1,8 @@
 package controller;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
 import DAO.PersonnelDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,9 +15,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import vue.VueFXMain;
-
-import java.io.IOException;
-import java.sql.SQLException;
 
 public class VuePageConnexionController {
 

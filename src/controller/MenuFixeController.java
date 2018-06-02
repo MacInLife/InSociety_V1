@@ -1,5 +1,7 @@
 package controller;
 
+import java.io.IOException;
+import java.sql.SQLException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -9,12 +11,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import vue.VueFXMain;
 
-import java.io.IOException;
-import java.sql.SQLException;
-
 public class MenuFixeController {
 	@FXML
 	private Pane GestionSalleView;
+	@FXML
+	private Pane GestionResView;
 	@FXML
 	private Pane GestionUserView;
 	@FXML
@@ -86,6 +87,24 @@ public class MenuFixeController {
 			// Chargement partie GestionSalle
 		FXMLLoader acc = new FXMLLoader();
 		acc.setLocation(VueFXMain.class.getClassLoader().getResource("vueFrame/GestionSalle.fxml"));
+		Pane gsalle = (Pane) acc.load();
+		header.getChildren().removeAll();
+		header.getChildren().add(gsalle);
+		gsalle.setLayoutX(5);
+		gsalle.setLayoutY(143);
+		
+	} catch (IOException e) {
+		e.printStackTrace();
+	} finally {
+		/** TODO : ajout un message d'erreur "Une erreur interne est survenue **/
+	}
+}
+	@FXML
+	private void res(ActionEvent actionEvent) {
+		try 	{
+			// Chargement partie GestionSalle
+		FXMLLoader acc = new FXMLLoader();
+		acc.setLocation(VueFXMain.class.getClassLoader().getResource("vueFrame/GestionReservation.fxml"));
 		Pane gsalle = (Pane) acc.load();
 		header.getChildren().removeAll();
 		header.getChildren().add(gsalle);

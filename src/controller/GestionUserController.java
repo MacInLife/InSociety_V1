@@ -1,20 +1,23 @@
 package controller;
 
+import java.sql.Date;
+import java.sql.SQLException;
 import DAO.PersonnelDAO;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import metier.Personnel;
 import vue.VueFXMain;
-
-import java.sql.Date;
-import java.sql.SQLException;
 
 public class GestionUserController {
 	@FXML
@@ -107,7 +110,7 @@ public class GestionUserController {
 			ObservableList<Personnel> empData = PersonnelDAO.GetListePersonnel();
 			tabUser.setItems(empData);
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
+			// TODO Bloc catch généré automatiquement
 			e.printStackTrace();
 		}
 	}
@@ -123,7 +126,7 @@ public class GestionUserController {
 			// VueFXMain.getPersonData().add(user);
 			// VueFXMain.getPersonData().add(user);
 
-			// tu fais appel ï¿½ la methode insertPers dans la classe personnelDAO
+			// tu fais appel à la methode insertPers dans la classe personnelDAO
 		}
 	}
 
@@ -138,15 +141,15 @@ public class GestionUserController {
 			if (okClicked) {
 				// showPersonDetails(user);
 
-				// tu fais appel ï¿½ ta methode modifierPersonnel dans la classe PersonnelDAO
+				// tu fais appel à ta methode modifierPersonnel dans la classe PersonnelDAO
 				try {
 					System.out.println(user);
 					PersonnelDAO.ModifPers(user);
 				} catch (ClassNotFoundException e) {
-					// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
+					// TODO Bloc catch généré automatiquement
 					e.printStackTrace();
 				} catch (SQLException e) {
-					// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
+					// TODO Bloc catch généré automatiquement
 					e.printStackTrace();
 				}
 				// tu refresh tableView
@@ -156,9 +159,9 @@ public class GestionUserController {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(VueFXMain.getPrimaryStage());
-			alert.setTitle("Aucune Sélection");
-			alert.setHeaderText("Aucune personnne n'est sélectionnée");
-			alert.setContentText("Merci de sélectionner une personne dans le tableau !");
+			alert.setTitle("No Selection");
+			alert.setHeaderText("No Person Selected");
+			alert.setContentText("Please select a person in the table.");
 
 			alert.showAndWait();
 
@@ -177,19 +180,19 @@ public class GestionUserController {
 			try {
 				PersonnelDAO.SuppPers(selectedIndex);
 			} catch (ClassNotFoundException e) {
-				// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
+				// TODO Bloc catch généré automatiquement
 				e.printStackTrace();
 			} catch (SQLException e) {
-				// TODO Bloc catch gï¿½nï¿½rï¿½ automatiquement
+				// TODO Bloc catch généré automatiquement
 				e.printStackTrace();
 			}
 		} else {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(VueFXMain.getPrimaryStage());
-			alert.setTitle("Aucune Sélection");
-			alert.setHeaderText("Aucune personne n'est sélectionnée");
-			alert.setContentText("Merci de sélectionner une personne dans le tableau !");
+			alert.setTitle("No Selection");
+			alert.setHeaderText("No Person Selected");
+			alert.setContentText("Please select a person in the table.");
 
 			alert.showAndWait();
 		}

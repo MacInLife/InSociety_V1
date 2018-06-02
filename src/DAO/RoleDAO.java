@@ -1,14 +1,14 @@
 
 package DAO;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import metier.Role;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import metier.Role;
 
 
 
@@ -53,8 +53,7 @@ public class RoleDAO {
                                     
              
          //pst.setInt(4, RoleDAO.GetIdRole(pers.getRole().getNom_role()));       
-               
-       int nbligne =  pst.executeUpdate();
+         pst.executeUpdate();
     
     }
  
@@ -70,14 +69,13 @@ public class RoleDAO {
          
           //renvoyer et verifier les donnÃ©es de la requÃªte
          pst.setString(1, rol.getNom_role());
-         
-        int i = pst.executeUpdate();
+         pst.executeUpdate();
     
     }
     
     
 	public static String getNomRole(int id_role) throws SQLException, ClassNotFoundException {
-		// TODO Stub de la mï¿½thode gï¿½nï¿½rï¿½ automatiquement
+		// TODO Stub de la méthode généré automatiquement
 		String i = "" ;
          //Je me connecte
          Connection co = Connect.getInstance().getConnection();
