@@ -2,6 +2,8 @@ package controller;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import DAO.PersonnelDAO;
 import DAO.RoleDAO;
@@ -148,51 +150,56 @@ private GridPane UserAddView;
         String errorMessage = "";
 
         if (Login.getText() == null || Login.getText().length() == 0) {
-            errorMessage += "No valid login!\n";
+            errorMessage += "Login invalide!\n";
         }
         if (mdp.getText() == null || mdp.getText().length() == 0) {
-            errorMessage += "No valid mot de passe!\n";
+            errorMessage += "Mot de passe invalide!\n";
         }
         if (Nom.getText() == null || Nom.getText().length() == 0) {
-            errorMessage += "No valid last name!\n";
+            errorMessage += "Nom invalide !\n";
         }
         if (Prenom.getText() == null ||Prenom.getText().length() == 0) {
-            errorMessage += "No valid prenom!\n";
+            errorMessage += "Prenom invalide!\n";
         }
 
        if ( DatedeNaissance.getValue() == null || DatedeNaissance.getPromptText().length() == 0) {
-            errorMessage += "No valid date!\n";
+            errorMessage += "Date de naissance invalide !\n";
         }
-
+     
         if (Mail.getText() == null || Mail.getText().length() == 0) {
-            errorMessage += "No valid Mail!\n";
+            errorMessage += "Mail invalide !\n";
+        } else {
+        	Pattern p = Pattern.compile("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$");
+            Matcher m = p.matcher(Mail.getText());   // get a matcher object
+            if(!m.matches()) {
+            	errorMessage += "Le mail n'est pas correct\n";
+            }
         }
         if (Tel.getText() == null || Tel.getText().length() == 0) {
-            errorMessage += "No valid ctel!\n";
+            errorMessage += "Numéro de Téléphone invalide !\n";
         }
         if (Adresse.getText() == null || Adresse.getText().length() == 0) {
-            errorMessage += "No valid adresse!\n";
+            errorMessage += "Adresse invalide !\n";
         }
         if (Localisation.getText() == null || Localisation.getText().length() == 0) {
-            errorMessage += "No valid Localisation!\n";
+            errorMessage += "Localisation incorrect !\n";
         }
         if (CStatut.getValue() == null || CStatut.getValue().length() == 0) {
-            errorMessage += "No valid city!\n";
+            errorMessage += "Statut invalide!\n";
         }
         if (CServ.getValue() == null || CServ.getValue().length() == 0) {
-            errorMessage += "No valid city!\n";
+            errorMessage += "Service invalide !\n";
         }
         if (CRole.getValue() == null || CRole.getValue().length() == 0) {
-            errorMessage += "No valid city!\n";
+            errorMessage += "Role invalide !\n";
         }
         if (errorMessage.length() == 0) {
             return true;
         } else {
             // Show the error message.
             Alert alert = new Alert(AlertType.ERROR);
-            alert.initOwner(dialogStage);
-            alert.setTitle("Invalid Fields");
-            alert.setHeaderText("Please correct invalid fields");
+            alert.setTitle("Champs non valides");
+            alert.setHeaderText("Veuillez corriger le champ non valide");
             alert.setContentText(errorMessage);
 
             alert.showAndWait();

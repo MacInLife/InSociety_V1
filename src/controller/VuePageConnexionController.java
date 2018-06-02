@@ -8,10 +8,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import vue.VueFXMain;
@@ -32,16 +34,16 @@ public class VuePageConnexionController {
 		@FXML
 		private Label msg;
 		 
-	
+		private Stage dialogStage;
 	
 		@FXML
 		private void connexion (ActionEvent actionEvent) {
 			 
 			 try {
-				 	boolean verifAcces = PersonnelDAO.adminVerif(login.getText(),  mdp.getText());
+				 	int verifAcces = PersonnelDAO.adminVerif(login.getText(),  mdp.getText());
 				 	
-				 	if ( verifAcces) {
-				 		// Load person overview.
+				 	switch(verifAcces) {
+				 	case 0 :
 				 		FXMLLoader loader = new FXMLLoader();
 				 		loader.setLocation(VueFXMain.class.getClassLoader().getResource("VueFrame/MenuFixe.fxml"));
 				 		header = (Pane) loader.load();
@@ -59,10 +61,34 @@ public class VuePageConnexionController {
 		              
 				 		scene.setRoot(header);
 		                stage.setScene(scene);
-		            // Set person overview into the center of root layout.
-				 	} else {
-				 		/** TODO : add show message error **/
-				 	
+		                break;
+				 	case 1: 
+				 		Alert alert = new Alert(AlertType.ERROR);
+			            alert.initOwner(dialogStage);
+			            alert.setTitle("Erreur de Connexion");
+			            alert.setHeaderText("Erreur de connexion");
+			            alert.setContentText("erreur mdp login");
+			            alert.showAndWait();
+				 		
+				 		break;
+				 	case 2:
+				 		//message => 
+				 		Alert alert2 = new Alert(AlertType.ERROR);
+				 		alert2.initOwner(dialogStage);
+				 		alert2.setTitle("Erreur de Connexion");
+				 		alert2.setHeaderText("Erreur de connexion");
+				 		alert2.setContentText("Vous n'avez pas les droits d'acces..");
+				 		alert2.showAndWait();
+				 		break; 
+				 	default:
+				 		//message => .
+				 		Alert alert3 = new Alert(AlertType.ERROR);
+				 		alert3.initOwner(dialogStage);
+				 		alert3.setTitle("Erreur de Connexion");
+				 		alert3.setHeaderText("Erreur de connexion");
+				 		alert3.setContentText("Une erreur est survenue.");
+			            alert3.showAndWait();
+				 		break;
 				 	}
 		        } catch (IOException e) {
 		            e.printStackTrace();

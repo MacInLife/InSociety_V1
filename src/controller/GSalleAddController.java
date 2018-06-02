@@ -111,10 +111,10 @@ public class GSalleAddController {
 		            errorMessage += "Nombre de place Totale non valide!\n";
 		        }		       
 		        if (LieuSR.getText() == null || LieuSR.getText().length() == 0) {
-		            errorMessage += "No valid Lieu!\n";
+		            errorMessage += "Lieu invalide!\n";
 		        }
 		        if (statutSR.getValue() == null || statutSR.getValue().length() == 0) {
-		            errorMessage += "No valid statut!\n";
+		            errorMessage += "Statut invalide!\n";
 		        }
 
 		        if (errorMessage.length() == 0) {
@@ -123,8 +123,8 @@ public class GSalleAddController {
 		            // Show the error message.
 		            Alert alert = new Alert(AlertType.ERROR);
 		            alert.initOwner(dialogStage);
-		            alert.setTitle("Invalid Fields");
-		            alert.setHeaderText("Please correct invalid fields");
+		            alert.setTitle("Champs non valides");
+		            alert.setHeaderText("Veuillez corriger le champ non valide");
 		            alert.setContentText(errorMessage);
 
 		            alert.showAndWait();

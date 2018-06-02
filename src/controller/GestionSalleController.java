@@ -124,9 +124,9 @@ public class GestionSalleController {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(VueFXMain.getPrimaryStage());
-			alert.setTitle("No Selection");
-			alert.setHeaderText("No Person Selected");
-			alert.setContentText("Please select a person in the table.");
+			alert.setTitle("Aucune Sélection");
+			alert.setHeaderText("Aucune Salle n'est sélectionnée");
+			alert.setContentText("Merci de sélectionner une salle dans le tableau");
 
 			alert.showAndWait();
 
@@ -155,9 +155,9 @@ public class GestionSalleController {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(VueFXMain.getPrimaryStage());
-			alert.setTitle("No Selection");
-			alert.setHeaderText("No Person Selected");
-			alert.setContentText("Please select a person in the table.");
+			alert.setTitle("Aucune Sélection");
+			alert.setHeaderText("Aucune Salle n'est sélectionnée");
+			alert.setContentText("Merci de sélectionner une salle dans le tableau");
 
 			alert.showAndWait();
 		}

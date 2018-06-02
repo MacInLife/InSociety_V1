@@ -171,7 +171,7 @@ public class GResAddController {
 		       
 
 		        if (Login.getValue() == null || Login.getValue().length() == 0) {
-		            errorMessage += "No valid statut!\n";
+		            errorMessage += "Statut non valide!\n";
 		        }
 
 		        if (errorMessage.length() == 0) {
@@ -180,8 +180,8 @@ public class GResAddController {
 		            // Show the error message.
 		            Alert alert = new Alert(AlertType.ERROR);
 		            alert.initOwner(dialogStage);
-		            alert.setTitle("Invalid Fields");
-		            alert.setHeaderText("Please correct invalid fields");
+		            alert.setTitle("Champs non valides");
+		            alert.setHeaderText("Veuillez corriger le champ non valide");
 		            alert.setContentText(errorMessage);
 
 		            alert.showAndWait();

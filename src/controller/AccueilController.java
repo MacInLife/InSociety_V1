@@ -104,8 +104,8 @@ public class AccueilController {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(vue.VueFXMain.getPrimaryStage());
-			alert.setTitle("Aucune Séléction");
-			alert.setHeaderText("Aucune note n'est selectionner");
+			alert.setTitle("Aucune Sélection");
+			alert.setHeaderText("Aucune note n'est sélectionnée");
 			alert.setContentText("Merci de séléctionner une note ou une ligne dans le tableau !");
 
 			alert.showAndWait();
@@ -133,8 +133,8 @@ public class AccueilController {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(vue.VueFXMain.getPrimaryStage());
-			alert.setTitle("Aucune Selection");
-			alert.setHeaderText("Aucune Note n'est séléctionner");
+			alert.setTitle("Aucune Sélection");
+			alert.setHeaderText("Aucune Note n'est sélectionnée");
 			alert.setContentText("Merci de séléctionner une note ou une ligne dans le tableau !");
 
 			alert.showAndWait();

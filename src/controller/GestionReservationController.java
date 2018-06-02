@@ -130,9 +130,9 @@ public class GestionReservationController {
 				// Nothing selected.
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.initOwner(VueFXMain.getPrimaryStage());
-				alert.setTitle("No Selection");
-				alert.setHeaderText("No Person Selected");
-				alert.setContentText("Please select a person in the table.");
+				alert.setTitle("Aucune Sélection");
+				alert.setHeaderText("Aucune Réservation n'est sélectionnée !");
+				alert.setContentText("Merci de sélectionner une réservation dans le tableau");
 
 				alert.showAndWait();
 
@@ -161,9 +161,9 @@ public class GestionReservationController {
 				// Nothing selected.
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.initOwner(VueFXMain.getPrimaryStage());
-				alert.setTitle("No Selection");
-				alert.setHeaderText("No Person Selected");
-				alert.setContentText("Please select a person in the table.");
+				alert.setTitle("Aucune Sélection");
+				alert.setHeaderText("Aucune Réservation n'est sélectionnée !");
+				alert.setContentText("Merci de sélectionner une réservation dans le tableau");
 
 				alert.showAndWait();
 			}

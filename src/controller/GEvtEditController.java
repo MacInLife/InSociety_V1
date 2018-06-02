@@ -235,13 +235,13 @@ public class GEvtEditController {
 		}
 
 		if (TypeEvt.getText() == null || TypeEvt.getText().length() == 0) {
-			errorMessage += "No valid type!\n";
+			errorMessage += "Type non valide!\n";
 		}
 		if (LieuEvt.getText() == null || LieuEvt.getText().length() == 0) {
-			errorMessage += "No valid Lieu!\n";
+			errorMessage += "Lieu non valide!\n";
 		}
 		if (SalleEvt.getValue() == null || SalleEvt.getValue().length() == 0) {
-			errorMessage += "No valid Salle!\n";
+			errorMessage += "Salle non valide!\n";
 		}
 
 		if (errorMessage.length() == 0) {
@@ -250,8 +250,8 @@ public class GEvtEditController {
 			// Show the error message.
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.initOwner(dialogStage);
-			alert.setTitle("Invalid Fields");
-			alert.setHeaderText("Please correct invalid fields");
+            alert.setTitle("Champs non valides");
+            alert.setHeaderText("Veuillez corriger le champ non valide");
 			alert.setContentText(errorMessage);
 
 			alert.showAndWait();

@@ -227,8 +227,8 @@ public class GResEditController {
 	            // Show the error message.
 	            Alert alert = new Alert(AlertType.ERROR);
 	            alert.initOwner(dialogStage);
-	            alert.setTitle("Invalid Fields");
-	            alert.setHeaderText("Please correct invalid fields");
+	            alert.setTitle("Champs non valides");
+	            alert.setHeaderText("Veuillez corriger le champ non valide");
 	            alert.setContentText(errorMessage);
 
 	            alert.showAndWait();

@@ -137,9 +137,9 @@ public class GestionEvtController {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(VueFXMain.getPrimaryStage());
-			alert.setTitle("No Selection");
-			alert.setHeaderText("No Events Selected");
-			alert.setContentText("Please select a event in the table.");
+			alert.setTitle("Aucune Sélection");
+			alert.setHeaderText("Aucun évènement n'est sélectionnée");
+			alert.setContentText("Merci de sélectionner un evenement dans le tableau.");
 
 			alert.showAndWait();
 
@@ -168,9 +168,9 @@ public class GestionEvtController {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(VueFXMain.getPrimaryStage());
-			alert.setTitle("No Selection");
-			alert.setHeaderText("No Events Selected");
-			alert.setContentText("Please select a event in the table.");
+			alert.setTitle("Aucune Sélection");
+			alert.setHeaderText("Aucun évènement n'est sélectionnée");
+			alert.setContentText("Merci de sélectionner un evenement dans le tableau.");
 
 			alert.showAndWait();
 		}

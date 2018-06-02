@@ -15,7 +15,7 @@ import metier.Role;
 
 public class PersonnelDAO {
 
-	public static boolean adminVerif(String login, String mdp) throws SQLException {
+	public static int adminVerif(String login, String mdp) throws SQLException {
 
 		Connection cnx = Connect.getInstance().getConnection();
 		String req = "SELECT nom_role, type_service FROM Personnel, Service, Role "
@@ -30,17 +30,18 @@ public class PersonnelDAO {
 			String g = userInformation.getString("type_service");
 
 			if (f.startsWith("Resp") && g.startsWith("Info")) {
-				return true;
+				return 0;
 			}
 			if (f.startsWith("Dire") && g.startsWith("Diri")) {
-				return true;
+				return 0;
 			}
 			if (f.startsWith("Dire") && g.startsWith("Info")) {
-				return true;
+				return 0;
 			}
+			return 2;
 		}
 
-		return false;
+		return 1;
 	}
 	public static int GetLogin(String login) throws ClassNotFoundException, SQLException {
 		int i = 0;

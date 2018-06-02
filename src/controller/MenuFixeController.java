@@ -55,6 +55,7 @@ public class MenuFixeController {
 	    	} catch (IOException e) {
 	    		e.printStackTrace();
 	    	} finally {
+	    		System.out.println("Une erreur interne est survenue");
 	    		/** TODO : ajout un message d'erreur "Une erreur interne est survenue **/
 	    	}
 	        }

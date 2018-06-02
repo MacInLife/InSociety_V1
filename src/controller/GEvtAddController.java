@@ -154,13 +154,13 @@ public class GEvtAddController {
 	        String errorMessage = "";
 
 	        if (NomEvt.getText() == null || NomEvt.getText().length() == 0) {
-	            errorMessage += "Nom  non valide!\n";
+	            errorMessage += "Nom  invalide!\n";
 	        }
 	        if (DateEvtD.getValue() == null || DateEvtD.getPromptText().length() == 0) {
-	            errorMessage += "Date début non valide!\n";
+	            errorMessage += "Date de début invalide!\n";
 	        }
 	        if (DateEvtF.getValue() == null || DateEvtF.getPromptText().length() == 0) {
-	            errorMessage += "Date Fin non valide!\n";
+	            errorMessage += "Date de Fin non valide!\n";
 	        }
 	        if(HSRD.getValue()+ MSRD.getValue() == null || HSRD.getValue().length() + MSRD.getValue().length() ==0) {
 	        	errorMessage += "Heure et/ ou minute de début non valide ! \n";
@@ -169,14 +169,14 @@ public class GEvtAddController {
 	        	errorMessage += "Heure de fin non valide ! \n";
 	        }
 			if (SalleEvt.getValue() == null || SalleEvt.getValue().length() == 0) {
-				errorMessage += "No valid Salle!\n";
+				errorMessage += "Salle non valide!\n";
 			}
 	      
 	        if (TypeEvt.getText() == null || TypeEvt.getText().length() == 0) {
-	            errorMessage += "No valid type!\n";
+	            errorMessage += "Type invalide !\n";
 	        }
 	        if (LieuEvt.getText() == null || LieuEvt.getText().length() == 0) {
-	            errorMessage += "No valid Lieu!\n";
+	            errorMessage += "Lieu invalide !\n";
 	        }
 	        
 
@@ -186,8 +186,8 @@ public class GEvtAddController {
 	            // Show the error message.
 	            Alert alert = new Alert(AlertType.ERROR);
 	            alert.initOwner(dialogStage);
-	            alert.setTitle("Invalid Fields");
-	            alert.setHeaderText("Please correct invalid fields");
+	            alert.setTitle("Champs non valides");
+	            alert.setHeaderText("Veuillez corriger le champ non valide");
 	            alert.setContentText(errorMessage);
 
 	            alert.showAndWait();

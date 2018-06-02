@@ -129,7 +129,7 @@ public class GSalleEditController {
 	
 	       
 	        if (LieuSR.getText() == null || LieuSR.getText().length() == 0) {
-	            errorMessage += "No valid Lieu!\n";
+	            errorMessage += "Lieu non valide!\n";
 	        }
 	        if (errorMessage.length() == 0) {
 	            return true;
@@ -137,8 +137,8 @@ public class GSalleEditController {
 	            // Show the error message.
 	            Alert alert = new Alert(AlertType.ERROR);
 	            alert.initOwner(dialogStage);
-	            alert.setTitle("Invalid Fields");
-	            alert.setHeaderText("Please correct invalid fields");
+	            alert.setTitle("Champs non valides");
+	            alert.setHeaderText("Veuillez corriger le champ non valide");
 	            alert.setContentText(errorMessage);
 
 	            alert.showAndWait();
