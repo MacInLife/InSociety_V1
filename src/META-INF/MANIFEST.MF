@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
 Main-Class: vue.VueFXMain
-
+Class-Path: lib/mysql-connector-java-5.1.34-bin.jar
