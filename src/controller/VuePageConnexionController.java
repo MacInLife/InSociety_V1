@@ -62,12 +62,12 @@ public class VuePageConnexionController {
 				 		scene.setRoot(header);
 		                stage.setScene(scene);
 		                break;
-				 	case 1: 
+				 	/*case 1: 
 				 		Alert alert = new Alert(AlertType.ERROR);
 			            alert.initOwner(dialogStage);
 			            alert.setTitle("Erreur de Connexion");
-			            alert.setHeaderText("Erreur de connexion");
-			            alert.setContentText("erreur mdp login");
+			            alert.setHeaderText("Erreur d'identification");
+			            alert.setContentText("Login ou mot de passe incorrect");
 			            alert.showAndWait();
 				 		
 				 		break;
@@ -76,7 +76,7 @@ public class VuePageConnexionController {
 				 		Alert alert2 = new Alert(AlertType.ERROR);
 				 		alert2.initOwner(dialogStage);
 				 		alert2.setTitle("Erreur de Connexion");
-				 		alert2.setHeaderText("Erreur de connexion");
+				 		alert2.setHeaderText("Erreur de confidentialité");
 				 		alert2.setContentText("Vous n'avez pas les droits d'acces..");
 				 		alert2.showAndWait();
 				 		break; 
@@ -85,10 +85,10 @@ public class VuePageConnexionController {
 				 		Alert alert3 = new Alert(AlertType.ERROR);
 				 		alert3.initOwner(dialogStage);
 				 		alert3.setTitle("Erreur de Connexion");
-				 		alert3.setHeaderText("Erreur de connexion");
+				 		alert3.setHeaderText("Erreur inconnu");
 				 		alert3.setContentText("Une erreur est survenue.");
 			            alert3.showAndWait();
-				 		break;
+				 		break;*/
 				 	}
 		        } catch (IOException e) {
 		            e.printStackTrace();

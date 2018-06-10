@@ -15,34 +15,36 @@ import metier.Role;
 
 public class PersonnelDAO {
 
+//Switch case
 	public static int adminVerif(String login, String mdp) throws SQLException {
 
-		Connection cnx = Connect.getInstance().getConnection();
-		String req = "SELECT nom_role, type_service FROM Personnel, Service, Role "
-				+ "WHERE login=? AND mdp=? AND Personnel.id_role = Role.id_role AND Service.id_service = Personnel.id_service";
-		PreparedStatement pst = cnx.prepareStatement(req);
-		pst.setString(1, login);
-		pst.setString(2, mdp);
-		ResultSet userInformation = pst.executeQuery();
-		while (userInformation.next()) {
+	Connection cnx = Connect.getInstance().getConnection();
+	String req = "SELECT nom_role, type_service FROM Personnel, Service, Role "
+			+ "WHERE login=? AND mdp=? AND Personnel.id_role = Role.id_role AND Service.id_service = Personnel.id_service";
+	PreparedStatement pst = cnx.prepareStatement(req);
+	pst.setString(1, login);
+	pst.setString(2, mdp);
+	ResultSet userInformation = pst.executeQuery();
+	while (userInformation.next()) {
 
-			String f = userInformation.getString("nom_role");
-			String g = userInformation.getString("type_service");
+		String f = userInformation.getString("nom_role");
+		String g = userInformation.getString("type_service");
 
-			if (f.startsWith("Resp") && g.startsWith("Info")) {
-				return 0;
-			}
-			if (f.startsWith("Dire") && g.startsWith("Diri")) {
-				return 0;
-			}
-			if (f.startsWith("Dire") && g.startsWith("Info")) {
-				return 0;
-			}
-			return 2;
+		if (f.startsWith("Resp") && g.startsWith("Info")) {
+			return 0;
 		}
-
-		return 1;
+		if (f.startsWith("Dire") && g.startsWith("Diri")) {
+			return 0;
+		}
+		if (f.startsWith("Dire") && g.startsWith("Info")) {
+			return 0;
+		}
+		return 2;
 	}
+
+	return 1;
+}
+	
 	public static int GetLogin(String login) throws ClassNotFoundException, SQLException {
 		int i = 0;
 		Connection co = Connect.getInstance().getConnection();

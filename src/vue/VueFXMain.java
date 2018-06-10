@@ -8,6 +8,7 @@ package vue;
 import java.io.IOException;
 import java.util.List;
 
+import controller.AddConfirmController;
 import controller.GEvtAddController;
 import controller.GEvtEditController;
 import controller.GSalleAddController;
@@ -273,36 +274,36 @@ public class VueFXMain extends Application {
 			}
 		}
 
-	// Ajout Evenements
-	public static boolean VueGEvtAdd() {
-		try {
-			// Load the fxml file and create a new stage for the popup dialog.
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(VueFXMain.class.getClassLoader().getResource("vueFrame/GEvtAdd.fxml"));
-			Pane page = (Pane) loader.load();
+		// Ajout Evenements
+		public static boolean VueGEvtAdd() {
+			try {
+				// Load the fxml file and create a new stage for the popup dialog.
+				FXMLLoader loader = new FXMLLoader();
+				loader.setLocation(VueFXMain.class.getClassLoader().getResource("vueFrame/GEvtAdd.fxml"));
+				Pane page = (Pane) loader.load();
 
-			// Create the dialog Stage.
-			Stage dialogStage = new Stage();
-			dialogStage.setTitle("Ajout d'un Évènement");
-			dialogStage.initModality(Modality.WINDOW_MODAL);
-			dialogStage.initOwner(getPrimaryStage());
-			Scene scene = new Scene(page);
-			dialogStage.setScene(scene);
+				// Create the dialog Stage.
+				Stage dialogStage = new Stage();
+				dialogStage.setTitle("Ajout d'un Évènement");
+				dialogStage.initModality(Modality.WINDOW_MODAL);
+				dialogStage.initOwner(getPrimaryStage());
+				Scene scene = new Scene(page);
+				dialogStage.setScene(scene);
 
-			// Set the person into the controller.
-			GEvtAddController controller = loader.getController();
-			// controller.setPersonnel(person);
-			controller.setDialogStage(dialogStage);
+				// Set the person into the controller.
+				GEvtAddController controller = loader.getController();
+				// controller.setPersonnel(person);
+				controller.setDialogStage(dialogStage);
 
-			// Show the dialog and wait until the user closes it
-			dialogStage.showAndWait();
+				// Show the dialog and wait until the user closes it
+				dialogStage.showAndWait();
 
-			return controller.isOkClicked();
-		} catch (IOException e) {
-			e.printStackTrace();
-			return false;
+				return controller.isOkClicked();
+			} catch (IOException e) {
+				e.printStackTrace();
+				return false;
+			}
 		}
-	}
 
 	// Modifier un Evenements
 	public static boolean VueGEvtEdit(Evenements events) {

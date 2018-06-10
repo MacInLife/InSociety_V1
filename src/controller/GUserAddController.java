@@ -154,6 +154,12 @@ private GridPane UserAddView;
         }
         if (mdp.getText() == null || mdp.getText().length() == 0) {
             errorMessage += "Mot de passe invalide!\n";
+            /*} else {
+        	Pattern p = Pattern.compile("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})(?=.*[0-9])");
+            Matcher m = p.matcher(Mail.getText());   // get a matcher object
+            if(!m.matches()) {
+            	errorMessage += "Le mot de passe n'est pas correct\n";
+            }*/
         }
         if (Nom.getText() == null || Nom.getText().length() == 0) {
             errorMessage += "Nom invalide !\n";
@@ -166,18 +172,25 @@ private GridPane UserAddView;
             errorMessage += "Date de naissance invalide !\n";
         }
      
-        if (Mail.getText() == null || Mail.getText().length() == 0) {
-            errorMessage += "Mail invalide !\n";
-        } else {
-        	Pattern p = Pattern.compile("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$");
-            Matcher m = p.matcher(Mail.getText());   // get a matcher object
-            if(!m.matches()) {
-            	errorMessage += "Le mail n'est pas correct\n";
-            }
-        }
-        if (Tel.getText() == null || Tel.getText().length() == 0) {
-            errorMessage += "Numéro de Téléphone invalide !\n";
-        }
+       if (Mail.getText() == null || Mail.getText().length() == 0) {
+           errorMessage += "Mail invalide !\n";
+      /* } else {
+       	Pattern p = Pattern.compile("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$");
+       	///^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@([a-z0-9!#$%&'*+/=?^_`{|}~-]+(\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])$/
+           Matcher m = p.matcher(Mail.getText());   // get a matcher object
+           if(!m.matches()) {
+           	errorMessage += "Le mail n'est pas correct\n";
+           }*/
+       }
+       if (Tel.getText() == null || Tel.getText().length() == 0) {
+           errorMessage += "Numéro de Téléphone invalide !\n";
+        /*   } else {
+       	Pattern p = Pattern.compile("[0-9].{10}");
+           Matcher m = p.matcher(Mail.getText());   // get a matcher object
+           if(!m.matches()) {
+           	errorMessage += "Le numéro entrée n'est pas correct\n";
+           }*/
+       }
         if (Adresse.getText() == null || Adresse.getText().length() == 0) {
             errorMessage += "Adresse invalide !\n";
         }
